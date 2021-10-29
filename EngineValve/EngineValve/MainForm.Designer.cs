@@ -29,255 +29,255 @@ namespace EngineValve
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.LengthValveTextBox = new System.Windows.Forms.TextBox();
-			this.DiameterStemTextBox = new System.Windows.Forms.TextBox();
-			this.WidthGrooveTextBox = new System.Windows.Forms.TextBox();
-			this.DepthGrooveTextBox = new System.Windows.Forms.TextBox();
-			this.DistanceGrooveTextBox = new System.Windows.Forms.TextBox();
-			this.DiameterPlateTextBox = new System.Windows.Forms.TextBox();
-			this.ThicknessPlateTextBox = new System.Windows.Forms.TextBox();
-			this.LengthChamferTextBox = new System.Windows.Forms.TextBox();
-			this.RadiusTransitionTextBox = new System.Windows.Forms.TextBox();
+			this.labelLengthValve = new System.Windows.Forms.Label();
+			this.labelLengthValve2 = new System.Windows.Forms.Label();
+			this.labelDiameterStem = new System.Windows.Forms.Label();
+			this.labelDiameterStem2 = new System.Windows.Forms.Label();
+			this.labelWidthGroove = new System.Windows.Forms.Label();
+			this.labelDepthGroove = new System.Windows.Forms.Label();
+			this.labelDistanceGroove = new System.Windows.Forms.Label();
+			this.labelDiameterPlate = new System.Windows.Forms.Label();
+			this.labelThicknessPlate = new System.Windows.Forms.Label();
+			this.labelLengthChamfer = new System.Windows.Forms.Label();
+			this.labelLengthChamfer2 = new System.Windows.Forms.Label();
+			this.labelRadiusTransitio = new System.Windows.Forms.Label();
+			this.textboxLengthValve = new System.Windows.Forms.TextBox();
+			this.textboxDiameterStem = new System.Windows.Forms.TextBox();
+			this.textboxWidthGroove = new System.Windows.Forms.TextBox();
+			this.textboxDepthGroove = new System.Windows.Forms.TextBox();
+			this.textboxDistanceGroove = new System.Windows.Forms.TextBox();
+			this.textboxDiameterPlate = new System.Windows.Forms.TextBox();
+			this.textboxThicknessPlate = new System.Windows.Forms.TextBox();
+			this.textboxLengthChamfer = new System.Windows.Forms.TextBox();
+			this.textboxRadiusTransition = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.label13 = new System.Windows.Forms.Label();
+			this.labelThicknessPlate2 = new System.Windows.Forms.Label();
 			this.BuildButton = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// label1
+			// labelLengthValve
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(3, 6);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(85, 13);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Длина клапана";
+			this.labelLengthValve.AutoSize = true;
+			this.labelLengthValve.Location = new System.Drawing.Point(3, 6);
+			this.labelLengthValve.Name = "labelLengthValve";
+			this.labelLengthValve.Size = new System.Drawing.Size(85, 13);
+			this.labelLengthValve.TabIndex = 0;
+			this.labelLengthValve.Text = "Длина клапана";
 			// 
-			// label2
+			// labelLengthValve2
 			// 
-			this.label2.AutoSize = true;
-			this.label2.ForeColor = System.Drawing.Color.Gray;
-			this.label2.Location = new System.Drawing.Point(3, 19);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(94, 13);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "(от 50 до 150 мм)";
+			this.labelLengthValve2.AutoSize = true;
+			this.labelLengthValve2.ForeColor = System.Drawing.Color.Gray;
+			this.labelLengthValve2.Location = new System.Drawing.Point(3, 19);
+			this.labelLengthValve2.Name = "labelLengthValve2";
+			this.labelLengthValve2.Size = new System.Drawing.Size(94, 13);
+			this.labelLengthValve2.TabIndex = 1;
+			this.labelLengthValve2.Text = "(от 50 до 150 мм)";
 			// 
-			// label3
+			// labelDiameterStem
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(3, 37);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(133, 13);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "Диаметр ножки клапана";
+			this.labelDiameterStem.AutoSize = true;
+			this.labelDiameterStem.Location = new System.Drawing.Point(3, 37);
+			this.labelDiameterStem.Name = "labelDiameterStem";
+			this.labelDiameterStem.Size = new System.Drawing.Size(133, 13);
+			this.labelDiameterStem.TabIndex = 2;
+			this.labelDiameterStem.Text = "Диаметр ножки клапана";
 			// 
-			// label4
+			// labelDiameterStem2
 			// 
-			this.label4.AutoSize = true;
-			this.label4.ForeColor = System.Drawing.Color.Gray;
-			this.label4.Location = new System.Drawing.Point(3, 50);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(82, 13);
-			this.label4.TabIndex = 3;
-			this.label4.Text = "(от 5 до 15 мм)";
+			this.labelDiameterStem2.AutoSize = true;
+			this.labelDiameterStem2.ForeColor = System.Drawing.Color.Gray;
+			this.labelDiameterStem2.Location = new System.Drawing.Point(3, 50);
+			this.labelDiameterStem2.Name = "labelDiameterStem2";
+			this.labelDiameterStem2.Size = new System.Drawing.Size(82, 13);
+			this.labelDiameterStem2.TabIndex = 3;
+			this.labelDiameterStem2.Text = "(от 5 до 15 мм)";
 			// 
-			// label5
+			// labelWidthGroove
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(3, 69);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(131, 13);
-			this.label5.TabIndex = 4;
-			this.label5.Text = "Ширина паза под сухарь";
+			this.labelWidthGroove.AutoSize = true;
+			this.labelWidthGroove.Location = new System.Drawing.Point(3, 69);
+			this.labelWidthGroove.Name = "labelWidthGroove";
+			this.labelWidthGroove.Size = new System.Drawing.Size(131, 13);
+			this.labelWidthGroove.TabIndex = 4;
+			this.labelWidthGroove.Text = "Ширина паза под сухарь";
 			// 
-			// label6
+			// labelDepthGroove
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(3, 104);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(133, 13);
-			this.label6.TabIndex = 5;
-			this.label6.Text = "Глубина паза под сухарь";
+			this.labelDepthGroove.AutoSize = true;
+			this.labelDepthGroove.Location = new System.Drawing.Point(3, 104);
+			this.labelDepthGroove.Name = "labelDepthGroove";
+			this.labelDepthGroove.Size = new System.Drawing.Size(133, 13);
+			this.labelDepthGroove.TabIndex = 5;
+			this.labelDepthGroove.Text = "Глубина паза под сухарь";
 			// 
-			// label7
+			// labelDistanceGroove
 			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(3, 141);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(167, 13);
-			this.label7.TabIndex = 6;
-			this.label7.Text = "Расстояние до паза под сухарь";
+			this.labelDistanceGroove.AutoSize = true;
+			this.labelDistanceGroove.Location = new System.Drawing.Point(3, 141);
+			this.labelDistanceGroove.Name = "labelDistanceGroove";
+			this.labelDistanceGroove.Size = new System.Drawing.Size(167, 13);
+			this.labelDistanceGroove.TabIndex = 6;
+			this.labelDistanceGroove.Text = "Расстояние до паза под сухарь";
 			// 
-			// label8
+			// labelDiameterPlate
 			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(3, 176);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(142, 13);
-			this.label8.TabIndex = 7;
-			this.label8.Text = "Диаметр тарелки клапана";
+			this.labelDiameterPlate.AutoSize = true;
+			this.labelDiameterPlate.Location = new System.Drawing.Point(3, 176);
+			this.labelDiameterPlate.Name = "labelDiameterPlate";
+			this.labelDiameterPlate.Size = new System.Drawing.Size(142, 13);
+			this.labelDiameterPlate.TabIndex = 7;
+			this.labelDiameterPlate.Text = "Диаметр тарелки клапана";
 			// 
-			// label9
+			// labelThicknessPlate
 			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(3, 211);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(142, 13);
-			this.label9.TabIndex = 8;
-			this.label9.Text = "Толщина тарелки клапана";
+			this.labelThicknessPlate.AutoSize = true;
+			this.labelThicknessPlate.Location = new System.Drawing.Point(3, 211);
+			this.labelThicknessPlate.Name = "labelThicknessPlate";
+			this.labelThicknessPlate.Size = new System.Drawing.Size(142, 13);
+			this.labelThicknessPlate.TabIndex = 8;
+			this.labelThicknessPlate.Text = "Толщина тарелки клапана";
 			// 
-			// label10
+			// labelLengthChamfer
 			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(3, 246);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(119, 13);
-			this.label10.TabIndex = 9;
-			this.label10.Text = "Длина рабочей фаски";
+			this.labelLengthChamfer.AutoSize = true;
+			this.labelLengthChamfer.Location = new System.Drawing.Point(3, 246);
+			this.labelLengthChamfer.Name = "labelLengthChamfer";
+			this.labelLengthChamfer.Size = new System.Drawing.Size(119, 13);
+			this.labelLengthChamfer.TabIndex = 9;
+			this.labelLengthChamfer.Text = "Длина рабочей фаски";
 			// 
-			// label11
+			// labelLengthChamfer2
 			// 
-			this.label11.AutoSize = true;
-			this.label11.ForeColor = System.Drawing.Color.Gray;
-			this.label11.Location = new System.Drawing.Point(3, 259);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(82, 13);
-			this.label11.TabIndex = 10;
-			this.label11.Text = "(от 2 до 10 мм)";
+			this.labelLengthChamfer2.AutoSize = true;
+			this.labelLengthChamfer2.ForeColor = System.Drawing.Color.Gray;
+			this.labelLengthChamfer2.Location = new System.Drawing.Point(3, 259);
+			this.labelLengthChamfer2.Name = "labelLengthChamfer2";
+			this.labelLengthChamfer2.Size = new System.Drawing.Size(82, 13);
+			this.labelLengthChamfer2.TabIndex = 10;
+			this.labelLengthChamfer2.Text = "(от 2 до 10 мм)";
 			// 
-			// label12
+			// labelRadiusTransitio
 			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(2, 280);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(143, 13);
-			this.label12.TabIndex = 11;
-			this.label12.Text = "Радиус плавного перехода";
+			this.labelRadiusTransitio.AutoSize = true;
+			this.labelRadiusTransitio.Location = new System.Drawing.Point(2, 280);
+			this.labelRadiusTransitio.Name = "labelRadiusTransitio";
+			this.labelRadiusTransitio.Size = new System.Drawing.Size(143, 13);
+			this.labelRadiusTransitio.TabIndex = 11;
+			this.labelRadiusTransitio.Text = "Радиус плавного перехода";
 			// 
-			// LengthValveTextBox
+			// textboxLengthValve
 			// 
-			this.LengthValveTextBox.Location = new System.Drawing.Point(201, 3);
-			this.LengthValveTextBox.Name = "LengthValveTextBox";
-			this.LengthValveTextBox.Size = new System.Drawing.Size(100, 20);
-			this.LengthValveTextBox.TabIndex = 12;
-			this.LengthValveTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxLengthValve.Location = new System.Drawing.Point(201, 3);
+			this.textboxLengthValve.Name = "textboxLengthValve";
+			this.textboxLengthValve.Size = new System.Drawing.Size(100, 20);
+			this.textboxLengthValve.TabIndex = 12;
+			this.textboxLengthValve.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// DiameterStemTextBox
+			// textboxDiameterStem
 			// 
-			this.DiameterStemTextBox.Location = new System.Drawing.Point(201, 34);
-			this.DiameterStemTextBox.Name = "DiameterStemTextBox";
-			this.DiameterStemTextBox.Size = new System.Drawing.Size(100, 20);
-			this.DiameterStemTextBox.TabIndex = 13;
-			this.DiameterStemTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxDiameterStem.Location = new System.Drawing.Point(201, 34);
+			this.textboxDiameterStem.Name = "textboxDiameterStem";
+			this.textboxDiameterStem.Size = new System.Drawing.Size(100, 20);
+			this.textboxDiameterStem.TabIndex = 13;
+			this.textboxDiameterStem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// WidthGrooveTextBox
+			// textboxWidthGroove
 			// 
-			this.WidthGrooveTextBox.Location = new System.Drawing.Point(201, 66);
-			this.WidthGrooveTextBox.Name = "WidthGrooveTextBox";
-			this.WidthGrooveTextBox.Size = new System.Drawing.Size(100, 20);
-			this.WidthGrooveTextBox.TabIndex = 14;
-			this.WidthGrooveTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxWidthGroove.Location = new System.Drawing.Point(201, 66);
+			this.textboxWidthGroove.Name = "textboxWidthGroove";
+			this.textboxWidthGroove.Size = new System.Drawing.Size(100, 20);
+			this.textboxWidthGroove.TabIndex = 14;
+			this.textboxWidthGroove.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// DepthGrooveTextBox
+			// textboxDepthGroove
 			// 
-			this.DepthGrooveTextBox.Location = new System.Drawing.Point(201, 101);
-			this.DepthGrooveTextBox.Name = "DepthGrooveTextBox";
-			this.DepthGrooveTextBox.Size = new System.Drawing.Size(100, 20);
-			this.DepthGrooveTextBox.TabIndex = 15;
-			this.DepthGrooveTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxDepthGroove.Location = new System.Drawing.Point(201, 101);
+			this.textboxDepthGroove.Name = "textboxDepthGroove";
+			this.textboxDepthGroove.Size = new System.Drawing.Size(100, 20);
+			this.textboxDepthGroove.TabIndex = 15;
+			this.textboxDepthGroove.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// DistanceGrooveTextBox
+			// textboxDistanceGroove
 			// 
-			this.DistanceGrooveTextBox.Location = new System.Drawing.Point(201, 138);
-			this.DistanceGrooveTextBox.Name = "DistanceGrooveTextBox";
-			this.DistanceGrooveTextBox.Size = new System.Drawing.Size(100, 20);
-			this.DistanceGrooveTextBox.TabIndex = 16;
-			this.DistanceGrooveTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxDistanceGroove.Location = new System.Drawing.Point(201, 138);
+			this.textboxDistanceGroove.Name = "textboxDistanceGroove";
+			this.textboxDistanceGroove.Size = new System.Drawing.Size(100, 20);
+			this.textboxDistanceGroove.TabIndex = 16;
+			this.textboxDistanceGroove.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// DiameterPlateTextBox
+			// textboxDiameterPlate
 			// 
-			this.DiameterPlateTextBox.Location = new System.Drawing.Point(201, 173);
-			this.DiameterPlateTextBox.Name = "DiameterPlateTextBox";
-			this.DiameterPlateTextBox.Size = new System.Drawing.Size(100, 20);
-			this.DiameterPlateTextBox.TabIndex = 17;
-			this.DiameterPlateTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxDiameterPlate.Location = new System.Drawing.Point(201, 173);
+			this.textboxDiameterPlate.Name = "textboxDiameterPlate";
+			this.textboxDiameterPlate.Size = new System.Drawing.Size(100, 20);
+			this.textboxDiameterPlate.TabIndex = 17;
+			this.textboxDiameterPlate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// ThicknessPlateTextBox
+			// textboxThicknessPlate
 			// 
-			this.ThicknessPlateTextBox.Location = new System.Drawing.Point(201, 208);
-			this.ThicknessPlateTextBox.Name = "ThicknessPlateTextBox";
-			this.ThicknessPlateTextBox.Size = new System.Drawing.Size(100, 20);
-			this.ThicknessPlateTextBox.TabIndex = 18;
-			this.ThicknessPlateTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxThicknessPlate.Location = new System.Drawing.Point(201, 208);
+			this.textboxThicknessPlate.Name = "textboxThicknessPlate";
+			this.textboxThicknessPlate.Size = new System.Drawing.Size(100, 20);
+			this.textboxThicknessPlate.TabIndex = 18;
+			this.textboxThicknessPlate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// LengthChamferTextBox
+			// textboxLengthChamfer
 			// 
-			this.LengthChamferTextBox.Location = new System.Drawing.Point(201, 243);
-			this.LengthChamferTextBox.Name = "LengthChamferTextBox";
-			this.LengthChamferTextBox.Size = new System.Drawing.Size(100, 20);
-			this.LengthChamferTextBox.TabIndex = 19;
-			this.LengthChamferTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxLengthChamfer.Location = new System.Drawing.Point(201, 243);
+			this.textboxLengthChamfer.Name = "textboxLengthChamfer";
+			this.textboxLengthChamfer.Size = new System.Drawing.Size(100, 20);
+			this.textboxLengthChamfer.TabIndex = 19;
+			this.textboxLengthChamfer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// RadiusTransitionTextBox
+			// textboxRadiusTransition
 			// 
-			this.RadiusTransitionTextBox.Location = new System.Drawing.Point(201, 277);
-			this.RadiusTransitionTextBox.Name = "RadiusTransitionTextBox";
-			this.RadiusTransitionTextBox.Size = new System.Drawing.Size(100, 20);
-			this.RadiusTransitionTextBox.TabIndex = 20;
-			this.RadiusTransitionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			this.textboxRadiusTransition.Location = new System.Drawing.Point(201, 277);
+			this.textboxRadiusTransition.Name = "textboxRadiusTransition";
+			this.textboxRadiusTransition.Size = new System.Drawing.Size(100, 20);
+			this.textboxRadiusTransition.TabIndex = 20;
+			this.textboxRadiusTransition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
 			// panel1
 			// 
-			this.panel1.Controls.Add(this.label13);
+			this.panel1.Controls.Add(this.labelThicknessPlate2);
 			this.panel1.Controls.Add(this.BuildButton);
-			this.panel1.Controls.Add(this.label12);
-			this.panel1.Controls.Add(this.RadiusTransitionTextBox);
-			this.panel1.Controls.Add(this.label11);
-			this.panel1.Controls.Add(this.LengthValveTextBox);
-			this.panel1.Controls.Add(this.label10);
-			this.panel1.Controls.Add(this.LengthChamferTextBox);
-			this.panel1.Controls.Add(this.label9);
-			this.panel1.Controls.Add(this.DiameterStemTextBox);
-			this.panel1.Controls.Add(this.label8);
-			this.panel1.Controls.Add(this.ThicknessPlateTextBox);
-			this.panel1.Controls.Add(this.label7);
-			this.panel1.Controls.Add(this.WidthGrooveTextBox);
-			this.panel1.Controls.Add(this.label6);
-			this.panel1.Controls.Add(this.DiameterPlateTextBox);
-			this.panel1.Controls.Add(this.label5);
-			this.panel1.Controls.Add(this.DepthGrooveTextBox);
-			this.panel1.Controls.Add(this.label4);
-			this.panel1.Controls.Add(this.DistanceGrooveTextBox);
-			this.panel1.Controls.Add(this.label3);
-			this.panel1.Controls.Add(this.label1);
-			this.panel1.Controls.Add(this.label2);
+			this.panel1.Controls.Add(this.labelRadiusTransitio);
+			this.panel1.Controls.Add(this.textboxRadiusTransition);
+			this.panel1.Controls.Add(this.labelLengthChamfer2);
+			this.panel1.Controls.Add(this.textboxLengthValve);
+			this.panel1.Controls.Add(this.labelLengthChamfer);
+			this.panel1.Controls.Add(this.textboxLengthChamfer);
+			this.panel1.Controls.Add(this.labelThicknessPlate);
+			this.panel1.Controls.Add(this.textboxDiameterStem);
+			this.panel1.Controls.Add(this.labelDiameterPlate);
+			this.panel1.Controls.Add(this.textboxThicknessPlate);
+			this.panel1.Controls.Add(this.labelDistanceGroove);
+			this.panel1.Controls.Add(this.textboxWidthGroove);
+			this.panel1.Controls.Add(this.labelDepthGroove);
+			this.panel1.Controls.Add(this.textboxDiameterPlate);
+			this.panel1.Controls.Add(this.labelWidthGroove);
+			this.panel1.Controls.Add(this.textboxDepthGroove);
+			this.panel1.Controls.Add(this.labelDiameterStem2);
+			this.panel1.Controls.Add(this.textboxDistanceGroove);
+			this.panel1.Controls.Add(this.labelDiameterStem);
+			this.panel1.Controls.Add(this.labelLengthValve);
+			this.panel1.Controls.Add(this.labelLengthValve2);
 			this.panel1.Location = new System.Drawing.Point(12, 12);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(305, 345);
 			this.panel1.TabIndex = 21;
 			// 
-			// label13
+			// labelThicknessPlate2
 			// 
-			this.label13.AutoSize = true;
-			this.label13.ForeColor = System.Drawing.Color.Gray;
-			this.label13.Location = new System.Drawing.Point(3, 224);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(82, 13);
-			this.label13.TabIndex = 22;
-			this.label13.Text = "(от 5 до 10 мм)";
+			this.labelThicknessPlate2.AutoSize = true;
+			this.labelThicknessPlate2.ForeColor = System.Drawing.Color.Gray;
+			this.labelThicknessPlate2.Location = new System.Drawing.Point(3, 224);
+			this.labelThicknessPlate2.Name = "labelThicknessPlate2";
+			this.labelThicknessPlate2.Size = new System.Drawing.Size(82, 13);
+			this.labelThicknessPlate2.TabIndex = 22;
+			this.labelThicknessPlate2.Text = "(от 5 до 10 мм)";
 			// 
 			// BuildButton
 			// 
@@ -305,30 +305,30 @@ namespace EngineValve
 
 		#endregion
 
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.TextBox LengthValveTextBox;
-		private System.Windows.Forms.TextBox DiameterStemTextBox;
-		private System.Windows.Forms.TextBox WidthGrooveTextBox;
-		private System.Windows.Forms.TextBox DepthGrooveTextBox;
-		private System.Windows.Forms.TextBox DistanceGrooveTextBox;
-		private System.Windows.Forms.TextBox DiameterPlateTextBox;
-		private System.Windows.Forms.TextBox ThicknessPlateTextBox;
-		private System.Windows.Forms.TextBox LengthChamferTextBox;
-		private System.Windows.Forms.TextBox RadiusTransitionTextBox;
+		private System.Windows.Forms.Label labelLengthValve;
+		private System.Windows.Forms.Label labelLengthValve2;
+		private System.Windows.Forms.Label labelDiameterStem;
+		private System.Windows.Forms.Label labelDiameterStem2;
+		private System.Windows.Forms.Label labelWidthGroove;
+		private System.Windows.Forms.Label labelDepthGroove;
+		private System.Windows.Forms.Label labelDistanceGroove;
+		private System.Windows.Forms.Label labelDiameterPlate;
+		private System.Windows.Forms.Label labelThicknessPlate;
+		private System.Windows.Forms.Label labelLengthChamfer;
+		private System.Windows.Forms.Label labelLengthChamfer2;
+		private System.Windows.Forms.Label labelRadiusTransitio;
+		private System.Windows.Forms.TextBox textboxLengthValve;
+		private System.Windows.Forms.TextBox textboxDiameterStem;
+		private System.Windows.Forms.TextBox textboxWidthGroove;
+		private System.Windows.Forms.TextBox textboxDepthGroove;
+		private System.Windows.Forms.TextBox textboxDistanceGroove;
+		private System.Windows.Forms.TextBox textboxDiameterPlate;
+		private System.Windows.Forms.TextBox textboxThicknessPlate;
+		private System.Windows.Forms.TextBox textboxLengthChamfer;
+		private System.Windows.Forms.TextBox textboxRadiusTransition;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button BuildButton;
-		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label labelThicknessPlate2;
 	}
 }
 

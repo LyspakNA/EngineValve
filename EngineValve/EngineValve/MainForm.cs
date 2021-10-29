@@ -16,15 +16,15 @@ namespace EngineValve
 		{
 			try
 			{
-				double lengthValve = double.Parse(LengthValveTextBox.Text);
-				double diameterStem = double.Parse(DiameterStemTextBox.Text);
-				double widthGroove = double.Parse(WidthGrooveTextBox.Text);
-				double depthGroove = double.Parse(DepthGrooveTextBox.Text);
-				double distanceGroove = double.Parse(DistanceGrooveTextBox.Text);
-				double diameterPlate = double.Parse(DiameterPlateTextBox.Text);
-				double thicknessPlate = double.Parse(ThicknessPlateTextBox.Text);
-				double lengthChamfer = double.Parse(LengthChamferTextBox.Text);
-				double radiusTransition = double.Parse(RadiusTransitionTextBox.Text);
+				double lengthValve = double.Parse(textboxLengthValve.Text);
+				double diameterStem = double.Parse(textboxDiameterStem.Text);
+				double widthGroove = double.Parse(textboxWidthGroove.Text);
+				double depthGroove = double.Parse(textboxDepthGroove.Text);
+				double distanceGroove = double.Parse(textboxDistanceGroove.Text);
+				double diameterPlate = double.Parse(textboxDiameterPlate.Text);
+				double thicknessPlate = double.Parse(textboxThicknessPlate.Text);
+				double lengthChamfer = double.Parse(textboxLengthChamfer.Text);
+				double radiusTransition = double.Parse(textboxRadiusTransition.Text);
 
 				var engineValveParameters = new EngineValveParameters(lengthValve, diameterStem,
 			widthGroove, depthGroove, distanceGroove,
@@ -37,16 +37,6 @@ namespace EngineValve
 					MessageBoxIcon.Error);
 			}
 
-		}
-
-
-		private bool CheckValue (double value, double min, double max)
-		{
-			if (value < min || value > max)
-			{
-				return false;
-			}
-			return true;
 		}
 
 		private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
