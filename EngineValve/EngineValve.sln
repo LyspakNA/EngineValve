@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineValveUI", "EngineValve\EngineValveUI.csproj", "{6F6F07E6-88F5-4E66-9723-9454902BBC6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineValveParameters", "EngineValveParameters\EngineValveParameters.csproj", "{BBF38542-4D91-41BA-AE12-C57465EBECC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineValveParameter", "EngineValveParameters\EngineValveParameter.csproj", "{BBF38542-4D91-41BA-AE12-C57465EBECC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineValveBuild", "EngineValveBuild\EngineValveBuild.csproj", "{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BBF38542-4D91-41BA-AE12-C57465EBECC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBF38542-4D91-41BA-AE12-C57465EBECC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBF38542-4D91-41BA-AE12-C57465EBECC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

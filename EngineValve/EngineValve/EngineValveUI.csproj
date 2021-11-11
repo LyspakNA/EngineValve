@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.Kompas6API5">
+      <HintPath>..\EngineValveBuild\obj\Debug\Interop.Kompas6API5.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -81,10 +85,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EngineValveParameters\EngineValveParameters.csproj">
-      <Project>{bbf38542-4d91-41ba-ae12-c57465ebecc4}</Project>
-      <Name>EngineValveParameters</Name>
+    <ProjectReference Include="..\EngineValveBuild\EngineValveBuild.csproj">
+      <Project>{8bd9f189-6a9f-432c-904a-cb8f6fafb60a}</Project>
+      <Name>EngineValveBuild</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EngineValveParameters\EngineValveParameter.csproj">
+      <Project>{bbf38542-4d91-41ba-ae12-c57465ebecc4}</Project>
+      <Name>EngineValveParameter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\example.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
