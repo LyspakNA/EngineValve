@@ -16,6 +16,7 @@ namespace EngineValve
 		}
 
 		private KompasConnector _kompas = new KompasConnector();
+		private EngineValveParameters _parameters;
 
 		private void BuildButton_Click(object sender, EventArgs e)
 		{
@@ -31,14 +32,14 @@ namespace EngineValve
 				double lengthChamfer = double.Parse(textboxLengthChamfer.Text);
 				double radiusTransition = double.Parse(textboxRadiusTransition.Text);
 
-				var engineValveParameters = new EngineValveParameters(lengthValve, diameterStem,
+				_parameters = new EngineValveParameters(lengthValve, diameterStem,
 			widthGroove, depthGroove, distanceGroove,
 			diameterPlate, thicknessPlate, lengthChamfer,
 			radiusTransition);
 
 				_kompas.Start();
 				var document3D = _kompas.CreateDocument3D();
-				var engineValveBuilder = new EngineValveBuilder(document3D, engineValveParameters);
+				var engineValveBuilder = new EngineValveBuilder(document3D, _parameters);
 				engineValveBuilder.BuildEngineValve();
 			}
 			catch (Exception ex)
