@@ -36,7 +36,7 @@ namespace EngineValveParameter
 			}
 		}
 
-		public List<string> ErrorList { get; } = new List<string>();
+		private List<string> ErrorList { get; } = new List<string>();
 
 		public double LengthValve
 		{
