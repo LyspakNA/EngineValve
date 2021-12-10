@@ -46,8 +46,7 @@ namespace EngineValve.Tests
 			TestName = "Длина фаски больше максимального (10)")]
 		[TestCase(100, 8, 2, 2, 10, 50, 2, 3, 70,
 			TestName = "Радиус перехода больше максимального (3/4 диаметра тарелки)")]
-
-		public void EngineValveParameterTest_ArgumentException(double lengthValve,
+        public void EngineValveParameterTest_ArgumentException(double lengthValve,
 			double diameterStem, double widthGroove, double depthGroove, double distanceGroove,
 			double diameterPlate, double thicknessPlate, double lengthChamfer,
 			double radiusTransition)
@@ -59,8 +58,7 @@ namespace EngineValve.Tests
 
 		[TestCase(100, 8, 2, 2, 10, 50, 2, 3, 20,
 			TestName = "Нормальные параметры")]
-
-		public void EngineValveParameterTest_Correct(double lengthValve,
+        public void EngineValveParameterTest_Correct(double lengthValve,
 			double diameterStem, double widthGroove, double depthGroove, double distanceGroove,
 			double diameterPlate, double thicknessPlate, double lengthChamfer,
 			double radiusTransition)

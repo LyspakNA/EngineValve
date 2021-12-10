@@ -60,6 +60,7 @@ namespace EngineValve
 
 		}
 
+		//TODO: Опустить в параметры.
 		private void SetDefault()
 		{
 			textboxLengthValve.Text = "100";
@@ -101,6 +102,7 @@ namespace EngineValve
 			if (double.TryParse(textbox.Text, NumberStyles.Float,
 				CultureInfo.InvariantCulture, out double value))
 			{
+				//TODO: Убрать названия объектов
 				switch (textbox.Name)
 				{
 					case "textboxLengthValve":
