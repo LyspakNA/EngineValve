@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using System.Windows.Forms;
 using System.Linq;
 using EngineValveParameter;
@@ -22,15 +23,24 @@ namespace EngineValve
 		{
 			try
 			{
-				double lengthValve = double.Parse(textboxLengthValve.Text);
-				double diameterStem = double.Parse(textboxDiameterStem.Text);
-				double widthGroove = double.Parse(textboxWidthGroove.Text);
-				double depthGroove = double.Parse(textboxDepthGroove.Text);
-				double distanceGroove = double.Parse(textboxDistanceGroove.Text);
-				double diameterPlate = double.Parse(textboxDiameterPlate.Text);
-				double thicknessPlate = double.Parse(textboxThicknessPlate.Text);
-				double lengthChamfer = double.Parse(textboxLengthChamfer.Text);
-				double radiusTransition = double.Parse(textboxRadiusTransition.Text);
+				double lengthValve = double.Parse(textboxLengthValve.Text,
+					CultureInfo.InvariantCulture);
+				double diameterStem = double.Parse(textboxDiameterStem.Text,
+					CultureInfo.InvariantCulture);
+				double widthGroove = double.Parse(textboxWidthGroove.Text, 
+					CultureInfo.InvariantCulture);
+				double depthGroove = double.Parse(textboxDepthGroove.Text, 
+					CultureInfo.InvariantCulture);
+				double distanceGroove = double.Parse(textboxDistanceGroove.Text, 
+					CultureInfo.InvariantCulture);
+				double diameterPlate = double.Parse(textboxDiameterPlate.Text, 
+					CultureInfo.InvariantCulture);
+				double thicknessPlate = double.Parse(textboxThicknessPlate.Text, 
+					CultureInfo.InvariantCulture);
+				double lengthChamfer = double.Parse(textboxLengthChamfer.Text,
+					CultureInfo.InvariantCulture);
+				double radiusTransition = double.Parse(textboxRadiusTransition.Text, 
+					CultureInfo.InvariantCulture);
 
 				_parameters = new EngineValveParameters(lengthValve, diameterStem,
 			widthGroove, depthGroove, distanceGroove,
@@ -87,33 +97,83 @@ namespace EngineValve
 		private void TextBox_TextChanged(object sender, EventArgs e)
 		{
 			var textbox = (TextBox) sender;
-			if (double.TryParse(textbox.Text, out double value))
+			CheckText(textbox);
+			if (double.TryParse(textbox.Text, NumberStyles.Float,
+				CultureInfo.InvariantCulture, out double value))
 			{
 				switch (textbox.Name)
 				{
 					case "textboxLengthValve":
 					{
-						labelWidthGroove2.Text = $"(от 1 до {value * 0.1} мм)";
-						labelDistanceGroove2.Text = $"(от 5 до {value * 0.25} мм)";
+						labelValueWidth.Text = $"(от 1 до {value * 0.1} мм)";
+						labelValueDistance.Text = $"(от 5 до {value * 0.25} мм)";
 						break;
 					}
 
 					case "textboxDiameterStem":
 					{
-						labelDepthGroove2.Text = $"(от 0.5 до {value * 0.25} мм)";
-						labelDiameterPlate2.Text = $"(от {value * 2} до 70 мм)";
+						labelValueDepth.Text = $"(от 0.5 до {value * 0.25} мм)";
+						labelValueDiameterPlate.Text = $"(от {value * 2} до 70 мм)";
 						break;
 					}
 
 					case "textboxDiameterPlate":
 					{
-						labelThicknessPlate2.Text = $"(от 1 до {0.75 * value} мм)";
-						labelRadiusTransition2.Text = labelThicknessPlate2.Text;
+						labelValueThickness.Text = $"(от 1 до {0.75 * value} мм)";
+						labelValueTransition.Text = $"(от 5 до {0.75 * value} мм)";
 						break;
 					}
 				}
 			}
 
+		}
+
+		private void CheckText(TextBox textbox)
+		{
+			switch (textbox.Name)
+			{
+				case "textboxLengthValve":
+				{
+					if (textbox.Text == "")
+					{
+						textboxWidthGroove.Enabled = false;
+						textboxDistanceGroove.Enabled = false;
+						break;
+					}
+
+					textboxWidthGroove.Enabled = true;
+					textboxDistanceGroove.Enabled = true;
+					break;
+				}
+
+				case "textboxDiameterStem":
+				{
+					if (textbox.Text == "")
+					{
+						textboxDepthGroove.Enabled = false;
+						textboxDiameterPlate.Enabled = false;
+						break;
+					}
+
+					textboxDepthGroove.Enabled = true;
+					textboxDiameterPlate.Enabled = true;
+					break;
+				}
+
+				case "textboxDiameterPlate":
+				{
+					if (textbox.Text == "")
+					{
+						textboxThicknessPlate.Enabled = false;
+						textboxRadiusTransition.Enabled = false;
+						break;
+					}
+
+					textboxThicknessPlate.Enabled = true;
+					textboxRadiusTransition.Enabled = true;
+					break;
+				}
+			}
 		}
 	}
 }

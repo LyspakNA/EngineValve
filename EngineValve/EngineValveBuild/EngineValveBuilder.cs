@@ -139,7 +139,8 @@ namespace EngineValveBuild
 		{
 			const double length = 1.0;
 			ksEntityCollection faceCollection = _part.EntityCollection(7);
-			faceCollection.SelectByPoint(_parameters.DiameterStem/2, 0, _parameters.LengthValve);
+			faceCollection.SelectByPoint(_parameters.DiameterStem/2, 
+				0, _parameters.LengthValve);
 
 			ksEntity baseFace = faceCollection.First();
 			CreateChamfer(baseFace, length);
@@ -148,10 +149,12 @@ namespace EngineValveBuild
 		private void BuildGroove()
 		{
 			ksEntity planeOffset = _part.NewEntity(14);
-			ksPlaneOffsetDefinition planeOffsetDefinition = planeOffset.GetDefinition();
+			ksPlaneOffsetDefinition planeOffsetDefinition = 
+				planeOffset.GetDefinition();
 
 			planeOffsetDefinition.direction = true;
-			planeOffsetDefinition.offset = _parameters.LengthValve-_parameters.DistanceGroove;
+			planeOffsetDefinition.offset = _parameters.LengthValve -
+			                               _parameters.DistanceGroove;
 
 			ksEntity planeXOY = _part.GetDefaultEntity(1);
 			planeOffsetDefinition.SetPlane(planeXOY);
@@ -165,7 +168,8 @@ namespace EngineValveBuild
 
 			ksDocument2D document2D = sketchDefinition.BeginEdit();
 			CreateCircle(document2D,_parameters.DiameterStem);
-			CreateCircle(document2D,_parameters.DiameterStem -_parameters.DepthGroove);
+			CreateCircle(document2D,_parameters.DiameterStem -
+			                        _parameters.DepthGroove);
 			sketchDefinition.EndEdit();
 
 			CreateCutExtrusion(_parameters.WidthGroove,sketch);
@@ -174,7 +178,8 @@ namespace EngineValveBuild
 		private void CreateCutExtrusion(double length, ksEntity sketch)
 		{
 			ksEntity cutExtrusion = _part.NewEntity(26);
-			ksCutExtrusionDefinition cutExtrusionDefinition = cutExtrusion.GetDefinition();
+			ksCutExtrusionDefinition cutExtrusionDefinition = 
+				cutExtrusion.GetDefinition();
 
 			
 			cutExtrusionDefinition.SetSideParam(false, 0, length);

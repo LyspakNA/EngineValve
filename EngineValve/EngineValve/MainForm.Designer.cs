@@ -30,16 +30,16 @@ namespace EngineValve
 		private void InitializeComponent()
 		{
 			this.labelLengthValve = new System.Windows.Forms.Label();
-			this.labelLengthValve2 = new System.Windows.Forms.Label();
+			this.labelValueLength = new System.Windows.Forms.Label();
 			this.labelDiameterStem = new System.Windows.Forms.Label();
-			this.labelDiameterStem2 = new System.Windows.Forms.Label();
+			this.labelValueDiameterStem = new System.Windows.Forms.Label();
 			this.labelWidthGroove = new System.Windows.Forms.Label();
 			this.labelDepthGroove = new System.Windows.Forms.Label();
 			this.labelDistanceGroove = new System.Windows.Forms.Label();
 			this.labelDiameterPlate = new System.Windows.Forms.Label();
 			this.labelThicknessPlate = new System.Windows.Forms.Label();
 			this.labelLengthChamfer = new System.Windows.Forms.Label();
-			this.labelLengthChamfer2 = new System.Windows.Forms.Label();
+			this.labelValueChamfer = new System.Windows.Forms.Label();
 			this.labelRadiusTransition = new System.Windows.Forms.Label();
 			this.textboxLengthValve = new System.Windows.Forms.TextBox();
 			this.textboxDiameterStem = new System.Windows.Forms.TextBox();
@@ -51,14 +51,14 @@ namespace EngineValve
 			this.textboxLengthChamfer = new System.Windows.Forms.TextBox();
 			this.textboxRadiusTransition = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.labelRadiusTransition2 = new System.Windows.Forms.Label();
-			this.labelDiameterPlate2 = new System.Windows.Forms.Label();
-			this.labelDistanceGroove2 = new System.Windows.Forms.Label();
-			this.labelDepthGroove2 = new System.Windows.Forms.Label();
-			this.labelWidthGroove2 = new System.Windows.Forms.Label();
-			this.labelThicknessPlate2 = new System.Windows.Forms.Label();
-			this.BuildButton = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.labelValueTransition = new System.Windows.Forms.Label();
+			this.labelValueDiameterPlate = new System.Windows.Forms.Label();
+			this.labelValueDistance = new System.Windows.Forms.Label();
+			this.labelValueDepth = new System.Windows.Forms.Label();
+			this.labelValueWidth = new System.Windows.Forms.Label();
+			this.labelValueThickness = new System.Windows.Forms.Label();
+			this.BuildButton = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -72,15 +72,15 @@ namespace EngineValve
 			this.labelLengthValve.TabIndex = 0;
 			this.labelLengthValve.Text = "Длина клапана (A)";
 			// 
-			// labelLengthValve2
+			// labelValueLength
 			// 
-			this.labelLengthValve2.AutoSize = true;
-			this.labelLengthValve2.ForeColor = System.Drawing.Color.Gray;
-			this.labelLengthValve2.Location = new System.Drawing.Point(3, 19);
-			this.labelLengthValve2.Name = "labelLengthValve2";
-			this.labelLengthValve2.Size = new System.Drawing.Size(94, 13);
-			this.labelLengthValve2.TabIndex = 1;
-			this.labelLengthValve2.Text = "(от 50 до 150 мм)";
+			this.labelValueLength.AutoSize = true;
+			this.labelValueLength.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueLength.Location = new System.Drawing.Point(3, 19);
+			this.labelValueLength.Name = "labelValueLength";
+			this.labelValueLength.Size = new System.Drawing.Size(94, 13);
+			this.labelValueLength.TabIndex = 1;
+			this.labelValueLength.Text = "(от 50 до 150 мм)";
 			// 
 			// labelDiameterStem
 			// 
@@ -91,15 +91,15 @@ namespace EngineValve
 			this.labelDiameterStem.TabIndex = 2;
 			this.labelDiameterStem.Text = "Диаметр ножки клапана (B)";
 			// 
-			// labelDiameterStem2
+			// labelValueDiameterStem
 			// 
-			this.labelDiameterStem2.AutoSize = true;
-			this.labelDiameterStem2.ForeColor = System.Drawing.Color.Gray;
-			this.labelDiameterStem2.Location = new System.Drawing.Point(3, 50);
-			this.labelDiameterStem2.Name = "labelDiameterStem2";
-			this.labelDiameterStem2.Size = new System.Drawing.Size(82, 13);
-			this.labelDiameterStem2.TabIndex = 3;
-			this.labelDiameterStem2.Text = "(от 5 до 15 мм)";
+			this.labelValueDiameterStem.AutoSize = true;
+			this.labelValueDiameterStem.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueDiameterStem.Location = new System.Drawing.Point(3, 50);
+			this.labelValueDiameterStem.Name = "labelValueDiameterStem";
+			this.labelValueDiameterStem.Size = new System.Drawing.Size(82, 13);
+			this.labelValueDiameterStem.TabIndex = 3;
+			this.labelValueDiameterStem.Text = "(от 5 до 15 мм)";
 			// 
 			// labelWidthGroove
 			// 
@@ -155,15 +155,15 @@ namespace EngineValve
 			this.labelLengthChamfer.TabIndex = 9;
 			this.labelLengthChamfer.Text = "Длина рабочей фаски (I)";
 			// 
-			// labelLengthChamfer2
+			// labelValueChamfer
 			// 
-			this.labelLengthChamfer2.AutoSize = true;
-			this.labelLengthChamfer2.ForeColor = System.Drawing.Color.Gray;
-			this.labelLengthChamfer2.Location = new System.Drawing.Point(3, 259);
-			this.labelLengthChamfer2.Name = "labelLengthChamfer2";
-			this.labelLengthChamfer2.Size = new System.Drawing.Size(82, 13);
-			this.labelLengthChamfer2.TabIndex = 10;
-			this.labelLengthChamfer2.Text = "(от 2 до 10 мм)";
+			this.labelValueChamfer.AutoSize = true;
+			this.labelValueChamfer.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueChamfer.Location = new System.Drawing.Point(3, 259);
+			this.labelValueChamfer.Name = "labelValueChamfer";
+			this.labelValueChamfer.Size = new System.Drawing.Size(82, 13);
+			this.labelValueChamfer.TabIndex = 10;
+			this.labelValueChamfer.Text = "(от 2 до 10 мм)";
 			// 
 			// labelRadiusTransition
 			// 
@@ -252,16 +252,16 @@ namespace EngineValve
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.pictureBox1);
-			this.panel1.Controls.Add(this.labelRadiusTransition2);
-			this.panel1.Controls.Add(this.labelDiameterPlate2);
-			this.panel1.Controls.Add(this.labelDistanceGroove2);
-			this.panel1.Controls.Add(this.labelDepthGroove2);
-			this.panel1.Controls.Add(this.labelWidthGroove2);
-			this.panel1.Controls.Add(this.labelThicknessPlate2);
+			this.panel1.Controls.Add(this.labelValueTransition);
+			this.panel1.Controls.Add(this.labelValueDiameterPlate);
+			this.panel1.Controls.Add(this.labelValueDistance);
+			this.panel1.Controls.Add(this.labelValueDepth);
+			this.panel1.Controls.Add(this.labelValueWidth);
+			this.panel1.Controls.Add(this.labelValueThickness);
 			this.panel1.Controls.Add(this.BuildButton);
 			this.panel1.Controls.Add(this.labelRadiusTransition);
 			this.panel1.Controls.Add(this.textboxRadiusTransition);
-			this.panel1.Controls.Add(this.labelLengthChamfer2);
+			this.panel1.Controls.Add(this.labelValueChamfer);
 			this.panel1.Controls.Add(this.textboxLengthValve);
 			this.panel1.Controls.Add(this.labelLengthChamfer);
 			this.panel1.Controls.Add(this.textboxLengthChamfer);
@@ -275,85 +275,15 @@ namespace EngineValve
 			this.panel1.Controls.Add(this.textboxDiameterPlate);
 			this.panel1.Controls.Add(this.labelWidthGroove);
 			this.panel1.Controls.Add(this.textboxDepthGroove);
-			this.panel1.Controls.Add(this.labelDiameterStem2);
+			this.panel1.Controls.Add(this.labelValueDiameterStem);
 			this.panel1.Controls.Add(this.textboxDistanceGroove);
 			this.panel1.Controls.Add(this.labelDiameterStem);
 			this.panel1.Controls.Add(this.labelLengthValve);
-			this.panel1.Controls.Add(this.labelLengthValve2);
+			this.panel1.Controls.Add(this.labelValueLength);
 			this.panel1.Location = new System.Drawing.Point(12, 12);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(483, 350);
 			this.panel1.TabIndex = 21;
-			// 
-			// labelRadiusTransition2
-			// 
-			this.labelRadiusTransition2.AutoSize = true;
-			this.labelRadiusTransition2.ForeColor = System.Drawing.Color.Gray;
-			this.labelRadiusTransition2.Location = new System.Drawing.Point(3, 293);
-			this.labelRadiusTransition2.Name = "labelRadiusTransition2";
-			this.labelRadiusTransition2.Size = new System.Drawing.Size(58, 13);
-			this.labelRadiusTransition2.TabIndex = 27;
-			this.labelRadiusTransition2.Text = "(от до мм)";
-			// 
-			// labelDiameterPlate2
-			// 
-			this.labelDiameterPlate2.AutoSize = true;
-			this.labelDiameterPlate2.ForeColor = System.Drawing.Color.Gray;
-			this.labelDiameterPlate2.Location = new System.Drawing.Point(3, 189);
-			this.labelDiameterPlate2.Name = "labelDiameterPlate2";
-			this.labelDiameterPlate2.Size = new System.Drawing.Size(58, 13);
-			this.labelDiameterPlate2.TabIndex = 26;
-			this.labelDiameterPlate2.Text = "(от до мм)";
-			// 
-			// labelDistanceGroove2
-			// 
-			this.labelDistanceGroove2.AutoSize = true;
-			this.labelDistanceGroove2.ForeColor = System.Drawing.Color.Gray;
-			this.labelDistanceGroove2.Location = new System.Drawing.Point(3, 154);
-			this.labelDistanceGroove2.Name = "labelDistanceGroove2";
-			this.labelDistanceGroove2.Size = new System.Drawing.Size(58, 13);
-			this.labelDistanceGroove2.TabIndex = 25;
-			this.labelDistanceGroove2.Text = "(от до мм)";
-			// 
-			// labelDepthGroove2
-			// 
-			this.labelDepthGroove2.AutoSize = true;
-			this.labelDepthGroove2.ForeColor = System.Drawing.Color.Gray;
-			this.labelDepthGroove2.Location = new System.Drawing.Point(3, 117);
-			this.labelDepthGroove2.Name = "labelDepthGroove2";
-			this.labelDepthGroove2.Size = new System.Drawing.Size(58, 13);
-			this.labelDepthGroove2.TabIndex = 24;
-			this.labelDepthGroove2.Text = "(от до мм)";
-			// 
-			// labelWidthGroove2
-			// 
-			this.labelWidthGroove2.AutoSize = true;
-			this.labelWidthGroove2.ForeColor = System.Drawing.Color.Gray;
-			this.labelWidthGroove2.Location = new System.Drawing.Point(3, 82);
-			this.labelWidthGroove2.Name = "labelWidthGroove2";
-			this.labelWidthGroove2.Size = new System.Drawing.Size(58, 13);
-			this.labelWidthGroove2.TabIndex = 23;
-			this.labelWidthGroove2.Text = "(от до мм)";
-			// 
-			// labelThicknessPlate2
-			// 
-			this.labelThicknessPlate2.AutoSize = true;
-			this.labelThicknessPlate2.ForeColor = System.Drawing.Color.Gray;
-			this.labelThicknessPlate2.Location = new System.Drawing.Point(3, 224);
-			this.labelThicknessPlate2.Name = "labelThicknessPlate2";
-			this.labelThicknessPlate2.Size = new System.Drawing.Size(82, 13);
-			this.labelThicknessPlate2.TabIndex = 22;
-			this.labelThicknessPlate2.Text = "(от 1 до 10 мм)";
-			// 
-			// BuildButton
-			// 
-			this.BuildButton.Location = new System.Drawing.Point(50, 315);
-			this.BuildButton.Name = "BuildButton";
-			this.BuildButton.Size = new System.Drawing.Size(150, 30);
-			this.BuildButton.TabIndex = 21;
-			this.BuildButton.Text = "Построить";
-			this.BuildButton.UseVisualStyleBackColor = true;
-			this.BuildButton.Click += new System.EventHandler(this.BuildButton_Click);
 			// 
 			// pictureBox1
 			// 
@@ -364,6 +294,76 @@ namespace EngineValve
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 28;
 			this.pictureBox1.TabStop = false;
+			// 
+			// labelValueTransition
+			// 
+			this.labelValueTransition.AutoSize = true;
+			this.labelValueTransition.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueTransition.Location = new System.Drawing.Point(3, 293);
+			this.labelValueTransition.Name = "labelValueTransition";
+			this.labelValueTransition.Size = new System.Drawing.Size(58, 13);
+			this.labelValueTransition.TabIndex = 27;
+			this.labelValueTransition.Text = "(от до мм)";
+			// 
+			// labelValueDiameterPlate
+			// 
+			this.labelValueDiameterPlate.AutoSize = true;
+			this.labelValueDiameterPlate.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueDiameterPlate.Location = new System.Drawing.Point(3, 189);
+			this.labelValueDiameterPlate.Name = "labelValueDiameterPlate";
+			this.labelValueDiameterPlate.Size = new System.Drawing.Size(58, 13);
+			this.labelValueDiameterPlate.TabIndex = 26;
+			this.labelValueDiameterPlate.Text = "(от до мм)";
+			// 
+			// labelValueDistance
+			// 
+			this.labelValueDistance.AutoSize = true;
+			this.labelValueDistance.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueDistance.Location = new System.Drawing.Point(3, 154);
+			this.labelValueDistance.Name = "labelValueDistance";
+			this.labelValueDistance.Size = new System.Drawing.Size(58, 13);
+			this.labelValueDistance.TabIndex = 25;
+			this.labelValueDistance.Text = "(от до мм)";
+			// 
+			// labelValueDepth
+			// 
+			this.labelValueDepth.AutoSize = true;
+			this.labelValueDepth.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueDepth.Location = new System.Drawing.Point(3, 117);
+			this.labelValueDepth.Name = "labelValueDepth";
+			this.labelValueDepth.Size = new System.Drawing.Size(58, 13);
+			this.labelValueDepth.TabIndex = 24;
+			this.labelValueDepth.Text = "(от до мм)";
+			// 
+			// labelValueWidth
+			// 
+			this.labelValueWidth.AutoSize = true;
+			this.labelValueWidth.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueWidth.Location = new System.Drawing.Point(3, 82);
+			this.labelValueWidth.Name = "labelValueWidth";
+			this.labelValueWidth.Size = new System.Drawing.Size(58, 13);
+			this.labelValueWidth.TabIndex = 23;
+			this.labelValueWidth.Text = "(от до мм)";
+			// 
+			// labelValueThickness
+			// 
+			this.labelValueThickness.AutoSize = true;
+			this.labelValueThickness.ForeColor = System.Drawing.Color.Gray;
+			this.labelValueThickness.Location = new System.Drawing.Point(3, 224);
+			this.labelValueThickness.Name = "labelValueThickness";
+			this.labelValueThickness.Size = new System.Drawing.Size(82, 13);
+			this.labelValueThickness.TabIndex = 22;
+			this.labelValueThickness.Text = "(от 1 до 10 мм)";
+			// 
+			// BuildButton
+			// 
+			this.BuildButton.Location = new System.Drawing.Point(50, 315);
+			this.BuildButton.Name = "BuildButton";
+			this.BuildButton.Size = new System.Drawing.Size(150, 30);
+			this.BuildButton.TabIndex = 21;
+			this.BuildButton.Text = "Построить";
+			this.BuildButton.UseVisualStyleBackColor = true;
+			this.BuildButton.Click += new System.EventHandler(this.BuildButton_Click);
 			// 
 			// MainForm
 			// 
@@ -383,16 +383,16 @@ namespace EngineValve
 		#endregion
 
 		private System.Windows.Forms.Label labelLengthValve;
-		private System.Windows.Forms.Label labelLengthValve2;
+		private System.Windows.Forms.Label labelValueLength;
 		private System.Windows.Forms.Label labelDiameterStem;
-		private System.Windows.Forms.Label labelDiameterStem2;
+		private System.Windows.Forms.Label labelValueDiameterStem;
 		private System.Windows.Forms.Label labelWidthGroove;
 		private System.Windows.Forms.Label labelDepthGroove;
 		private System.Windows.Forms.Label labelDistanceGroove;
 		private System.Windows.Forms.Label labelDiameterPlate;
 		private System.Windows.Forms.Label labelThicknessPlate;
 		private System.Windows.Forms.Label labelLengthChamfer;
-		private System.Windows.Forms.Label labelLengthChamfer2;
+		private System.Windows.Forms.Label labelValueChamfer;
 		private System.Windows.Forms.Label labelRadiusTransition;
 		private System.Windows.Forms.TextBox textboxLengthValve;
 		private System.Windows.Forms.TextBox textboxDiameterStem;
@@ -405,12 +405,12 @@ namespace EngineValve
 		private System.Windows.Forms.TextBox textboxRadiusTransition;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button BuildButton;
-		private System.Windows.Forms.Label labelThicknessPlate2;
-		private System.Windows.Forms.Label labelRadiusTransition2;
-		private System.Windows.Forms.Label labelDiameterPlate2;
-		private System.Windows.Forms.Label labelDistanceGroove2;
-		private System.Windows.Forms.Label labelDepthGroove2;
-		private System.Windows.Forms.Label labelWidthGroove2;
+		private System.Windows.Forms.Label labelValueThickness;
+		private System.Windows.Forms.Label labelValueTransition;
+		private System.Windows.Forms.Label labelValueDiameterPlate;
+		private System.Windows.Forms.Label labelValueDistance;
+		private System.Windows.Forms.Label labelValueDepth;
+		private System.Windows.Forms.Label labelValueWidth;
 		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }

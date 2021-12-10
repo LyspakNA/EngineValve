@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineValveParameter", "Eng
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineValveBuild", "EngineValveBuild\EngineValveBuild.csproj", "{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineValve.Tests", "EngineValve.Tests\EngineValve.Tests.csproj", "{D43C505B-450A-402D-A6CC-5142BC7A276C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BD9F189-6A9F-432C-904A-CB8F6FAFB60A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D43C505B-450A-402D-A6CC-5142BC7A276C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D43C505B-450A-402D-A6CC-5142BC7A276C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D43C505B-450A-402D-A6CC-5142BC7A276C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D43C505B-450A-402D-A6CC-5142BC7A276C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
