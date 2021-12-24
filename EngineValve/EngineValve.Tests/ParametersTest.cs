@@ -1,6 +1,6 @@
 using System;
+using EngineValveParameters;
 using NUnit.Framework;
-using EngineValveParameter;
 using NUnit.Framework.Internal;
 
 namespace EngineValve.Tests
@@ -50,10 +50,20 @@ namespace EngineValve.Tests
 			double diameterStem, double widthGroove, double depthGroove, double distanceGroove,
 			double diameterPlate, double thicknessPlate, double lengthChamfer,
 			double radiusTransition)
-		{
-			Assert.Throws<ArgumentException>(()=>new EngineValveParameters(lengthValve,
-				diameterStem, widthGroove,  depthGroove,  distanceGroove,
-				 diameterPlate,  thicknessPlate,  lengthChamfer, radiusTransition));
+        {
+	        EngineValveParameter testParameter = new EngineValveParameter();
+			Assert.Throws<Exception>(()=>
+			{
+				testParameter.LengthValve = lengthValve;
+				testParameter.DiameterStem = diameterStem;
+				testParameter.WidthGroove = widthGroove;
+				testParameter.DepthGroove = depthGroove;
+				testParameter.DistanceGroove = distanceGroove;
+				testParameter.DiameterPlate = diameterPlate;
+				testParameter.ThicknessPlate = thicknessPlate;
+				testParameter.LengthChamfer = lengthChamfer;
+				testParameter.RadiusTransition = radiusTransition;
+			});
 		}
 
 		[TestCase(100, 8, 2, 2, 10, 50, 2, 3, 20,
@@ -63,19 +73,27 @@ namespace EngineValve.Tests
 			double diameterPlate, double thicknessPlate, double lengthChamfer,
 			double radiusTransition)
 		{
-			var testParameters = new EngineValveParameters(lengthValve,
-				diameterStem, widthGroove, depthGroove, distanceGroove,
-				diameterPlate, thicknessPlate, lengthChamfer, radiusTransition);
+			var testParameter = new EngineValveParameter();
 
-			Assert.AreEqual(lengthValve, testParameters.LengthValve);
-			Assert.AreEqual(diameterStem, testParameters.DiameterStem);
-			Assert.AreEqual(widthGroove, testParameters.WidthGroove);
-			Assert.AreEqual(depthGroove, testParameters.DepthGroove);
-			Assert.AreEqual(distanceGroove, testParameters.DistanceGroove);
-			Assert.AreEqual(diameterPlate, testParameters.DiameterPlate);
-			Assert.AreEqual(thicknessPlate, testParameters.ThicknessPlate);
-			Assert.AreEqual(lengthChamfer, testParameters.LengthChamfer);
-			Assert.AreEqual(radiusTransition, testParameters.RadiusTransition);
+			testParameter.LengthValve = lengthValve;
+			testParameter.DiameterStem = diameterStem;
+			testParameter.WidthGroove = widthGroove;
+			testParameter.DepthGroove = depthGroove;
+			testParameter.DistanceGroove = distanceGroove;
+			testParameter.DiameterPlate = diameterPlate;
+			testParameter.ThicknessPlate = thicknessPlate;
+			testParameter.LengthChamfer = lengthChamfer;
+			testParameter.RadiusTransition = radiusTransition;
+
+			Assert.AreEqual(lengthValve, testParameter.LengthValve);
+			Assert.AreEqual(diameterStem, testParameter.DiameterStem);
+			Assert.AreEqual(widthGroove, testParameter.WidthGroove);
+			Assert.AreEqual(depthGroove, testParameter.DepthGroove);
+			Assert.AreEqual(distanceGroove, testParameter.DistanceGroove);
+			Assert.AreEqual(diameterPlate, testParameter.DiameterPlate);
+			Assert.AreEqual(thicknessPlate, testParameter.ThicknessPlate);
+			Assert.AreEqual(lengthChamfer, testParameter.LengthChamfer);
+			Assert.AreEqual(radiusTransition, testParameter.RadiusTransition);
 		}
 
 	}

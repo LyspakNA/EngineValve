@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EngineValveParameter;
+using EngineValveParameters;
 using Kompas6API5;
 
 namespace EngineValveBuild
@@ -16,7 +16,7 @@ namespace EngineValveBuild
 		/// <summary>
 		/// Экземпляр класса параметров
 		/// </summary>
-		private EngineValveParameters _parameters;
+		private EngineValveParameter _parameters;
 		/// <summary>
 		/// Экземпляр компонента
 		/// </summary>
@@ -27,7 +27,7 @@ namespace EngineValveBuild
 		/// </summary>
 		/// <param name="document3D">Интерфейс документа модели</param>
 		/// <param name="parameters">Экземпляр параметров</param>
-		public EngineValveBuilder(ksDocument3D document3D, EngineValveParameters parameters)
+		public EngineValveBuilder(ksDocument3D document3D, EngineValveParameter parameters)
 		{
 			_part = document3D.GetPart(-1);
 			_parameters = parameters;

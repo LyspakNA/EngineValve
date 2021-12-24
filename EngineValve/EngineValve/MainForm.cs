@@ -1,49 +1,60 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
-using EngineValveParameter;
 using EngineValveBuild;
+using EngineValveParameters;
 
 namespace EngineValve
 {
+	/// <summary>
+	/// Класс хранящий и обрабатывающий пользовательский интерфейс плагина
+	/// </summary>
 	public partial class MainForm : Form
 	{
+		/// <summary>
+		/// Коструктор главной формы с необходимыми инициализациями
+		/// </summary>
 		public MainForm()
 		{
 			InitializeComponent();
 			SetDefault();
 		}
-
+		/// <summary>
+		/// Экземпляр класса построителя
+		/// </summary>
 		private KompasConnector _kompas = new KompasConnector();
-		private EngineValveParameters _parameters = new EngineValveParameters();
-
+		/// <summary>
+		/// Объект класса с параметрами
+		/// </summary>
+		private EngineValveParameter _parameters = new EngineValveParameter();
+		/// <summary>
+		/// Обработчик нажатия кнопки "Построить"
+		/// </summary>
 		private void BuildButton_Click(object sender, EventArgs e)
 		{
+			List<Exception> list = new List<Exception>();
 			try
 			{
-				double lengthValve = double.Parse(textboxLengthValve.Text,
+				_parameters.LengthValve = double.Parse(textboxLengthValve.Text,
 					CultureInfo.InvariantCulture);
-				double diameterStem = double.Parse(textboxDiameterStem.Text,
+				_parameters.DiameterStem = double.Parse(textboxDiameterStem.Text,
 					CultureInfo.InvariantCulture);
-				double widthGroove = double.Parse(textboxWidthGroove.Text, 
+				_parameters.WidthGroove = double.Parse(textboxWidthGroove.Text,
 					CultureInfo.InvariantCulture);
-				double depthGroove = double.Parse(textboxDepthGroove.Text, 
+				_parameters.DepthGroove = double.Parse(textboxDepthGroove.Text,
 					CultureInfo.InvariantCulture);
-				double distanceGroove = double.Parse(textboxDistanceGroove.Text, 
+				_parameters.DistanceGroove = double.Parse(textboxDistanceGroove.Text,
 					CultureInfo.InvariantCulture);
-				double diameterPlate = double.Parse(textboxDiameterPlate.Text, 
+				_parameters.DiameterPlate = double.Parse(textboxDiameterPlate.Text,
 					CultureInfo.InvariantCulture);
-				double thicknessPlate = double.Parse(textboxThicknessPlate.Text, 
+				_parameters.ThicknessPlate = double.Parse(textboxThicknessPlate.Text,
 					CultureInfo.InvariantCulture);
-				double lengthChamfer = double.Parse(textboxLengthChamfer.Text,
+				_parameters.LengthChamfer = double.Parse(textboxLengthChamfer.Text,
 					CultureInfo.InvariantCulture);
-				double radiusTransition = double.Parse(textboxRadiusTransition.Text, 
+				_parameters.RadiusTransition = double.Parse(textboxRadiusTransition.Text,
 					CultureInfo.InvariantCulture);
-
-				_parameters = new EngineValveParameters(lengthValve, diameterStem,
-			widthGroove, depthGroove, distanceGroove,
-			diameterPlate, thicknessPlate, lengthChamfer,
-			radiusTransition);
 
 				_kompas.Start();
 				var document3D = _kompas.CreateDocument3D();
@@ -52,13 +63,16 @@ namespace EngineValve
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, 
+				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
 					MessageBoxIcon.Error);
 			}
 
 		}
 
 		//TODO: Опустить в параметры.
+		/// <summary>
+		/// Устанавливает стандартные значения
+		/// </summary>
 		private void SetDefault()
 		{
 			textboxLengthValve.Text = 
@@ -80,7 +94,10 @@ namespace EngineValve
 			textboxRadiusTransition.Text = 
 				_parameters.RadiusTransition.ToString(CultureInfo.InvariantCulture);
 		}
-
+		/// <summary>
+		/// Обработчик ввода 
+		/// </summary>
+		
 		private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if ((e.KeyChar == '.') || (e.KeyChar == ','))
@@ -102,7 +119,9 @@ namespace EngineValve
 				}
 			}
 		}
-
+		/// <summary>
+		/// Обработчик, устанавливающий значения диапазонов
+		/// </summary>
 		private void TextBox_TextChanged(object sender, EventArgs e)
 		{
 			var textbox = (TextBox) sender;
@@ -136,7 +155,9 @@ namespace EngineValve
 			}
 
 		}
-
+		/// <summary>
+		/// Обработчик, блокирующий зависимые поля
+		/// </summary>
 		private void CheckText(TextBox textbox)
 		{
 			switch (textbox.Tag)
