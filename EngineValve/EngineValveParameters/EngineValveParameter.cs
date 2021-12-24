@@ -4,18 +4,60 @@ using System.Linq;
 
 namespace EngineValveParameter
 {
+	/// <summary>
+	/// Параметры клапана.
+	/// </summary>
 	public class EngineValveParameters
 	{
+		/// <summary>
+		/// Длина клапана
+		/// </summary>
 		private double _lengthValve;
+		/// <summary>
+		/// Диаметр ножки
+		/// </summary>
 		private double _diameterStem;
+		/// <summary>
+		/// Ширина проточки под сухарь
+		/// </summary>
 		private double _widthGroove;
+		/// <summary>
+		/// Глубина проточки под сухарь
+		/// </summary>
 		private double _depthGroove;
+		/// <summary>
+		/// Расстояние до проточки
+		/// </summary>
 		private double _distanceGroove;
+		/// <summary>
+		/// Диаметр тарелки клапана
+		/// </summary>
 		private double _diameterPlate;
+		/// <summary>
+		/// Толщина тарелки клапана
+		/// </summary>
 		private double _thicknessPlate;
+		/// <summary>
+		/// Длина рабочей фаски
+		/// </summary>
 		private double _lengthChamfer;
+		/// <summary>
+		/// радиус плавного перехода
+		/// </summary>
 		private double _radiusTransition;
 
+		/// <summary>
+		/// Конструктор для пользовательских значений
+		/// </summary>
+		/// <param name="lengthValve">Длина клапана</param>
+		/// <param name="diameterStem">Диаметр ножки</param>
+		/// <param name="widthGroove">Ширина проточки</param>
+		/// <param name="depthGroove">Глубина проточки</param>
+		/// <param name="distanceGroove">Расстояние до проточки</param>
+		/// <param name="diameterPlate">Диаметр тарелки</param>
+		/// <param name="thicknessPlate">Толщина тарелки</param>
+		/// <param name="lengthChamfer">Длина рабочей фаски</param>
+		/// <param name="radiusTransition">Радиус плавного перехода</param>
 		public EngineValveParameters(double lengthValve, double diameterStem,
 			double widthGroove, double depthGroove, double distanceGroove,
 			double diameterPlate, double thicknessPlate, double lengthChamfer,
@@ -35,9 +77,28 @@ namespace EngineValveParameter
 				throw new ArgumentException(GetErrorMessage(ErrorList));
 			}
 		}
-
+		/// <summary>
+		/// Конструктор для стандартных параметров.
+		/// </summary>
+		public EngineValveParameters()
+		{
+			LengthValve = 100;
+			DiameterStem = 8;
+			WidthGroove = 2;
+			DepthGroove = 2;
+			DistanceGroove = 10;
+			DiameterPlate = 50;
+			ThicknessPlate = 2;
+			LengthChamfer = 3;
+			RadiusTransition = 20;
+		}
+		/// <summary>
+		/// Лист ошибок
+		/// </summary>
 		private List<string> ErrorList { get; } = new List<string>();
-
+		/// <summary>
+		/// Свойство обрабатывающее поле длины клапана
+		/// </summary>
 		public double LengthValve
 		{
 			get => _lengthValve;
@@ -56,6 +117,9 @@ namespace EngineValveParameter
 				}
 			}
 		}
+		/// <summary>
+		/// Свойство обрабатывающее поле диаметра ножки
+		/// </summary>
 			public double DiameterStem
 		{
 			get => _diameterStem;
@@ -74,6 +138,9 @@ namespace EngineValveParameter
 				}
 			}
 		}
+		/// <summary>
+		/// Свойство обрабатыващее поле ширины проточки
+		/// </summary>
 		public double WidthGroove
 		{
 			get => _widthGroove;
@@ -95,6 +162,9 @@ namespace EngineValveParameter
 				}
 			}
 		}
+		/// <summary>
+		/// Свойство обрабатыващее поле глубины проточки
+		/// </summary>
 		public double DepthGroove
 		{
 			get => _depthGroove;
@@ -116,6 +186,9 @@ namespace EngineValveParameter
 				}
 			}
 		}
+		/// <summary>
+		/// Свойство обрабатыващее поле расстояния до проточки
+		/// </summary>
 		public double DistanceGroove
 		{
 			get => _distanceGroove;
@@ -137,6 +210,9 @@ namespace EngineValveParameter
 				}
 			}
 		}
+		/// <summary>
+		/// Свойство обрабатыващее поле диаметра тарелки
+		/// </summary>
 		public double DiameterPlate
 		{
 			get => _diameterPlate;
@@ -158,6 +234,9 @@ namespace EngineValveParameter
 				}
 			}
 		}
+		/// <summary>
+		/// Свойство обрабатыващее поле толщины тарелки
+		/// </summary>
 		public double ThicknessPlate
 		{
 			get => _thicknessPlate;
@@ -176,6 +255,9 @@ namespace EngineValveParameter
 				}
 			}
 		}
+		/// <summary>
+		/// Свойство обрабатыващее поле длины рабочей фаски
+		/// </summary>
 		public double LengthChamfer
 		{
 			get => _lengthChamfer;
@@ -194,6 +276,9 @@ namespace EngineValveParameter
 				}
 			}
 		}
+		/// <summary>
+		/// Свойство обрабатыващее поле диаметра плавного перехода
+		/// </summary>
 		public double RadiusTransition
 		{
 			get => _radiusTransition;

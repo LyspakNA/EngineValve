@@ -180,6 +180,7 @@ namespace EngineValve
 			this.textboxLengthValve.Name = "textboxLengthValve";
 			this.textboxLengthValve.Size = new System.Drawing.Size(45, 20);
 			this.textboxLengthValve.TabIndex = 12;
+			this.textboxLengthValve.Tag = "LengthValve";
 			this.textboxLengthValve.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
 			this.textboxLengthValve.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
@@ -189,6 +190,7 @@ namespace EngineValve
 			this.textboxDiameterStem.Name = "textboxDiameterStem";
 			this.textboxDiameterStem.Size = new System.Drawing.Size(45, 20);
 			this.textboxDiameterStem.TabIndex = 13;
+			this.textboxDiameterStem.Tag = "DiameterStem";
 			this.textboxDiameterStem.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
 			this.textboxDiameterStem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
@@ -222,6 +224,7 @@ namespace EngineValve
 			this.textboxDiameterPlate.Name = "textboxDiameterPlate";
 			this.textboxDiameterPlate.Size = new System.Drawing.Size(45, 20);
 			this.textboxDiameterPlate.TabIndex = 17;
+			this.textboxDiameterPlate.Tag = "DiameterPlate";
 			this.textboxDiameterPlate.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
 			this.textboxDiameterPlate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
@@ -371,6 +374,8 @@ namespace EngineValve
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(507, 373);
 			this.Controls.Add(this.panel1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "EngineValve";
 			this.panel1.ResumeLayout(false);

@@ -1,19 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using Kompas6API5;
-using Kompas6Constants;
-using Kompas6Constants3D;
 
 namespace EngineValveBuild
 {
-    public class KompasConnector
+	/// <summary>
+	/// Связь с КОМПАС-3D
+	/// </summary>
+	public class KompasConnector
     {
+	    /// <summary>
+		/// Экземпляр КОМПАС-3D
+		/// </summary>
 	    private KompasObject _entity;
-
+	    /// <summary>
+		/// Запуск связи
+		/// </summary>
 	    public void Start()
 	    {
 		    var activeKompas = GetActiveKompas(out var kompas);
@@ -30,7 +32,11 @@ namespace EngineValveBuild
 		    kompas.ActivateControllerAPI();
 		    _entity = kompas;
 	    }
-
+	    /// <summary>
+		/// Поиск открытого экземпляра
+		/// </summary>
+		/// <param name="kompas">Экземпляр КОМПАС-3D</param>
+		/// <returns>Уже существующий экземпляр КОМПАС-3D</returns>
 	    private bool GetActiveKompas(out KompasObject kompas)
 	    {
 		    kompas = null;
@@ -44,7 +50,11 @@ namespace EngineValveBuild
 			    return false;
 		    }
 	    }
-
+	    /// <summary>
+		/// Создание экземпляра КОМПАС-3D
+		/// </summary>
+		/// <param name="kompas">Экземпляр КОМПАС-3D</param>
+		/// <returns>Новый экземпляр КОМПАС-3D</returns>
 	    private bool OpenKompas(out KompasObject kompas)
 	    {
 		    try
@@ -59,7 +69,10 @@ namespace EngineValveBuild
 			    return false;
 		    }
 	    }
-
+	    /// <summary>
+		/// Создание документа в КОМПАС-3D
+		/// </summary>
+		/// <returns></returns>
 	    public ksDocument3D CreateDocument3D()
 	    {
 		    ksDocument3D document3D = _entity.Document3D();

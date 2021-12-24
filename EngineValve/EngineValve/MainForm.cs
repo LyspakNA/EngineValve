@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Windows.Forms;
-using System.Linq;
 using EngineValveParameter;
 using EngineValveBuild;
 
@@ -17,7 +15,7 @@ namespace EngineValve
 		}
 
 		private KompasConnector _kompas = new KompasConnector();
-		private EngineValveParameters _parameters;
+		private EngineValveParameters _parameters = new EngineValveParameters();
 
 		private void BuildButton_Click(object sender, EventArgs e)
 		{
@@ -63,30 +61,40 @@ namespace EngineValve
 		//TODO: Опустить в параметры.
 		private void SetDefault()
 		{
-			textboxLengthValve.Text = "100";
-			textboxDiameterStem.Text = "8";
-			textboxWidthGroove.Text = "2";
-			textboxDepthGroove.Text = "2";
-			textboxDistanceGroove.Text = "10";
-			textboxDiameterPlate.Text = "50";
-			textboxThicknessPlate.Text = "2";
-			textboxLengthChamfer.Text = "3";
-			textboxRadiusTransition.Text = "20";
+			textboxLengthValve.Text = 
+				_parameters.LengthValve.ToString(CultureInfo.InvariantCulture);
+			textboxDiameterStem.Text =
+				_parameters.DiameterStem.ToString(CultureInfo.InvariantCulture);
+			textboxWidthGroove.Text = 
+				_parameters.WidthGroove.ToString(CultureInfo.InvariantCulture);
+			textboxDepthGroove.Text = 
+				_parameters.DepthGroove.ToString(CultureInfo.InvariantCulture);
+			textboxDistanceGroove.Text =
+				_parameters.DistanceGroove.ToString(CultureInfo.InvariantCulture);
+			textboxDiameterPlate.Text = 
+				_parameters.DiameterPlate.ToString(CultureInfo.InvariantCulture);
+			textboxThicknessPlate.Text = 
+				_parameters.ThicknessPlate.ToString(CultureInfo.InvariantCulture);
+			textboxLengthChamfer.Text =
+				_parameters.LengthChamfer.ToString(CultureInfo.InvariantCulture);
+			textboxRadiusTransition.Text = 
+				_parameters.RadiusTransition.ToString(CultureInfo.InvariantCulture);
 		}
 
 		private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if ((e.KeyChar == '.') || (e.KeyChar == ','))
 			{
+				e.KeyChar = '.';
 				TextBox txt = (TextBox)sender;
-				if (txt.Text.Contains(".") || txt.Text.Contains(","))
+				if (txt.Text.Contains("."))
 				{
 					e.Handled = true;
 				}
 				return;
 			}
 
-			if (!(Char.IsDigit(e.KeyChar)))
+			if (!(char.IsDigit(e.KeyChar)))
 			{
 				if ((e.KeyChar != (char)Keys.Back))
 				{
@@ -103,25 +111,24 @@ namespace EngineValve
 				CultureInfo.InvariantCulture, out double value))
 			{
 				//TODO: Убрать названия объектов
-				switch (textbox.Name)
+				switch (textbox.Tag)
 				{
-					case "textboxLengthValve":
+					case "LengthValve":
 					{
 						labelValueWidth.Text = $"(от 1 до {value * 0.1} мм)";
 						labelValueDistance.Text = $"(от 5 до {value * 0.25} мм)";
 						break;
 					}
 
-					case "textboxDiameterStem":
+					case "DiameterStem":
 					{
 						labelValueDepth.Text = $"(от 0.5 до {value * 0.25} мм)";
 						labelValueDiameterPlate.Text = $"(от {value * 2} до 70 мм)";
 						break;
 					}
 
-					case "textboxDiameterPlate":
+					case "DiameterPlate":
 					{
-						labelValueThickness.Text = $"(от 1 до {0.75 * value} мм)";
 						labelValueTransition.Text = $"(от 5 до {0.75 * value} мм)";
 						break;
 					}
@@ -132,9 +139,9 @@ namespace EngineValve
 
 		private void CheckText(TextBox textbox)
 		{
-			switch (textbox.Name)
+			switch (textbox.Tag)
 			{
-				case "textboxLengthValve":
+				case "LengthValve":
 				{
 					if (textbox.Text == "")
 					{
@@ -148,7 +155,7 @@ namespace EngineValve
 					break;
 				}
 
-				case "textboxDiameterStem":
+				case "DiameterStem":
 				{
 					if (textbox.Text == "")
 					{
@@ -162,16 +169,14 @@ namespace EngineValve
 					break;
 				}
 
-				case "textboxDiameterPlate":
+				case "DiameterPlate":
 				{
 					if (textbox.Text == "")
 					{
-						textboxThicknessPlate.Enabled = false;
 						textboxRadiusTransition.Enabled = false;
 						break;
 					}
 
-					textboxThicknessPlate.Enabled = true;
 					textboxRadiusTransition.Enabled = true;
 					break;
 				}
