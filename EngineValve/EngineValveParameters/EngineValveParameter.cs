@@ -198,7 +198,9 @@ namespace EngineValveParameters
 						maxRadiusTransition, minRadiusTransition, value);
 			}
 		}
-
+		/// <summary>
+		/// Диаметр выреза в тарелке
+		/// </summary>
 		public double DiameterNeckline
 		{
 			get => _diameterNeckline.Value;
@@ -211,6 +213,9 @@ namespace EngineValveParameters
 			}
 		}
 
+		/// <summary>
+		/// Глубина выреза в тарелке
+		/// </summary>
 		public double DepthNeckline
 		{
 			get => _depthNeckline.Value;
@@ -221,6 +226,7 @@ namespace EngineValveParameters
 					new Parameter<double>("Depth Neckline", maxDepthNeckline, 0, value);
 			}
 		}
+
 
 	}
 }

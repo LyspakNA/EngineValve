@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using EngineValveBuild;
 using EngineValveParameters;
@@ -20,14 +21,15 @@ namespace EngineValve
 		public MainForm()
 		{
 			InitializeComponent();
-			ExtraPanel(checkBoxNeckline);
+			ExtraPanelEnabler(checkBoxNeckline);
 			SetDefault();
 		}
-		
+
 		/// <summary>
 		/// Объект класса с параметрами
 		/// </summary>
 		private EngineValveParameter _parameters = new EngineValveParameter();
+
 		/// <summary>
 		/// Обработчик нажатия кнопки "Построить"
 		/// </summary>
@@ -75,54 +77,57 @@ namespace EngineValve
 		/// </summary>
 		private void SetDefault()
 		{
-			textboxLengthValve.Text = 
+			textboxLengthValve.Text =
 				_parameters.LengthValve.ToString(CultureInfo.InvariantCulture);
 			textboxDiameterStem.Text =
 				_parameters.DiameterStem.ToString(CultureInfo.InvariantCulture);
-			textboxWidthGroove.Text = 
+			textboxWidthGroove.Text =
 				_parameters.WidthGroove.ToString(CultureInfo.InvariantCulture);
-			textboxDepthGroove.Text = 
+			textboxDepthGroove.Text =
 				_parameters.DepthGroove.ToString(CultureInfo.InvariantCulture);
 			textboxDistanceGroove.Text =
 				_parameters.DistanceGroove.ToString(CultureInfo.InvariantCulture);
-			textboxDiameterPlate.Text = 
+			textboxDiameterPlate.Text =
 				_parameters.DiameterPlate.ToString(CultureInfo.InvariantCulture);
-			textboxThicknessPlate.Text = 
+			textboxThicknessPlate.Text =
 				_parameters.ThicknessPlate.ToString(CultureInfo.InvariantCulture);
 			textboxLengthChamfer.Text =
 				_parameters.LengthChamfer.ToString(CultureInfo.InvariantCulture);
-			textboxRadiusTransition.Text = 
+			textboxRadiusTransition.Text =
 				_parameters.RadiusTransition.ToString(CultureInfo.InvariantCulture);
 			textBoxDiameterNeckline.Text =
 				_parameters.DiameterNeckline.ToString(CultureInfo.InvariantCulture);
 			textBoxDepthNeckline.Text =
 				_parameters.DepthNeckline.ToString(CultureInfo.InvariantCulture);
 		}
+
 		/// <summary>
 		/// Обработчик ввода 
 		/// </summary>
-		
+
 		private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if ((e.KeyChar == '.') || (e.KeyChar == ','))
 			{
 				e.KeyChar = '.';
-				TextBox txt = (TextBox)sender;
+				TextBox txt = (TextBox) sender;
 				if (txt.Text.Contains("."))
 				{
 					e.Handled = true;
 				}
+
 				return;
 			}
 
 			if (!(char.IsDigit(e.KeyChar)))
 			{
-				if ((e.KeyChar != (char)Keys.Back))
+				if ((e.KeyChar != (char) Keys.Back))
 				{
 					e.Handled = true;
 				}
 			}
 		}
+
 		/// <summary>
 		/// Обработчик, устанавливающий значения диапазонов
 		/// </summary>
@@ -165,6 +170,7 @@ namespace EngineValve
 			}
 
 		}
+
 		/// <summary>
 		/// Обработчик, блокирующий зависимые поля
 		/// </summary>
@@ -222,15 +228,15 @@ namespace EngineValve
 		private void checkBoxNeckline_CheckedChanged(object sender, EventArgs e)
 		{
 			var checkbox = (CheckBox) sender;
-			ExtraPanel(checkbox);
-			
+			ExtraPanelEnabler(checkbox);
+
 		}
 
 		/// <summary>
 		/// Активирует доп.панель в зависимости от статуса чекбокса
 		/// </summary>
 		/// <param name="checkbox">Чекбокс для активации панели</param>
-		private void ExtraPanel(CheckBox checkbox)
+		private void ExtraPanelEnabler(CheckBox checkbox)
 		{
 			if (checkbox.Checked)
 			{
@@ -245,5 +251,6 @@ namespace EngineValve
 				groupBox1.Visible = false;
 			}
 		}
+
 	}
 }
