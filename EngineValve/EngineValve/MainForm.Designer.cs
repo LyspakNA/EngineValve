@@ -51,6 +51,14 @@ namespace EngineValve
 			this.textboxLengthChamfer = new System.Windows.Forms.TextBox();
 			this.textboxRadiusTransition = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.textBoxDepthNeckline = new System.Windows.Forms.TextBox();
+			this.labelNecklaneDep = new System.Windows.Forms.Label();
+			this.labelDepthNeckline = new System.Windows.Forms.Label();
+			this.labelDiameterNeckline = new System.Windows.Forms.Label();
+			this.textBoxDiameterNeckline = new System.Windows.Forms.TextBox();
+			this.labelNecklineDiam = new System.Windows.Forms.Label();
+			this.checkBoxNeckline = new System.Windows.Forms.CheckBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.labelValueTransition = new System.Windows.Forms.Label();
 			this.labelValueDiameterPlate = new System.Windows.Forms.Label();
@@ -60,6 +68,7 @@ namespace EngineValve
 			this.labelValueThickness = new System.Windows.Forms.Label();
 			this.BuildButton = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -234,6 +243,8 @@ namespace EngineValve
 			this.textboxThicknessPlate.Name = "textboxThicknessPlate";
 			this.textboxThicknessPlate.Size = new System.Drawing.Size(45, 20);
 			this.textboxThicknessPlate.TabIndex = 18;
+			this.textboxThicknessPlate.Tag = "ThicknessPlate";
+			this.textboxThicknessPlate.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
 			this.textboxThicknessPlate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
 			// textboxLengthChamfer
@@ -254,6 +265,8 @@ namespace EngineValve
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.groupBox1);
+			this.panel1.Controls.Add(this.checkBoxNeckline);
 			this.panel1.Controls.Add(this.pictureBox1);
 			this.panel1.Controls.Add(this.labelValueTransition);
 			this.panel1.Controls.Add(this.labelValueDiameterPlate);
@@ -285,8 +298,89 @@ namespace EngineValve
 			this.panel1.Controls.Add(this.labelValueLength);
 			this.panel1.Location = new System.Drawing.Point(12, 12);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(483, 350);
+			this.panel1.Size = new System.Drawing.Size(483, 437);
 			this.panel1.TabIndex = 21;
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.textBoxDepthNeckline);
+			this.groupBox1.Controls.Add(this.labelNecklaneDep);
+			this.groupBox1.Controls.Add(this.labelDepthNeckline);
+			this.groupBox1.Controls.Add(this.labelDiameterNeckline);
+			this.groupBox1.Controls.Add(this.textBoxDiameterNeckline);
+			this.groupBox1.Controls.Add(this.labelNecklineDiam);
+			this.groupBox1.Location = new System.Drawing.Point(5, 319);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(255, 79);
+			this.groupBox1.TabIndex = 33;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Параметры выреза";
+			this.groupBox1.Visible = false;
+			// 
+			// textBoxDepthNeckline
+			// 
+			this.textBoxDepthNeckline.Location = new System.Drawing.Point(196, 47);
+			this.textBoxDepthNeckline.Name = "textBoxDepthNeckline";
+			this.textBoxDepthNeckline.Size = new System.Drawing.Size(45, 20);
+			this.textBoxDepthNeckline.TabIndex = 35;
+			this.textBoxDepthNeckline.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			// 
+			// labelNecklaneDep
+			// 
+			this.labelNecklaneDep.AutoSize = true;
+			this.labelNecklaneDep.ForeColor = System.Drawing.Color.Gray;
+			this.labelNecklaneDep.Location = new System.Drawing.Point(6, 60);
+			this.labelNecklaneDep.Name = "labelNecklaneDep";
+			this.labelNecklaneDep.Size = new System.Drawing.Size(44, 13);
+			this.labelNecklaneDep.TabIndex = 34;
+			this.labelNecklaneDep.Text = "(до мм)";
+			// 
+			// labelDepthNeckline
+			// 
+			this.labelDepthNeckline.AutoSize = true;
+			this.labelDepthNeckline.Location = new System.Drawing.Point(7, 47);
+			this.labelDepthNeckline.Name = "labelDepthNeckline";
+			this.labelDepthNeckline.Size = new System.Drawing.Size(48, 13);
+			this.labelDepthNeckline.TabIndex = 33;
+			this.labelDepthNeckline.Text = "Глубина";
+			// 
+			// labelDiameterNeckline
+			// 
+			this.labelDiameterNeckline.AutoSize = true;
+			this.labelDiameterNeckline.Location = new System.Drawing.Point(4, 16);
+			this.labelDiameterNeckline.Name = "labelDiameterNeckline";
+			this.labelDiameterNeckline.Size = new System.Drawing.Size(59, 13);
+			this.labelDiameterNeckline.TabIndex = 30;
+			this.labelDiameterNeckline.Text = "Диаметр  ";
+			// 
+			// textBoxDiameterNeckline
+			// 
+			this.textBoxDiameterNeckline.Location = new System.Drawing.Point(196, 13);
+			this.textBoxDiameterNeckline.Name = "textBoxDiameterNeckline";
+			this.textBoxDiameterNeckline.Size = new System.Drawing.Size(45, 20);
+			this.textBoxDiameterNeckline.TabIndex = 32;
+			this.textBoxDiameterNeckline.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+			// 
+			// labelNecklineDiam
+			// 
+			this.labelNecklineDiam.AutoSize = true;
+			this.labelNecklineDiam.ForeColor = System.Drawing.Color.Gray;
+			this.labelNecklineDiam.Location = new System.Drawing.Point(6, 29);
+			this.labelNecklineDiam.Name = "labelNecklineDiam";
+			this.labelNecklineDiam.Size = new System.Drawing.Size(44, 13);
+			this.labelNecklineDiam.TabIndex = 31;
+			this.labelNecklineDiam.Text = "(до мм)";
+			// 
+			// checkBoxNeckline
+			// 
+			this.checkBoxNeckline.AutoSize = true;
+			this.checkBoxNeckline.Location = new System.Drawing.Point(267, 356);
+			this.checkBoxNeckline.Name = "checkBoxNeckline";
+			this.checkBoxNeckline.Size = new System.Drawing.Size(201, 17);
+			this.checkBoxNeckline.TabIndex = 29;
+			this.checkBoxNeckline.Text = "Сделать вырез в тарелке клапана";
+			this.checkBoxNeckline.UseVisualStyleBackColor = true;
+			this.checkBoxNeckline.CheckedChanged += new System.EventHandler(this.checkBoxNeckline_CheckedChanged);
 			// 
 			// pictureBox1
 			// 
@@ -360,7 +454,7 @@ namespace EngineValve
 			// 
 			// BuildButton
 			// 
-			this.BuildButton.Location = new System.Drawing.Point(50, 315);
+			this.BuildButton.Location = new System.Drawing.Point(300, 390);
 			this.BuildButton.Name = "BuildButton";
 			this.BuildButton.Size = new System.Drawing.Size(150, 30);
 			this.BuildButton.TabIndex = 21;
@@ -372,7 +466,7 @@ namespace EngineValve
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(507, 373);
+			this.ClientSize = new System.Drawing.Size(509, 461);
 			this.Controls.Add(this.panel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
@@ -380,6 +474,8 @@ namespace EngineValve
 			this.Text = "EngineValve";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
@@ -417,6 +513,14 @@ namespace EngineValve
 		private System.Windows.Forms.Label labelValueDepth;
 		private System.Windows.Forms.Label labelValueWidth;
 		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.CheckBox checkBoxNeckline;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.TextBox textBoxDepthNeckline;
+		private System.Windows.Forms.Label labelNecklaneDep;
+		private System.Windows.Forms.Label labelDepthNeckline;
+		private System.Windows.Forms.Label labelDiameterNeckline;
+		private System.Windows.Forms.TextBox textBoxDiameterNeckline;
+		private System.Windows.Forms.Label labelNecklineDiam;
 	}
 }
 

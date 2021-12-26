@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,12 +20,10 @@ namespace EngineValve
 		public MainForm()
 		{
 			InitializeComponent();
+			ExtraPanel(checkBoxNeckline);
 			SetDefault();
 		}
-		/// <summary>
-		/// Экземпляр класса построителя
-		/// </summary>
-		private KompasConnector _kompas = new KompasConnector();
+		
 		/// <summary>
 		/// Объект класса с параметрами
 		/// </summary>
@@ -34,7 +33,6 @@ namespace EngineValve
 		/// </summary>
 		private void BuildButton_Click(object sender, EventArgs e)
 		{
-			List<Exception> list = new List<Exception>();
 			try
 			{
 				_parameters.LengthValve = double.Parse(textboxLengthValve.Text,
@@ -55,10 +53,12 @@ namespace EngineValve
 					CultureInfo.InvariantCulture);
 				_parameters.RadiusTransition = double.Parse(textboxRadiusTransition.Text,
 					CultureInfo.InvariantCulture);
+				_parameters.DiameterNeckline = double.Parse(textBoxDiameterNeckline.Text,
+					CultureInfo.InvariantCulture);
+				_parameters.DepthNeckline = double.Parse(textBoxDepthNeckline.Text,
+					CultureInfo.InvariantCulture);
 
-				_kompas.Start();
-				var document3D = _kompas.CreateDocument3D();
-				var engineValveBuilder = new EngineValveBuilder(document3D, _parameters);
+				var engineValveBuilder = new EngineValveBuilder(_parameters);
 				engineValveBuilder.BuildEngineValve();
 			}
 			catch (Exception ex)
@@ -93,6 +93,10 @@ namespace EngineValve
 				_parameters.LengthChamfer.ToString(CultureInfo.InvariantCulture);
 			textboxRadiusTransition.Text = 
 				_parameters.RadiusTransition.ToString(CultureInfo.InvariantCulture);
+			textBoxDiameterNeckline.Text =
+				_parameters.DiameterNeckline.ToString(CultureInfo.InvariantCulture);
+			textBoxDepthNeckline.Text =
+				_parameters.DepthNeckline.ToString(CultureInfo.InvariantCulture);
 		}
 		/// <summary>
 		/// Обработчик ввода 
@@ -149,6 +153,12 @@ namespace EngineValve
 					case "DiameterPlate":
 					{
 						labelValueTransition.Text = $"(от 5 до {0.75 * value} мм)";
+						labelNecklineDiam.Text = $"(до {value} мм)";
+						break;
+					}
+					case "ThicknessPlate":
+					{
+						labelNecklaneDep.Text = $"(до {value * 4} мм)";
 						break;
 					}
 				}
@@ -201,6 +211,38 @@ namespace EngineValve
 					textboxRadiusTransition.Enabled = true;
 					break;
 				}
+			}
+		}
+
+		/// <summary>
+		/// Обработчик смены статуса CheckBox
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void checkBoxNeckline_CheckedChanged(object sender, EventArgs e)
+		{
+			var checkbox = (CheckBox) sender;
+			ExtraPanel(checkbox);
+			
+		}
+
+		/// <summary>
+		/// Активирует доп.панель в зависимости от статуса чекбокса
+		/// </summary>
+		/// <param name="checkbox">Чекбокс для активации панели</param>
+		private void ExtraPanel(CheckBox checkbox)
+		{
+			if (checkbox.Checked)
+			{
+				this.Height = 500;
+				BuildButton.Location = new Point(300, 390);
+				groupBox1.Visible = true;
+			}
+			else
+			{
+				this.Height = 440;
+				BuildButton.Location = new Point(35, 320);
+				groupBox1.Visible = false;
 			}
 		}
 	}

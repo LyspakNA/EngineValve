@@ -23,12 +23,18 @@ namespace EngineValveBuild
 		private ksPart _part;
 
 		/// <summary>
+		/// Соединение с КОМПАС-3D
+		/// </summary>
+		private KompasConnector _kompas = new KompasConnector();
+		
+		/// <summary>
 		/// Конструктор 
 		/// </summary>
-		/// <param name="document3D">Интерфейс документа модели</param>
 		/// <param name="parameters">Экземпляр параметров</param>
-		public EngineValveBuilder(ksDocument3D document3D, EngineValveParameter parameters)
+		public EngineValveBuilder(EngineValveParameter parameters)
 		{
+			_kompas.Start();
+			var document3D = _kompas.CreateDocument3D();
 			_part = document3D.GetPart(-1);
 			_parameters = parameters;
 		}
@@ -43,6 +49,7 @@ namespace EngineValveBuild
 			ChamferPlate();
 			BuildGroove();
 			ChamferStem();
+			NecklinePlate();
 		}
 		/// <summary>
 		/// Строитель тарелки клапана
@@ -245,5 +252,69 @@ namespace EngineValveBuild
 			cutExtrusionDefinition.SetSketch(sketch);
 			cutExtrusion.Create();
 		}
+		/// <summary>
+		/// Построитель выреза в тарелке клапана
+		/// </summary>
+		private void NecklinePlate()
+		{
+			if (_parameters.DepthNeckline != 0 && _parameters.DiameterNeckline != 0)
+			{
+				ksEntity planeXOZ = _part.GetDefaultEntity(2);
+				ksEntity sketch = _part.NewEntity(5);
+				ksSketchDefinition sketchDefinition = sketch.GetDefinition();
+
+				sketchDefinition.SetPlane(planeXOZ);
+				sketch.Create();
+
+				ksDocument2D document2D = sketchDefinition.BeginEdit();
+
+				var ellips = CreateEllips(document2D, _parameters.DiameterNeckline/2,
+					_parameters.DepthNeckline/2);
+				document2D.ksLineSeg(0, 0, 0, 10, 3);
+				document2D.ksTrimmCurve(ellips, 0, _parameters.DepthNeckline/2
+					, 0, -_parameters.DepthNeckline/2, _parameters.DiameterNeckline/2
+					, 0, 1);
+
+				sketchDefinition.EndEdit();
+				CreateCutRotation(sketch);
+			}
+
+		}
+		/// <summary>
+		/// Вырезание вращением
+		/// </summary>
+		/// <param name="sketch">Эскиз для вырезания</param>
+		private void CreateCutRotation(ksEntity sketch)
+		{
+			ksEntity cutRotated = _part.NewEntity(29);
+			ksCutRotatedDefinition cutRotatedDefinition=
+				cutRotated.GetDefinition();
+			cutRotatedDefinition.SetSideParam(false, 360D);
+			cutRotatedDefinition.SetSketch(sketch);
+			cutRotated.Create();
+		}
+
+		/// <summary>
+		/// Построитель эллипса
+		/// </summary>
+		/// <param name="document2D">Интерфейс графического документа</param>
+		/// <param name="width">Ширина эллипса</param>
+		/// <param name="height">Высота эллипса</param>
+		/// <returns></returns>
+		private int CreateEllips(ksDocument2D document2D, double width, double height)
+		{
+			KompasObject kompas = _kompas.GetKompasObject();
+			ksEllipseParam param = kompas.GetParamStruct(22);
+			param.A = width;
+			param.B = height;
+			param.angle = 0;
+			param.style = 1;
+			param.xc = 0;
+			param.yc = 0;
+
+			return document2D.ksEllipse(param);
+		}
+
+
 	}
 }

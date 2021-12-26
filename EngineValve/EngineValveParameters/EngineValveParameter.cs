@@ -10,41 +10,49 @@ namespace EngineValveParameters
 		/// <summary>
 		/// Длина клапана
 		/// </summary>
-		Parameter<double> _lengthValve;
+		private Parameter<double> _lengthValve;
 		/// <summary>
 		/// Диаметр ножки
 		/// </summary>
-		Parameter<double> _diameterStem;
+		private Parameter<double> _diameterStem;
 		/// <summary>
 		/// Ширина проточки под сухарь
 		/// </summary>
-		Parameter<double> _widthGroove;
+		private Parameter<double> _widthGroove;
 		/// <summary>
 		/// Глубина проточки под сухарь
 		/// </summary>
-		Parameter<double> _depthGroove;
+		private Parameter<double> _depthGroove;
 		/// <summary>
 		/// Расстояние до проточки
 		/// </summary>
-		Parameter<double> _distanceGroove;
+		private Parameter<double> _distanceGroove;
 		/// <summary>
 		/// Диаметр тарелки клапана
 		/// </summary>
-		Parameter<double> _diameterPlate;
+		private Parameter<double> _diameterPlate;
 		/// <summary>
 		/// Толщина тарелки клапана
 		/// </summary>
-		Parameter<double> _thicknessPlate;
+		private Parameter<double> _thicknessPlate;
 		/// <summary>
 		/// Длина рабочей фаски
 		/// </summary>
-		Parameter<double> _lengthChamfer;
+		private Parameter<double> _lengthChamfer;
 		/// <summary>
 		/// радиус плавного перехода
 		/// </summary>
-		Parameter<double> _radiusTransition;
+		private Parameter<double> _radiusTransition;
+		/// <summary>
+		/// Диаметр выреза в тарелке
+		/// </summary>
+		private Parameter<double> _diameterNeckline;
+		/// <summary>
+		/// Глубина выреза
+		/// </summary>
+		private Parameter<double> _depthNeckline;
 
-		
+
 		/// <summary>
 		/// Конструктор для стандартных параметров.
 		/// </summary>
@@ -59,11 +67,10 @@ namespace EngineValveParameters
 			ThicknessPlate = 2;
 			LengthChamfer = 3;
 			RadiusTransition = 20;
+			DiameterNeckline = 0;
+			DepthNeckline = 0;
 		}
-		/// <summary>
-		/// Лист ошибок
-		/// </summary>
-		private List<string> ErrorList { get; } = new List<string>();
+		
 		/// <summary>
 		/// Свойство обрабатывающее поле длины клапана
 		/// </summary>
@@ -189,6 +196,29 @@ namespace EngineValveParameters
 				_radiusTransition =
 					new Parameter<double>("Radius Transition",
 						maxRadiusTransition, minRadiusTransition, value);
+			}
+		}
+
+		public double DiameterNeckline
+		{
+			get => _diameterNeckline.Value;
+			set
+			{
+				double maxDiameterNeckline = DiameterPlate;
+				_diameterNeckline =
+					new Parameter<double>("Diameter Neckline",
+						maxDiameterNeckline, 0, value);
+			}
+		}
+
+		public double DepthNeckline
+		{
+			get => _depthNeckline.Value;
+			set
+			{
+				double maxDepthNeckline = ThicknessPlate * 4;
+				_depthNeckline =
+					new Parameter<double>("Depth Neckline", maxDepthNeckline, 0, value);
 			}
 		}
 

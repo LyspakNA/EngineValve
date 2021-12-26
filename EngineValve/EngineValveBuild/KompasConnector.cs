@@ -79,5 +79,10 @@ namespace EngineValveBuild
 		    document3D.Create(false, true);
 		    return document3D;
 	    }
+
+	    public KompasObject GetKompasObject()
+	    {
+		    return _entity;
+	    }
     }
 }
