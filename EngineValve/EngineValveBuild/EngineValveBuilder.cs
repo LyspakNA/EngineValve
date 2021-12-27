@@ -17,8 +17,9 @@ namespace EngineValveBuild
 		/// Экземпляр класса параметров
 		/// </summary>
 		private EngineValveParameter _parameters;
+
 		/// <summary>
-		/// Экземпляр компонента
+		/// Экземпляр компонента сборки
 		/// </summary>
 		private ksPart _part;
 
@@ -180,6 +181,7 @@ namespace EngineValveBuild
 
 			chamfer.Create();
 		}
+
 		/// <summary>
 		/// Построитель рабочей фаски клапана
 		/// </summary>
@@ -192,6 +194,7 @@ namespace EngineValveBuild
 			ksEntity baseFace = faceCollection.First();
 			CreateChamfer(baseFace, _parameters.LengthChamfer);
 		}
+
 		/// <summary>
 		/// Построитель фаски ножки
 		/// </summary>
@@ -205,6 +208,7 @@ namespace EngineValveBuild
 			ksEntity baseFace = faceCollection.First();
 			CreateChamfer(baseFace, length);
 		}
+
 		/// <summary>
 		/// Построитель выреза под сухарь
 		/// </summary>
@@ -236,6 +240,7 @@ namespace EngineValveBuild
 
 			CreateCutExtrusion(_parameters.WidthGroove,sketch);
 		}
+
 		/// <summary>
 		/// Метод вырезания выдавливанием
 		/// </summary>
@@ -252,6 +257,7 @@ namespace EngineValveBuild
 			cutExtrusionDefinition.SetSketch(sketch);
 			cutExtrusion.Create();
 		}
+
 		/// <summary>
 		/// Построитель выреза в тарелке клапана
 		/// </summary>
@@ -280,6 +286,7 @@ namespace EngineValveBuild
 			}
 
 		}
+
 		/// <summary>
 		/// Вырезание вращением
 		/// </summary>

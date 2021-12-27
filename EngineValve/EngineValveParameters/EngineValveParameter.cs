@@ -53,7 +53,10 @@ namespace EngineValveParameters
 		/// </summary>
 		private static Parameter<double> _depthNeckline;
 
-
+		/// <summary>
+		/// Словарь, сопоставляющий
+		/// названия параметров и их поля
+		/// </summary>
 		private Dictionary<string, Parameter<double>> _parametersDictionary =
 			new Dictionary<string, Parameter<double>>()
 			{
@@ -69,6 +72,9 @@ namespace EngineValveParameters
 				{"Depth Neckline", _depthNeckline}
 			};
 
+		/// <summary>
+		/// Словарь сообщений об ошибках
+		/// </summary>
 		public Dictionary<string, string> ErrorsDictionary { get; }
 			= new Dictionary<string, string>();
 		/// <summary>
@@ -241,8 +247,16 @@ namespace EngineValveParameters
 				_depthNeckline = SetValue("Depth Neckline", maxDepthNeckline, 0, value);
 			}
 		}
-
-		public Parameter<double> SetValue(string name, double max, double min, double value)
+		/// <summary>
+		/// Приватный метод инициализирующий
+		/// поля параметров
+		/// </summary>
+		/// <param name="name">Название параметра</param>
+		/// <param name="max">Максимальное значение</param>
+		/// <param name="min">Минимальное значение</param>
+		/// <param name="value">Устанавливаемое значение</param>
+		/// <returns>Экземпляр параметров</returns>
+		private Parameter<double> SetValue(string name, double max, double min, double value)
 		{
 			try
 			{

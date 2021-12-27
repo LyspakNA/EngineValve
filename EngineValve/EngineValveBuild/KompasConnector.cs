@@ -13,6 +13,7 @@ namespace EngineValveBuild
 		/// Экземпляр КОМПАС-3D
 		/// </summary>
 	    private KompasObject _entity;
+
 	    /// <summary>
 		/// Запуск связи
 		/// </summary>
@@ -32,6 +33,7 @@ namespace EngineValveBuild
 		    kompas.ActivateControllerAPI();
 		    _entity = kompas;
 	    }
+
 	    /// <summary>
 		/// Поиск открытого экземпляра
 		/// </summary>
@@ -50,6 +52,7 @@ namespace EngineValveBuild
 			    return false;
 		    }
 	    }
+
 	    /// <summary>
 		/// Создание экземпляра КОМПАС-3D
 		/// </summary>
@@ -69,6 +72,7 @@ namespace EngineValveBuild
 			    return false;
 		    }
 	    }
+
 	    /// <summary>
 		/// Создание документа в КОМПАС-3D
 		/// </summary>
@@ -80,6 +84,10 @@ namespace EngineValveBuild
 		    return document3D;
 	    }
 
+		/// <summary>
+		///Метод для получения экземпляра КОМПАС-3D 
+		/// </summary>
+		/// <returns>Экземпляр КОМПАС-3D</returns>
 	    public KompasObject GetKompasObject()
 	    {
 		    return _entity;

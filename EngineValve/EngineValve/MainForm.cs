@@ -31,13 +31,18 @@ namespace EngineValve
 		private EngineValveParameter _parameters = new EngineValveParameter();
 
 		/// <summary>
-		/// Обработчик нажатия кнопки "Построить"
+		/// Обработчик нажатия кнопки "Построить".
+		/// Запускает проверку введённых значений.
+		/// Проверяет наличие записей в словаре ошибок
+		/// и выводит их в сообщении.
+		/// Запускает построение детали
 		/// </summary>
 		private void BuildButton_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				_parameters.ErrorsDictionary.Clear();
+
 				_parameters.LengthValve = double.Parse(textboxLengthValve.Text,
 					CultureInfo.InvariantCulture);
 				_parameters.DiameterStem = double.Parse(textboxDiameterStem.Text,
@@ -60,6 +65,7 @@ namespace EngineValve
 					CultureInfo.InvariantCulture);
 				_parameters.DepthNeckline = double.Parse(textBoxDepthNeckline.Text,
 					CultureInfo.InvariantCulture);
+
 				if (_parameters.ErrorsDictionary.Any())
 				{
 					string message = null;
@@ -72,6 +78,7 @@ namespace EngineValve
 					}
 					throw new Exception(message);
 				}
+
 				var engineValveBuilder = new EngineValveBuilder(_parameters);
 				engineValveBuilder.BuildEngineValve();
 			}
@@ -85,7 +92,7 @@ namespace EngineValve
 
 		//TODO: Опустить в параметры.
 		/// <summary>
-		/// Устанавливает стандартные значения
+		/// Записывает стандартные значения в текстбоксы
 		/// </summary>
 		private void SetDefault()
 		{
