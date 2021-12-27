@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace EngineValveParameters
 {
@@ -10,49 +11,66 @@ namespace EngineValveParameters
 		/// <summary>
 		/// Длина клапана
 		/// </summary>
-		private Parameter<double> _lengthValve;
+		private static Parameter<double> _lengthValve;
 		/// <summary>
 		/// Диаметр ножки
 		/// </summary>
-		private Parameter<double> _diameterStem;
+		private static Parameter<double> _diameterStem;
 		/// <summary>
 		/// Ширина проточки под сухарь
 		/// </summary>
-		private Parameter<double> _widthGroove;
+		private static Parameter<double> _widthGroove;
 		/// <summary>
 		/// Глубина проточки под сухарь
 		/// </summary>
-		private Parameter<double> _depthGroove;
+		private static Parameter<double> _depthGroove;
 		/// <summary>
 		/// Расстояние до проточки
 		/// </summary>
-		private Parameter<double> _distanceGroove;
+		private static Parameter<double> _distanceGroove;
 		/// <summary>
 		/// Диаметр тарелки клапана
 		/// </summary>
-		private Parameter<double> _diameterPlate;
+		private static Parameter<double> _diameterPlate;
 		/// <summary>
 		/// Толщина тарелки клапана
 		/// </summary>
-		private Parameter<double> _thicknessPlate;
+		private static Parameter<double> _thicknessPlate;
 		/// <summary>
 		/// Длина рабочей фаски
 		/// </summary>
-		private Parameter<double> _lengthChamfer;
+		private static Parameter<double> _lengthChamfer;
 		/// <summary>
 		/// радиус плавного перехода
 		/// </summary>
-		private Parameter<double> _radiusTransition;
+		private static Parameter<double> _radiusTransition;
 		/// <summary>
 		/// Диаметр выреза в тарелке
 		/// </summary>
-		private Parameter<double> _diameterNeckline;
+		private static Parameter<double> _diameterNeckline;
 		/// <summary>
 		/// Глубина выреза
 		/// </summary>
-		private Parameter<double> _depthNeckline;
+		private static Parameter<double> _depthNeckline;
 
 
+		private Dictionary<string, Parameter<double>> _parametersDictionary =
+			new Dictionary<string, Parameter<double>>()
+			{
+				{"Length Valve", _lengthValve},
+				{"Diameter Stem", _diameterStem},
+				{"Width Groove", _widthGroove},
+				{"Depth Groove", _depthGroove},
+				{"Diameter Plate", _diameterPlate},
+				{"Thickness Plate", _thicknessPlate},
+				{"Length Chamfer", _lengthChamfer},
+				{"Radius Transition", _radiusTransition},
+				{"Diameter Neckline", _diameterNeckline},
+				{"Depth Neckline", _depthNeckline}
+			};
+
+		public Dictionary<string, string> ErrorsDictionary { get; }
+			= new Dictionary<string, string>();
 		/// <summary>
 		/// Конструктор для стандартных параметров.
 		/// </summary>
@@ -81,7 +99,7 @@ namespace EngineValveParameters
 			{
 				const double minLengthValve = 50;
 				const double maxLengthValve = 150;
-				_lengthValve = new Parameter<double>("Length Value",
+				_lengthValve = SetValue("Length Valve",
 					maxLengthValve, minLengthValve, value);
 			}
 		}
@@ -95,7 +113,7 @@ namespace EngineValveParameters
 			{
 				const double minDiameterStem = 5;
 				const double maxDiameterStem = 15;
-				_diameterStem = new Parameter<double>("Diameter Stem",
+				_diameterStem = SetValue("Diameter Stem",
 					maxDiameterStem, minDiameterStem, value);
 			}
 		}
@@ -109,7 +127,7 @@ namespace EngineValveParameters
 			{
 				const double minWidthGroove = 1;
 				double maxWidthGroove = 0.1 * LengthValve;
-				_widthGroove = new Parameter<double>("Width Groove",
+				_widthGroove = SetValue("Width Groove",
 					maxWidthGroove, minWidthGroove, value);
 			}
 		}
@@ -123,7 +141,7 @@ namespace EngineValveParameters
 			{
 				const double minDepthGroove = 0.5;
 				double maxDepthGroove = 0.25 * DiameterStem;
-				_depthGroove = new Parameter<double>("Depth Groove",
+				_depthGroove = SetValue("Depth Groove",
 					maxDepthGroove, minDepthGroove, value);
 			}
 		}
@@ -137,7 +155,7 @@ namespace EngineValveParameters
 			{
 				const double minDistanceGroove = 5;
 				double maxDistanceGroove = 0.25 * LengthValve;
-				_distanceGroove = new Parameter<double>("Distance Groove",
+				_distanceGroove = SetValue("Distance Groove",
 					maxDistanceGroove, minDistanceGroove, value);
 			}
 		}
@@ -151,7 +169,7 @@ namespace EngineValveParameters
 			{
 				double minDiameterPlate = 2 * DiameterStem;
 				const double maxDiameterPlate = 70;
-				_diameterPlate = new Parameter<double>("Diameter Plate",
+				_diameterPlate = SetValue("Diameter Plate",
 					maxDiameterPlate, minDiameterPlate, value);
 			}
 		}
@@ -165,7 +183,7 @@ namespace EngineValveParameters
 			{
 				const double minThicknessPlate = 1;
 				const double maxThicknessPlate = 10;
-				_thicknessPlate = new Parameter<double>("Thickness Plate",
+				_thicknessPlate = SetValue("Thickness Plate",
 					maxThicknessPlate, minThicknessPlate, value);
 			}
 		}
@@ -179,7 +197,7 @@ namespace EngineValveParameters
 			{
 				const double minLengthChamfer = 2;
 				const double maxLengthChamfer = 10;
-				_lengthChamfer = new Parameter<double>("Length Chamfer",
+				_lengthChamfer = SetValue("Length Chamfer",
 					maxLengthChamfer, minLengthChamfer, value);
 			}
 		}
@@ -193,8 +211,7 @@ namespace EngineValveParameters
 			{
 				const double minRadiusTransition = 5;
 				double maxRadiusTransition = 0.75 * DiameterPlate;
-				_radiusTransition =
-					new Parameter<double>("Radius Transition",
+				_radiusTransition = SetValue("Radius Transition",
 						maxRadiusTransition, minRadiusTransition, value);
 			}
 		}
@@ -207,8 +224,7 @@ namespace EngineValveParameters
 			set
 			{
 				double maxDiameterNeckline = DiameterPlate;
-				_diameterNeckline =
-					new Parameter<double>("Diameter Neckline",
+				_diameterNeckline = SetValue("Diameter Neckline",
 						maxDiameterNeckline, 0, value);
 			}
 		}
@@ -222,9 +238,23 @@ namespace EngineValveParameters
 			set
 			{
 				double maxDepthNeckline = ThicknessPlate * 4;
-				_depthNeckline =
-					new Parameter<double>("Depth Neckline", maxDepthNeckline, 0, value);
+				_depthNeckline = SetValue("Depth Neckline", maxDepthNeckline, 0, value);
 			}
+		}
+
+		public Parameter<double> SetValue(string name, double max, double min, double value)
+		{
+			try
+			{
+				return _parametersDictionary[name] = 
+					new Parameter<double>(name, max, min, value);
+			}
+			catch (Exception ex)
+			{
+				ErrorsDictionary.Add(name, ex.Message);
+			}
+
+			return _parametersDictionary[name];
 		}
 
 

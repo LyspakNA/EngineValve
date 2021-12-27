@@ -37,6 +37,7 @@ namespace EngineValve
 		{
 			try
 			{
+				_parameters.ErrorsDictionary.Clear();
 				_parameters.LengthValve = double.Parse(textboxLengthValve.Text,
 					CultureInfo.InvariantCulture);
 				_parameters.DiameterStem = double.Parse(textboxDiameterStem.Text,
@@ -59,7 +60,18 @@ namespace EngineValve
 					CultureInfo.InvariantCulture);
 				_parameters.DepthNeckline = double.Parse(textBoxDepthNeckline.Text,
 					CultureInfo.InvariantCulture);
-
+				if (_parameters.ErrorsDictionary.Any())
+				{
+					string message = null;
+					foreach (var param in
+						_parameters.ErrorsDictionary.Keys)
+					{
+						message +=
+							_parameters.ErrorsDictionary[param]
+							+ "\n";
+					}
+					throw new Exception(message);
+				}
 				var engineValveBuilder = new EngineValveBuilder(_parameters);
 				engineValveBuilder.BuildEngineValve();
 			}
