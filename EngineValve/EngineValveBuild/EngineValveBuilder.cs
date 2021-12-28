@@ -263,7 +263,7 @@ namespace EngineValveBuild
 		/// </summary>
 		private void NecklinePlate()
 		{
-			if (_parameters.DepthNeckline != 0 && _parameters.DiameterNeckline != 0)
+			if (_parameters.CreateNeckline)
 			{
 				ksEntity planeXOZ = _part.GetDefaultEntity(2);
 				ksEntity sketch = _part.NewEntity(5);
@@ -310,7 +310,7 @@ namespace EngineValveBuild
 		/// <returns></returns>
 		private int CreateEllips(ksDocument2D document2D, double width, double height)
 		{
-			KompasObject kompas = _kompas.GetKompasObject();
+			KompasObject kompas = _kompas.KompasEntity;
 			ksEllipseParam param = kompas.GetParamStruct(22);
 			param.A = width;
 			param.B = height;

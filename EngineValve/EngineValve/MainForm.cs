@@ -262,12 +262,14 @@ namespace EngineValve
 				this.Height = 500;
 				BuildButton.Location = new Point(300, 390);
 				groupBox1.Visible = true;
+				_parameters.CreateNeckline = true;
 			}
 			else
 			{
 				this.Height = 440;
 				BuildButton.Location = new Point(35, 320);
 				groupBox1.Visible = false;
+				_parameters.CreateNeckline = false;
 			}
 		}
 

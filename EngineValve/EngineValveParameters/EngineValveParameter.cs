@@ -52,6 +52,10 @@ namespace EngineValveParameters
 		/// Глубина выреза
 		/// </summary>
 		private static Parameter<double> _depthNeckline;
+		/// <summary>
+		/// Поле определяющее будет ли построен вырез
+		/// </summary>
+		private bool _createNeckline;
 
 		/// <summary>
 		/// Словарь, сопоставляющий
@@ -72,11 +76,14 @@ namespace EngineValveParameters
 				{"Depth Neckline", _depthNeckline}
 			};
 
+		private readonly Dictionary<string, string> _errorsDictionary = new Dictionary<string, string>();
+		
+
 		/// <summary>
 		/// Словарь сообщений об ошибках
 		/// </summary>
-		public Dictionary<string, string> ErrorsDictionary { get; }
-			= new Dictionary<string, string>();
+		public Dictionary<string, string> ErrorsDictionary => _errorsDictionary;
+
 		/// <summary>
 		/// Конструктор для стандартных параметров.
 		/// </summary>
@@ -93,6 +100,7 @@ namespace EngineValveParameters
 			RadiusTransition = 20;
 			DiameterNeckline = 0;
 			DepthNeckline = 0;
+			CreateNeckline = false;
 		}
 		
 		/// <summary>
@@ -247,6 +255,15 @@ namespace EngineValveParameters
 				_depthNeckline = SetValue("Depth Neckline", maxDepthNeckline, 0, value);
 			}
 		}
+		/// <summary>
+		/// Устанавливает, будет ли построен вырез в тарелке.
+		/// </summary>
+		public bool CreateNeckline
+		{
+			get => _createNeckline;
+			set => _createNeckline = value;
+		}
+
 		/// <summary>
 		/// Приватный метод инициализирующий
 		/// поля параметров

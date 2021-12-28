@@ -14,6 +14,11 @@ namespace EngineValveBuild
 		/// </summary>
 	    private KompasObject _entity;
 
+		/// <summary>
+		/// Свойство получающее экземпляр компаса.
+		/// </summary>
+	    public KompasObject KompasEntity => _entity;
+
 	    /// <summary>
 		/// Запуск связи
 		/// </summary>
@@ -84,13 +89,5 @@ namespace EngineValveBuild
 		    return document3D;
 	    }
 
-		/// <summary>
-		///Метод для получения экземпляра КОМПАС-3D 
-		/// </summary>
-		/// <returns>Экземпляр КОМПАС-3D</returns>
-	    public KompasObject GetKompasObject()
-	    {
-		    return _entity;
-	    }
     }
 }
