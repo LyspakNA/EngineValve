@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace EngineValveParameters
 {
+	//TODO: naming
 	/// <summary>
 	/// Параметры клапана.
 	/// </summary>
@@ -76,6 +77,7 @@ namespace EngineValveParameters
 				{"Depth Neckline", _depthNeckline}
 			};
 
+		//TODO: XML
 		private readonly Dictionary<string, string> _errorsDictionary = new Dictionary<string, string>();
 		
 
