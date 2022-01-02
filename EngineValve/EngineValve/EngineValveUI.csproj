@@ -89,9 +89,9 @@
       <Project>{8bd9f189-6a9f-432c-904a-cb8f6fafb60a}</Project>
       <Name>EngineValveBuild</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EngineValveParameters\EngineValveParameter.csproj">
+    <ProjectReference Include="..\EngineValveParameters\EngineValveParameters.csproj">
       <Project>{bbf38542-4d91-41ba-ae12-c57465ebecc4}</Project>
-      <Name>EngineValveParameter</Name>
+      <Name>EngineValveParameters</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

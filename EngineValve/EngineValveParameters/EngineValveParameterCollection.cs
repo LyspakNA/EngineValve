@@ -7,7 +7,7 @@ namespace EngineValveParameters
 	/// <summary>
 	/// Параметры клапана.
 	/// </summary>
-	public class EngineValveParameter
+	public class EngineValveParameterCollection
 	{
 		/// <summary>
 		/// Длина клапана
@@ -62,34 +62,34 @@ namespace EngineValveParameters
 		/// Словарь, сопоставляющий
 		/// названия параметров и их поля
 		/// </summary>
-		private Dictionary<string, Parameter<double>> _parametersDictionary =
-			new Dictionary<string, Parameter<double>>()
+		private Dictionary<ParameterNames, Parameter<double>> _parametersDictionary =
+			new Dictionary<ParameterNames, Parameter<double>>()
 			{
-				{"Length Valve", _lengthValve},
-				{"Diameter Stem", _diameterStem},
-				{"Width Groove", _widthGroove},
-				{"Depth Groove", _depthGroove},
-				{"Diameter Plate", _diameterPlate},
-				{"Thickness Plate", _thicknessPlate},
-				{"Length Chamfer", _lengthChamfer},
-				{"Radius Transition", _radiusTransition},
-				{"Diameter Neckline", _diameterNeckline},
-				{"Depth Neckline", _depthNeckline}
+				{ParameterNames.LengthValve, _lengthValve},
+				{ParameterNames.DiameterStem, _diameterStem},
+				{ParameterNames.WidthGroove, _widthGroove},
+				{ParameterNames.DepthGroove, _depthGroove},
+				{ParameterNames.DistanceGroove, _distanceGroove},
+				{ParameterNames.DiameterPlate, _diameterPlate},
+				{ParameterNames.ThicknessPlate, _thicknessPlate},
+				{ParameterNames.LengthChamfer, _lengthChamfer},
+				{ParameterNames.RadiusTransition, _radiusTransition},
+				{ParameterNames.DiameterNeckline, _diameterNeckline},
+				{ParameterNames.DepthNeckline, _depthNeckline}
 			};
 
 		//TODO: XML
-		private readonly Dictionary<string, string> _errorsDictionary = new Dictionary<string, string>();
-		
+
 
 		/// <summary>
-		/// Словарь сообщений об ошибках
+		/// Свойство, обрабатывающее словарь ошибок
 		/// </summary>
-		public Dictionary<string, string> ErrorsDictionary => _errorsDictionary;
+		public Dictionary<ParameterNames, string> ErrorsDictionary { get; } = new Dictionary<ParameterNames, string>();
 
 		/// <summary>
 		/// Конструктор для стандартных параметров.
 		/// </summary>
-		public EngineValveParameter()
+		public EngineValveParameterCollection()
 		{
 			LengthValve = 100;
 			DiameterStem = 8;
@@ -115,7 +115,7 @@ namespace EngineValveParameters
 			{
 				const double minLengthValve = 50;
 				const double maxLengthValve = 150;
-				_lengthValve = SetValue("Length Valve",
+				_lengthValve = SetValue(ParameterNames.LengthValve,
 					maxLengthValve, minLengthValve, value);
 			}
 		}
@@ -129,7 +129,7 @@ namespace EngineValveParameters
 			{
 				const double minDiameterStem = 5;
 				const double maxDiameterStem = 15;
-				_diameterStem = SetValue("Diameter Stem",
+				_diameterStem = SetValue(ParameterNames.DiameterStem,
 					maxDiameterStem, minDiameterStem, value);
 			}
 		}
@@ -143,7 +143,7 @@ namespace EngineValveParameters
 			{
 				const double minWidthGroove = 1;
 				double maxWidthGroove = 0.1 * LengthValve;
-				_widthGroove = SetValue("Width Groove",
+				_widthGroove = SetValue(ParameterNames.WidthGroove,
 					maxWidthGroove, minWidthGroove, value);
 			}
 		}
@@ -157,7 +157,7 @@ namespace EngineValveParameters
 			{
 				const double minDepthGroove = 0.5;
 				double maxDepthGroove = 0.25 * DiameterStem;
-				_depthGroove = SetValue("Depth Groove",
+				_depthGroove = SetValue(ParameterNames.DepthGroove,
 					maxDepthGroove, minDepthGroove, value);
 			}
 		}
@@ -171,7 +171,7 @@ namespace EngineValveParameters
 			{
 				const double minDistanceGroove = 5;
 				double maxDistanceGroove = 0.25 * LengthValve;
-				_distanceGroove = SetValue("Distance Groove",
+				_distanceGroove = SetValue(ParameterNames.DistanceGroove,
 					maxDistanceGroove, minDistanceGroove, value);
 			}
 		}
@@ -185,7 +185,7 @@ namespace EngineValveParameters
 			{
 				double minDiameterPlate = 2 * DiameterStem;
 				const double maxDiameterPlate = 70;
-				_diameterPlate = SetValue("Diameter Plate",
+				_diameterPlate = SetValue(ParameterNames.DiameterPlate,
 					maxDiameterPlate, minDiameterPlate, value);
 			}
 		}
@@ -199,7 +199,7 @@ namespace EngineValveParameters
 			{
 				const double minThicknessPlate = 1;
 				const double maxThicknessPlate = 10;
-				_thicknessPlate = SetValue("Thickness Plate",
+				_thicknessPlate = SetValue(ParameterNames.ThicknessPlate,
 					maxThicknessPlate, minThicknessPlate, value);
 			}
 		}
@@ -213,7 +213,7 @@ namespace EngineValveParameters
 			{
 				const double minLengthChamfer = 2;
 				const double maxLengthChamfer = 10;
-				_lengthChamfer = SetValue("Length Chamfer",
+				_lengthChamfer = SetValue(ParameterNames.LengthChamfer,
 					maxLengthChamfer, minLengthChamfer, value);
 			}
 		}
@@ -227,7 +227,7 @@ namespace EngineValveParameters
 			{
 				const double minRadiusTransition = 5;
 				double maxRadiusTransition = 0.75 * DiameterPlate;
-				_radiusTransition = SetValue("Radius Transition",
+				_radiusTransition = SetValue(ParameterNames.RadiusTransition,
 						maxRadiusTransition, minRadiusTransition, value);
 			}
 		}
@@ -240,7 +240,7 @@ namespace EngineValveParameters
 			set
 			{
 				double maxDiameterNeckline = DiameterPlate;
-				_diameterNeckline = SetValue("Diameter Neckline",
+				_diameterNeckline = SetValue(ParameterNames.DiameterNeckline,
 						maxDiameterNeckline, 0, value);
 			}
 		}
@@ -254,7 +254,8 @@ namespace EngineValveParameters
 			set
 			{
 				double maxDepthNeckline = ThicknessPlate * 4;
-				_depthNeckline = SetValue("Depth Neckline", maxDepthNeckline, 0, value);
+				_depthNeckline = SetValue(ParameterNames.DepthNeckline,
+					maxDepthNeckline, 0, value);
 			}
 		}
 		/// <summary>
@@ -275,7 +276,7 @@ namespace EngineValveParameters
 		/// <param name="min">Минимальное значение</param>
 		/// <param name="value">Устанавливаемое значение</param>
 		/// <returns>Экземпляр параметров</returns>
-		private Parameter<double> SetValue(string name, double max, double min, double value)
+		private Parameter<double> SetValue(ParameterNames name, double max, double min, double value)
 		{
 			try
 			{

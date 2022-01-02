@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EngineValveParameters\EngineValveParameter.csproj" />
+    <ProjectReference Include="..\EngineValveParameters\EngineValveParameters.csproj" />
   </ItemGroup>
 
 </Project>

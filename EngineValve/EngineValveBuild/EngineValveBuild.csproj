@@ -75,9 +75,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EngineValveParameters\EngineValveParameter.csproj">
+    <ProjectReference Include="..\EngineValveParameters\EngineValveParameters.csproj">
       <Project>{bbf38542-4d91-41ba-ae12-c57465ebecc4}</Project>
-      <Name>EngineValveParameter</Name>
+      <Name>EngineValveParameters</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

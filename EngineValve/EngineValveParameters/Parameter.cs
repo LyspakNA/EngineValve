@@ -30,25 +30,15 @@ namespace EngineValveParameters
 		/// <summary>
 		/// Название параметра для исключений
 		/// </summary>
-		private string _name;
+		private ParameterNames _name;
 
 		/// <summary>
 		/// Устанавливает или возвращает имя
 		/// </summary>
-		public string Name
+		public ParameterNames Name
 		{
 			get => _name;
-			set
-			{
-				if (string.IsNullOrEmpty(value) ||
-				    string.IsNullOrWhiteSpace(value))
-				{
-					throw new Exception("Name can't be null," +
-					                    " empty or blank!");
-				}
-
-				_name = value;
-			}
+			set => _name = value;
 		}
 
 		/// <summary>
@@ -117,7 +107,7 @@ namespace EngineValveParameters
 		/// <param name="max">Максимальное значение</param>
 		/// <param name="min">Минимальное значение</param>
 		/// <param name="value">Присваемое значение</param>
-		public Parameter(string name, T max, T min, T value)
+		public Parameter(ParameterNames name, T max, T min, T value)
 		{
 			Name = name;
 			Min = min;

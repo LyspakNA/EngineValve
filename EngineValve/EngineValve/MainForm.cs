@@ -21,6 +21,20 @@ namespace EngineValve
 		public MainForm()
 		{
 			InitializeComponent();
+			TextBoxDictionary = new Dictionary<ParameterNames, TextBox>()
+			{
+				{ParameterNames.LengthValve, textboxLengthValve},
+				{ParameterNames.DiameterStem, textboxDiameterStem},
+				{ParameterNames.WidthGroove, textboxWidthGroove},
+				{ParameterNames.DepthGroove, textboxDepthGroove},
+				{ParameterNames.DistanceGroove, textboxDistanceGroove},
+				{ParameterNames.DiameterPlate, textboxDiameterPlate},
+				{ParameterNames.ThicknessPlate, textboxThicknessPlate},
+				{ParameterNames.LengthChamfer, textboxLengthChamfer},
+				{ParameterNames.RadiusTransition, textboxRadiusTransition},
+				{ParameterNames.DiameterNeckline, textBoxDiameterNeckline},
+				{ParameterNames.DepthNeckline, textBoxDepthNeckline}
+			};
 			ExtraPanelEnabler(checkBoxNeckline);
 			SetDefault();
 		}
@@ -28,7 +42,12 @@ namespace EngineValve
 		/// <summary>
 		/// Объект класса с параметрами
 		/// </summary>
-		private EngineValveParameter _parameters = new EngineValveParameter();
+		private EngineValveParameterCollection _parameters = new EngineValveParameterCollection();
+
+		/// <summary>
+		/// Словарь пар текстбокс - имя парвметра
+		/// </summary>
+		public Dictionary<ParameterNames, TextBox> TextBoxDictionary { get; }
 
 		/// <summary>
 		/// Обработчик нажатия кнопки "Построить".
@@ -155,35 +174,29 @@ namespace EngineValve
 			CheckText(textbox);
 			if (double.TryParse(textbox.Text, NumberStyles.Float,
 				CultureInfo.InvariantCulture, out double value))
+
 			{
 				//TODO: Убрать названия объектов
-				switch (textbox.Tag)
+				if(textbox == TextBoxDictionary[ParameterNames.LengthValve])
 				{
-					case "LengthValve":
-					{
 						labelValueWidth.Text = $"(от 1 до {value * 0.1} мм)";
 						labelValueDistance.Text = $"(от 5 до {value * 0.25} мм)";
-						break;
-					}
 
-					case "DiameterStem":
-					{
+				}
+				else if (textbox == TextBoxDictionary[ParameterNames.DiameterStem])
+				{
 						labelValueDepth.Text = $"(от 0.5 до {value * 0.25} мм)";
 						labelValueDiameterPlate.Text = $"(от {value * 2} до 70 мм)";
-						break;
-					}
+				}
 
-					case "DiameterPlate":
-					{
+				else if(textbox == TextBoxDictionary[ParameterNames.DiameterPlate])
+				{
 						labelValueTransition.Text = $"(от 5 до {0.75 * value} мм)";
 						labelNecklineDiam.Text = $"(до {value} мм)";
-						break;
-					}
-					case "ThicknessPlate":
-					{
+				}
+				else if(textbox == TextBoxDictionary[ParameterNames.ThicknessPlate])
+				{
 						labelNecklaneDep.Text = $"(до {value * 4} мм)";
-						break;
-					}
 				}
 			}
 
@@ -194,47 +207,44 @@ namespace EngineValve
 		/// </summary>
 		private void CheckText(TextBox textbox)
 		{
-			switch (textbox.Tag)
+			if(textbox == TextBoxDictionary[ParameterNames.LengthValve])
 			{
-				case "LengthValve":
+				if (textbox.Text == "")
 				{
-					if (textbox.Text == "")
-					{
-						textboxWidthGroove.Enabled = false;
-						textboxDistanceGroove.Enabled = false;
-						break;
-					}
+					textboxWidthGroove.Enabled = false;
+					textboxDistanceGroove.Enabled = false;
+				}
 
+				else
+				{
 					textboxWidthGroove.Enabled = true;
 					textboxDistanceGroove.Enabled = true;
-					break;
 				}
-
-				case "DiameterStem":
+			}
+			else if (textbox == TextBoxDictionary[ParameterNames.DiameterStem])
+			{
+				if (textbox.Text == "")
 				{
-					if (textbox.Text == "")
-					{
-						textboxDepthGroove.Enabled = false;
-						textboxDiameterPlate.Enabled = false;
-						break;
-					}
-
+					textboxDepthGroove.Enabled = false;
+					textboxDiameterPlate.Enabled = false;
+				}
+				else
+				{
 					textboxDepthGroove.Enabled = true;
 					textboxDiameterPlate.Enabled = true;
-					break;
 				}
+			}
 
-				case "DiameterPlate":
-				{
+			else if (textbox == TextBoxDictionary[ParameterNames.DiameterPlate])
+			{
 					if (textbox.Text == "")
 					{
 						textboxRadiusTransition.Enabled = false;
-						break;
 					}
-
-					textboxRadiusTransition.Enabled = true;
-					break;
-				}
+					else
+					{
+						textboxRadiusTransition.Enabled = true;
+					}
 			}
 		}
 

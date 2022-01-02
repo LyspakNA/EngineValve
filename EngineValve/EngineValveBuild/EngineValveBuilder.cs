@@ -16,7 +16,7 @@ namespace EngineValveBuild
 		/// <summary>
 		/// Экземпляр класса параметров
 		/// </summary>
-		private EngineValveParameter _parameters;
+		private EngineValveParameterCollection _parameters;
 
 		/// <summary>
 		/// Экземпляр компонента сборки
@@ -32,7 +32,7 @@ namespace EngineValveBuild
 		/// Конструктор 
 		/// </summary>
 		/// <param name="parameters">Экземпляр параметров</param>
-		public EngineValveBuilder(EngineValveParameter parameters)
+		public EngineValveBuilder(EngineValveParameterCollection parameters)
 		{
 			_kompas.Start();
 			var document3D = _kompas.CreateDocument3D();

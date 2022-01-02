@@ -15,16 +15,7 @@ namespace EngineValve.Tests
 		/// Объект шаблонного класса для тестов
 		/// </summary>
 		private Parameter<double> _testParameter
-			= new Parameter<double>("Test parameter", 100, 0, 50);
-
-		[TestCase("", Description = "Пустое значение имени")]
-		[TestCase(" ", Description = "Имя состоящие из разделителя")]
-		[Test(Description = "Негативный тест на сеттер имени")]
-		public void TestParameterSet_NameUncorrect(string wrongName)
-		{
-			Assert.Throws<Exception>(()=>_testParameter.Name = wrongName, 
-				"Возникает, если имя пустое или состоит из пробела");
-		}
+			= new Parameter<double>(ParameterNames.DistanceGroove, 100, 0, 50);
 
 		[TestCase(-1, Description = "Значение максимума меньше минимума")]
 		[Test(Description = "Негативный тест на сеттер максимума")]
