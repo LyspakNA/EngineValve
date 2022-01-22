@@ -39,6 +39,7 @@ namespace EngineValveBuild
 			_part = document3D.GetPart(-1);
 			_parameters = parameters;
 		}
+
 		/// <summary>
 		/// Сборка клапана
 		/// </summary>
@@ -52,11 +53,13 @@ namespace EngineValveBuild
 			ChamferStem();
 			NecklinePlate();
 		}
+
 		/// <summary>
 		/// Строитель тарелки клапана
 		/// </summary>
 		private void BuildPlate()
 		{
+			//TODO: вынести в словарь констант
 			ksEntity planeXOY = _part.GetDefaultEntity(1);
 			var length = _parameters.ThicknessPlate + _parameters.LengthChamfer;
 			CreateCylinder(planeXOY,_parameters.DiameterPlate,length);

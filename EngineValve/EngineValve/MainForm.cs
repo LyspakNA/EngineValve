@@ -176,15 +176,12 @@ namespace EngineValve
 			CheckText(textbox);
 			if (double.TryParse(textbox.Text, NumberStyles.Float,
 				CultureInfo.InvariantCulture, out double value))
-
-			{
-				//TODO: Убрать названия объектов
+            {
 				if(textbox == TextBoxDictionary[ParameterNames.LengthValve])
 				{
 						labelValueWidth.Text = $"(от 1 до {value * 0.1} мм)";
 						labelValueDistance.Text = $"(от 5 до {value * 0.25} мм)";
-
-				}
+                }
 				else if (textbox == TextBoxDictionary[ParameterNames.DiameterStem])
 				{
 						labelValueDepth.Text = $"(от 0.5 до {value * 0.25} мм)";
@@ -210,8 +207,11 @@ namespace EngineValve
 		private void CheckText(TextBox textbox)
 		{
 			if(textbox == TextBoxDictionary[ParameterNames.LengthValve])
-			{
-				if (textbox.Text == "")
+            {
+				//TODO:
+                textboxWidthGroove.Enabled = textboxDistanceGroove.Enabled = textbox.Text != "";
+				
+                if (textbox.Text == "")
 				{
 					textboxWidthGroove.Enabled = false;
 					textboxDistanceGroove.Enabled = false;
@@ -239,6 +239,7 @@ namespace EngineValve
 
 			else if (textbox == TextBoxDictionary[ParameterNames.DiameterPlate])
 			{
+				//TODO:
 					if (textbox.Text == "")
 					{
 						textboxRadiusTransition.Enabled = false;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace EngineValveParameters
 {
-	//TODO: naming
 	/// <summary>
 	/// Параметры клапана.
 	/// </summary>
@@ -77,10 +76,8 @@ namespace EngineValveParameters
 				{ParameterNames.DiameterNeckline, _diameterNeckline},
 				{ParameterNames.DepthNeckline, _depthNeckline}
 			};
-
-		//TODO: XML
-
-
+		
+		//TODO: RSDN
 		/// <summary>
 		/// Свойство, обрабатывающее словарь ошибок
 		/// </summary>
@@ -290,7 +287,5 @@ namespace EngineValveParameters
 
 			return _parametersDictionary[name];
 		}
-
-
-	}
+    }
 }

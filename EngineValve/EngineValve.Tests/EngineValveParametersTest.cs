@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Runtime.InteropServices;
 using EngineValveParameters;
 using NUnit.Framework;
@@ -11,28 +11,29 @@ namespace EngineValve.Tests
 	{
 		private EngineValveParameterCollection _testEngineValveParameters;
 
+		//TODO:РєРѕРґРёСЂРѕРІРєР°
 		[TestCase(50, ParameterNames.LengthValve,
-			TestName = "Позитивный - ввод длины клапана")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ Г¤Г«ГЁГ­Г» ГЄГ«Г ГЇГ Г­Г ")]
 		[TestCase(10, ParameterNames.DiameterStem,
-			TestName = "Позитивный - ввод диаметра ножки")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ Г¤ГЁГ Г¬ГҐГІГ°Г  Г­Г®Г¦ГЄГЁ")]
 		[TestCase(1, ParameterNames.WidthGroove,
-			TestName = "Позитивный - ввод ширины проточки")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ ГёГЁГ°ГЁГ­Г» ГЇГ°Г®ГІГ®Г·ГЄГЁ")]
 		[TestCase(1, ParameterNames.DepthGroove,
-			TestName = "Позитивный - ввод глубины проточки")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ ГЈГ«ГіГЎГЁГ­Г» ГЇГ°Г®ГІГ®Г·ГЄГЁ")]
 		[TestCase(7, ParameterNames.DistanceGroove,
-			TestName = "Позитивный - ввод расстояния до проточки")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ Г°Г Г±Г±ГІГ®ГїГ­ГЁГї Г¤Г® ГЇГ°Г®ГІГ®Г·ГЄГЁ")]
 		[TestCase(35, ParameterNames.DiameterPlate,
-			TestName = "Позитивный - ввод диаметра тарелки")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ Г¤ГЁГ Г¬ГҐГІГ°Г  ГІГ Г°ГҐГ«ГЄГЁ")]
 		[TestCase(5, ParameterNames.ThicknessPlate,
-			TestName = "Позитивный - ввод толщины тарелки")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ ГІГ®Г«Г№ГЁГ­Г» ГІГ Г°ГҐГ«ГЄГЁ")]
 		[TestCase(5, ParameterNames.LengthChamfer,
-			TestName = "Позитивный - ввод длины рабочей фаски")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ Г¤Г«ГЁГ­Г» Г°Г ГЎГ®Г·ГҐГ© ГґГ Г±ГЄГЁ")]
 		[TestCase(10, ParameterNames.RadiusTransition,
-			TestName = "Позитивный - ввод радиуса плавного перехода")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ Г°Г Г¤ГЁГіГ±Г  ГЇГ«Г ГўГ­Г®ГЈГ® ГЇГҐГ°ГҐГµГ®Г¤Г ")]
 		[TestCase(4, ParameterNames.DiameterNeckline,
-			TestName = "Позитивный - ввод диаметра выреза")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ Г¤ГЁГ Г¬ГҐГІГ°Г  ГўГ»Г°ГҐГ§Г ")]
 		[TestCase(4, ParameterNames.DepthNeckline,
-			TestName = "Позитивный - ввод глубины проточки")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГўГўГ®Г¤ ГЈГ«ГіГЎГЁГ­Г» ГЇГ°Г®ГІГ®Г·ГЄГЁ")]
 		public void TestCorrectParametersValveSet(double value, ParameterNames name)
 		{
 			_testEngineValveParameters = new EngineValveParameterCollection();
@@ -45,50 +46,50 @@ namespace EngineValve.Tests
 		}
 
 		[TestCase(25, ParameterNames.LengthValve,
-			TestName = "Позитивный - длина клапана меньше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤Г«ГЁГ­Г  ГЄГ«Г ГЇГ Г­Г  Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(2, ParameterNames.DiameterStem,
-			TestName = "Позитивный - диаметр ножки меньше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤ГЁГ Г¬ГҐГІГ° Г­Г®Г¦ГЄГЁ Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(0.5, ParameterNames.WidthGroove,
-			TestName = "Позитивный - ширина проточки меньше минимального ")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГёГЁГ°ГЁГ­Г  ГЇГ°Г®ГІГ®Г·ГЄГЁ Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ® ")]
 		[TestCase(0.01, ParameterNames.DepthGroove,
-			TestName = "Позитивный - глубина проточки меньше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГЈГ«ГіГЎГЁГ­Г  ГЇГ°Г®ГІГ®Г·ГЄГЁ Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(1, ParameterNames.DistanceGroove,
-			TestName = "Позитивный - расстояние до проточки меньше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г°Г Г±Г±ГІГ®ГїГ­ГЁГҐ Г¤Г® ГЇГ°Г®ГІГ®Г·ГЄГЁ Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(5, ParameterNames.DiameterPlate,
-			TestName = "Позитивный - диаметр тарелки меньше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤ГЁГ Г¬ГҐГІГ° ГІГ Г°ГҐГ«ГЄГЁ Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(0.001, ParameterNames.ThicknessPlate,
-			TestName = "Позитивный - толщина тарелки менььше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГІГ®Г«Г№ГЁГ­Г  ГІГ Г°ГҐГ«ГЄГЁ Г¬ГҐГ­ГјГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(1, ParameterNames.LengthChamfer,
-			TestName = "Позитивный - длина рабочей фаски меньше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤Г«ГЁГ­Г  Г°Г ГЎГ®Г·ГҐГ© ГґГ Г±ГЄГЁ Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(2, ParameterNames.RadiusTransition,
-			TestName = "Позитивный - радиус плавного перехода меньше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г°Г Г¤ГЁГіГ± ГЇГ«Г ГўГ­Г®ГЈГ® ГЇГҐГ°ГҐГµГ®Г¤Г  Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(-1, ParameterNames.DiameterNeckline,
-			TestName = "Позитивный - диаметр выреза меньше минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤ГЁГ Г¬ГҐГІГ° ГўГ»Г°ГҐГ§Г  Г¬ГҐГ­ГјГёГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(-1, ParameterNames.DepthNeckline,
-			TestName = "Позитивный - глубина проточки меньще минимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГЈГ«ГіГЎГЁГ­Г  ГЇГ°Г®ГІГ®Г·ГЄГЁ Г¬ГҐГ­ГјГ№ГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 
 		[TestCase(200, ParameterNames.LengthValve,
-			TestName = "Позитивный - длина клапана больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤Г«ГЁГ­Г  ГЄГ«Г ГЇГ Г­Г  ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(35, ParameterNames.DiameterStem,
-			TestName = "Позитивный - диаметр ножки больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤ГЁГ Г¬ГҐГІГ° Г­Г®Г¦ГЄГЁ ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(20, ParameterNames.WidthGroove,
-			TestName = "Позитивный - ширина проточки больше максимального ")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГёГЁГ°ГЁГ­Г  ГЇГ°Г®ГІГ®Г·ГЄГЁ ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ® ")]
 		[TestCase(20, ParameterNames.DepthGroove,
-			TestName = "Позитивный - глубина проточки больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГЈГ«ГіГЎГЁГ­Г  ГЇГ°Г®ГІГ®Г·ГЄГЁ ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(50, ParameterNames.DistanceGroove,
-			TestName = "Позитивный - расстояние до проточки больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г°Г Г±Г±ГІГ®ГїГ­ГЁГҐ Г¤Г® ГЇГ°Г®ГІГ®Г·ГЄГЁ ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(100, ParameterNames.DiameterPlate,
-			TestName = "Позитивный - диаметр тарелки больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤ГЁГ Г¬ГҐГІГ° ГІГ Г°ГҐГ«ГЄГЁ ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(50, ParameterNames.ThicknessPlate,
-			TestName = "Позитивный - толщина тарелки больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГІГ®Г«Г№ГЁГ­Г  ГІГ Г°ГҐГ«ГЄГЁ ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(100, ParameterNames.LengthChamfer,
-			TestName = "Позитивный - длина рабочей фаски больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤Г«ГЁГ­Г  Г°Г ГЎГ®Г·ГҐГ© ГґГ Г±ГЄГЁ ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(100, ParameterNames.RadiusTransition,
-			TestName = "Позитивный - радиус плавного перехода больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г°Г Г¤ГЁГіГ± ГЇГ«Г ГўГ­Г®ГЈГ® ГЇГҐГ°ГҐГµГ®Г¤Г  ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(100, ParameterNames.DiameterNeckline,
-			TestName = "Позитивный - диаметр выреза больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - Г¤ГЁГ Г¬ГҐГІГ° ГўГ»Г°ГҐГ§Г  ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		[TestCase(100, ParameterNames.DepthNeckline,
-			TestName = "Позитивный - глубина проточки больше максимального")]
+			TestName = "ГЏГ®Г§ГЁГІГЁГўГ­Г»Г© - ГЈГ«ГіГЎГЁГ­Г  ГЇГ°Г®ГІГ®Г·ГЄГЁ ГЎГ®Г«ГјГёГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®")]
 		public void TestIncorrectParametersValveSet(double value, ParameterNames name)
 		{
 			_testEngineValveParameters = new EngineValveParameterCollection();
@@ -97,7 +98,6 @@ namespace EngineValve.Tests
 			var actual = propertyInfo.GetValue(_testEngineValveParameters);
 
 			Assert.AreNotEqual(actual, value);
-
 		}
 
 	}
