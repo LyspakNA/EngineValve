@@ -81,7 +81,8 @@ namespace EngineValveParameters
 		/// <summary>
 		/// Свойство, обрабатывающее словарь ошибок
 		/// </summary>
-		public Dictionary<ParameterNames, string> ErrorsDictionary { get; } = new Dictionary<ParameterNames, string>();
+		public Dictionary<ParameterNames, string> ErrorsDictionary { get; } =
+			new Dictionary<ParameterNames, string>();
 
 		/// <summary>
 		/// Конструктор для стандартных параметров.
@@ -97,8 +98,8 @@ namespace EngineValveParameters
 			ThicknessPlate = 2;
 			LengthChamfer = 3;
 			RadiusTransition = 20;
-			DiameterNeckline = 0;
-			DepthNeckline = 0;
+			DiameterNeckline = 25;
+			DepthNeckline = 4;
 			CreateNeckline = false;
 		}
 		

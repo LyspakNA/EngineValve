@@ -1,7 +1,9 @@
-﻿using System;
+using System;
+using System.Dynamic;
 using System.Runtime.InteropServices;
 using EngineValveParameters;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using NUnit.Framework.Internal;
 
 namespace EngineValve.Tests
@@ -11,29 +13,29 @@ namespace EngineValve.Tests
 	{
 		private EngineValveParameterCollection _testEngineValveParameters;
 
-		//TODO:кодировка
+		//TODO: кодировка
 		[TestCase(50, ParameterNames.LengthValve,
-			TestName = "Ïîçèòèâíûé - ââîä äëèíû êëàïàíà")]
+			TestName = "Позитивный - корректное значение длины клапана")]
 		[TestCase(10, ParameterNames.DiameterStem,
-			TestName = "Ïîçèòèâíûé - ââîä äèàìåòðà íîæêè")]
+			TestName = "Позитивный - корректное значение диаметра ножки")]
 		[TestCase(1, ParameterNames.WidthGroove,
-			TestName = "Ïîçèòèâíûé - ââîä øèðèíû ïðîòî÷êè")]
+			TestName = "Позитивный - корректное значение ширины проточки")]
 		[TestCase(1, ParameterNames.DepthGroove,
-			TestName = "Ïîçèòèâíûé - ââîä ãëóáèíû ïðîòî÷êè")]
+			TestName = "Позитивный - корректное значение глубины проточки")]
 		[TestCase(7, ParameterNames.DistanceGroove,
-			TestName = "Ïîçèòèâíûé - ââîä ðàññòîÿíèÿ äî ïðîòî÷êè")]
+			TestName = "Позитивный - корректное значение расстояния до проточки")]
 		[TestCase(35, ParameterNames.DiameterPlate,
-			TestName = "Ïîçèòèâíûé - ââîä äèàìåòðà òàðåëêè")]
+			TestName = "Позитивный - корректное значение диаметра тарелки")]
 		[TestCase(5, ParameterNames.ThicknessPlate,
-			TestName = "Ïîçèòèâíûé - ââîä òîëùèíû òàðåëêè")]
+			TestName = "Позитивный - корректное значение толщины тарелки")]
 		[TestCase(5, ParameterNames.LengthChamfer,
-			TestName = "Ïîçèòèâíûé - ââîä äëèíû ðàáî÷åé ôàñêè")]
+			TestName = "Позитивный - корректное значение длины фаски")]
 		[TestCase(10, ParameterNames.RadiusTransition,
-			TestName = "Ïîçèòèâíûé - ââîä ðàäèóñà ïëàâíîãî ïåðåõîäà")]
+			TestName = "Позитивный - корректное значение радиуса перехода")]
 		[TestCase(4, ParameterNames.DiameterNeckline,
-			TestName = "Ïîçèòèâíûé - ââîä äèàìåòðà âûðåçà")]
+			TestName = "Позитивный - корректное значение диаметра выреза")]
 		[TestCase(4, ParameterNames.DepthNeckline,
-			TestName = "Ïîçèòèâíûé - ââîä ãëóáèíû ïðîòî÷êè")]
+			TestName = "Позитивный - корректное значение глубины выреза")]
 		public void TestCorrectParametersValveSet(double value, ParameterNames name)
 		{
 			_testEngineValveParameters = new EngineValveParameterCollection();
@@ -46,50 +48,50 @@ namespace EngineValve.Tests
 		}
 
 		[TestCase(25, ParameterNames.LengthValve,
-			TestName = "Ïîçèòèâíûé - äëèíà êëàïàíà ìåíüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - длина клапана меньше допустимого")]
 		[TestCase(2, ParameterNames.DiameterStem,
-			TestName = "Ïîçèòèâíûé - äèàìåòð íîæêè ìåíüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - диаметр ножки меньше допустимого")]
 		[TestCase(0.5, ParameterNames.WidthGroove,
-			TestName = "Ïîçèòèâíûé - øèðèíà ïðîòî÷êè ìåíüøå ìèíèìàëüíîãî ")]
+			TestName = "Позитивный - ширина проточки меньше допустимой")]
 		[TestCase(0.01, ParameterNames.DepthGroove,
-			TestName = "Ïîçèòèâíûé - ãëóáèíà ïðîòî÷êè ìåíüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - глубина проточки меньше допустимой")]
 		[TestCase(1, ParameterNames.DistanceGroove,
-			TestName = "Ïîçèòèâíûé - ðàññòîÿíèå äî ïðîòî÷êè ìåíüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - расстояние до проточки меньше допустимой")]
 		[TestCase(5, ParameterNames.DiameterPlate,
-			TestName = "Ïîçèòèâíûé - äèàìåòð òàðåëêè ìåíüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - диаметр тарелки меньше допустимого")]
 		[TestCase(0.001, ParameterNames.ThicknessPlate,
-			TestName = "Ïîçèòèâíûé - òîëùèíà òàðåëêè ìåíüüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - толщина тарелки меньше допустимой")]
 		[TestCase(1, ParameterNames.LengthChamfer,
-			TestName = "Ïîçèòèâíûé - äëèíà ðàáî÷åé ôàñêè ìåíüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - длина фаски меньше допустимой")]
 		[TestCase(2, ParameterNames.RadiusTransition,
-			TestName = "Ïîçèòèâíûé - ðàäèóñ ïëàâíîãî ïåðåõîäà ìåíüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - радиус перехода меньше допустимого")]
 		[TestCase(-1, ParameterNames.DiameterNeckline,
-			TestName = "Ïîçèòèâíûé - äèàìåòð âûðåçà ìåíüøå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - диаметр выреза меньше допустимого")]
 		[TestCase(-1, ParameterNames.DepthNeckline,
-			TestName = "Ïîçèòèâíûé - ãëóáèíà ïðîòî÷êè ìåíüùå ìèíèìàëüíîãî")]
+			TestName = "Позитивный - глубина выреза меньше допустимой")]
 
 		[TestCase(200, ParameterNames.LengthValve,
-			TestName = "Ïîçèòèâíûé - äëèíà êëàïàíà áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - длина клапана больше допустимого")]
 		[TestCase(35, ParameterNames.DiameterStem,
-			TestName = "Ïîçèòèâíûé - äèàìåòð íîæêè áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - диаметр ножки больше допустимого")]
 		[TestCase(20, ParameterNames.WidthGroove,
-			TestName = "Ïîçèòèâíûé - øèðèíà ïðîòî÷êè áîëüøå ìàêñèìàëüíîãî ")]
+			TestName = "Позитивный - ширина проточки больше допустимой")]
 		[TestCase(20, ParameterNames.DepthGroove,
-			TestName = "Ïîçèòèâíûé - ãëóáèíà ïðîòî÷êè áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - глубина проточки больше допустимой")]
 		[TestCase(50, ParameterNames.DistanceGroove,
-			TestName = "Ïîçèòèâíûé - ðàññòîÿíèå äî ïðîòî÷êè áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - расстояние до проточки больше допустимой")]
 		[TestCase(100, ParameterNames.DiameterPlate,
-			TestName = "Ïîçèòèâíûé - äèàìåòð òàðåëêè áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - диаметр тарелки больше допустимого")]
 		[TestCase(50, ParameterNames.ThicknessPlate,
-			TestName = "Ïîçèòèâíûé - òîëùèíà òàðåëêè áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - толщина тарелки больше допустимой")]
 		[TestCase(100, ParameterNames.LengthChamfer,
-			TestName = "Ïîçèòèâíûé - äëèíà ðàáî÷åé ôàñêè áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - длина фаски больше допустимой")]
 		[TestCase(100, ParameterNames.RadiusTransition,
-			TestName = "Ïîçèòèâíûé - ðàäèóñ ïëàâíîãî ïåðåõîäà áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - радиус перехода больше допустимого")]
 		[TestCase(100, ParameterNames.DiameterNeckline,
-			TestName = "Ïîçèòèâíûé - äèàìåòð âûðåçà áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - диаметр выреза больше допустимого")]
 		[TestCase(100, ParameterNames.DepthNeckline,
-			TestName = "Ïîçèòèâíûé - ãëóáèíà ïðîòî÷êè áîëüøå ìàêñèìàëüíîãî")]
+			TestName = "Позитивный - глубина выреза больше допустимой")]
 		public void TestIncorrectParametersValveSet(double value, ParameterNames name)
 		{
 			_testEngineValveParameters = new EngineValveParameterCollection();
@@ -100,5 +102,17 @@ namespace EngineValve.Tests
 			Assert.AreNotEqual(actual, value);
 		}
 
+		[TestCase(true,
+			TestName = "Позитивный - изменение флага выреза на положительный")]
+		[TestCase(false,
+			TestName = "Позитивный - изменение флага выреза на отрицательный")]
+		public void TestCreateNecklineFlagSet(bool value)
+		{
+			_testEngineValveParameters = new EngineValveParameterCollection();
+			_testEngineValveParameters.CreateNeckline = value;
+			var actual = _testEngineValveParameters.CreateNeckline;
+
+			Assert.AreEqual(actual, value);
+		}
 	}
 }

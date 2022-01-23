@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EngineValveParameters;
 using Kompas6API5;
+using Kompas6Constants;
+using Kompas6Constants3D;
 
 namespace EngineValveBuild
 {
@@ -36,7 +38,7 @@ namespace EngineValveBuild
 		{
 			_kompas.Start();
 			var document3D = _kompas.CreateDocument3D();
-			_part = document3D.GetPart(-1);
+			_part = document3D.GetPart((short)Part_Type.pTop_Part);
 			_parameters = parameters;
 		}
 
@@ -60,7 +62,8 @@ namespace EngineValveBuild
 		private void BuildPlate()
 		{
 			//TODO: вынести в словарь констант
-			ksEntity planeXOY = _part.GetDefaultEntity(1);
+			ksEntity planeXOY = 
+				_part.GetDefaultEntity((short)ksObj3dTypeEnum.o3d_planeXOY);
 			var length = _parameters.ThicknessPlate + _parameters.LengthChamfer;
 			CreateCylinder(planeXOY,_parameters.DiameterPlate,length);
 		}
@@ -70,13 +73,15 @@ namespace EngineValveBuild
 		/// </summary>
 		private void BuildStem()
 		{
-			ksEntity planeOffset = _part.NewEntity(14);
+			ksEntity planeOffset = 
+				_part.NewEntity((short)ksObj3dTypeEnum.o3d_planeOffset);
 			ksPlaneOffsetDefinition planeOffsetDefinition = planeOffset.GetDefinition();
 
 			planeOffsetDefinition.direction = true;
 			planeOffsetDefinition.offset = _parameters.ThicknessPlate;
 
-			ksEntity planeXOY = _part.GetDefaultEntity(1);
+			ksEntity planeXOY =
+				_part.GetDefaultEntity((short)ksObj3dTypeEnum.o3d_planeXOY);
 			planeOffsetDefinition.SetPlane(planeXOY);
 
 			planeOffset.Create();
@@ -93,7 +98,10 @@ namespace EngineValveBuild
 		/// <param name="diameter">Диаметр круга</param>
 		private void CreateCircle(ksDocument2D document2D, double diameter)
 		{
-			document2D.ksCircle(0, 0, diameter / 2, 1);
+			int x = 0;
+			int y = 0;
+			document2D.ksCircle(x, y, diameter / 2,
+				(short)ksCurveStyleEnum.ksCSNormal);
 		}
 		/// <summary>
 		/// Метод выдавливания
@@ -102,10 +110,12 @@ namespace EngineValveBuild
 		/// <param name="sketch">Эскиз выдавливания</param>
 		private void CreateExtrusion(double length, ksEntity sketch)
 		{
-			ksEntity extrusion = _part.NewEntity(24);
+			ksEntity extrusion =
+				_part.NewEntity((short)ksObj3dTypeEnum.o3d_baseExtrusion);
 			ksBaseExtrusionDefinition extrusionDefinition = extrusion.GetDefinition();
 
-			extrusionDefinition.SetSideParam(true, 0, length);
+			extrusionDefinition.SetSideParam(true, 
+				(short)ksEndTypeEnum.etBlind, length);
 			extrusionDefinition.SetSketch(sketch);
 			extrusion.Create();
 		}
@@ -118,7 +128,7 @@ namespace EngineValveBuild
 		/// <param name="length">Длина цилиндра</param>
 		private void CreateCylinder(ksEntity plane, double diameter, double length)
 		{
-			ksEntity sketch = _part.NewEntity(5);
+			ksEntity sketch = _part.NewEntity((short)ksObj3dTypeEnum.o3d_sketch);
 			ksSketchDefinition sketchDefinition = sketch.GetDefinition();
 
 			sketchDefinition.SetPlane(plane);
@@ -140,7 +150,7 @@ namespace EngineValveBuild
 		/// <param name="radius">Радиус скругления</param>
 		private void CreateFillet(ksEntity face, double radius)
 		{
-			ksEntity fillet = _part.NewEntity(34);
+			ksEntity fillet = _part.NewEntity((short)ksObj3dTypeEnum.o3d_fillet);
 
 			ksFilletDefinition filletDefinition = fillet.GetDefinition();
 
@@ -158,9 +168,11 @@ namespace EngineValveBuild
 		/// </summary>
 		private void FilletPlate()
 		{
-			ksEntityCollection faceCollection = _part.EntityCollection(7);
+			ksEntityCollection faceCollection =
+				_part.EntityCollection((short)ksObj3dTypeEnum.o3d_edge);
 			var length = _parameters.ThicknessPlate + _parameters.LengthChamfer;
-			faceCollection.SelectByPoint(_parameters.DiameterStem/2, 0, length);
+			const int y = 0;
+			faceCollection.SelectByPoint(_parameters.DiameterStem/2, y, length);
 
 			ksEntity baseFace = faceCollection.First();
 			CreateFillet(baseFace, _parameters.RadiusTransition);
@@ -173,7 +185,7 @@ namespace EngineValveBuild
 		/// <param name="length">Длина фаски</param>
 		private void CreateChamfer(ksEntity face, double length)
 		{
-			ksEntity chamfer = _part.NewEntity(33);
+			ksEntity chamfer = _part.NewEntity((short)ksObj3dTypeEnum.o3d_chamfer);
 			ksChamferDefinition chamferDefinition = chamfer.GetDefinition();
 
 			chamferDefinition.tangent = false;
@@ -190,9 +202,11 @@ namespace EngineValveBuild
 		/// </summary>
 		private void ChamferPlate()
 		{
-			ksEntityCollection faceCollection = _part.EntityCollection(7);
+			ksEntityCollection faceCollection =
+				_part.EntityCollection((short)ksObj3dTypeEnum.o3d_edge);
 			var length = _parameters.ThicknessPlate + _parameters.LengthChamfer;
-			faceCollection.SelectByPoint(_parameters.DiameterPlate / 2, 0, length);
+			const int y = 0;
+			faceCollection.SelectByPoint(_parameters.DiameterPlate / 2, y, length);
 
 			ksEntity baseFace = faceCollection.First();
 			CreateChamfer(baseFace, _parameters.LengthChamfer);
@@ -204,9 +218,11 @@ namespace EngineValveBuild
 		private void ChamferStem()
 		{
 			const double length = 1.0;
-			ksEntityCollection faceCollection = _part.EntityCollection(7);
+			ksEntityCollection faceCollection =
+				_part.EntityCollection((short)ksObj3dTypeEnum.o3d_edge);
+			const int y = 0;
 			faceCollection.SelectByPoint(_parameters.DiameterStem/2, 
-				0, _parameters.LengthValve);
+				y, _parameters.LengthValve);
 
 			ksEntity baseFace = faceCollection.First();
 			CreateChamfer(baseFace, length);
@@ -217,7 +233,8 @@ namespace EngineValveBuild
 		/// </summary>
 		private void BuildGroove()
 		{
-			ksEntity planeOffset = _part.NewEntity(14);
+			ksEntity planeOffset =
+				_part.NewEntity((short)ksObj3dTypeEnum.o3d_planeOffset);
 			ksPlaneOffsetDefinition planeOffsetDefinition = 
 				planeOffset.GetDefinition();
 
@@ -225,11 +242,12 @@ namespace EngineValveBuild
 			planeOffsetDefinition.offset = _parameters.LengthValve -
 			                               _parameters.DistanceGroove;
 
-			ksEntity planeXOY = _part.GetDefaultEntity(1);
+			ksEntity planeXOY =
+				_part.GetDefaultEntity((short)ksObj3dTypeEnum.o3d_planeXOY);
 			planeOffsetDefinition.SetPlane(planeXOY);
 
 			planeOffset.Create();
-			ksEntity sketch = _part.NewEntity(5);
+			ksEntity sketch = _part.NewEntity((short)ksObj3dTypeEnum.o3d_sketch);
 			ksSketchDefinition sketchDefinition = sketch.GetDefinition();
 
 			sketchDefinition.SetPlane(planeOffset);
@@ -251,12 +269,12 @@ namespace EngineValveBuild
 		/// <param name="sketch">Вырезаемый эскиз</param>
 		private void CreateCutExtrusion(double length, ksEntity sketch)
 		{
-			ksEntity cutExtrusion = _part.NewEntity(26);
+			ksEntity cutExtrusion = _part.NewEntity((short)ksObj3dTypeEnum.o3d_cutExtrusion);
 			ksCutExtrusionDefinition cutExtrusionDefinition = 
 				cutExtrusion.GetDefinition();
 
 			
-			cutExtrusionDefinition.SetSideParam(false, 0, length);
+			cutExtrusionDefinition.SetSideParam(false, (short)ksEndTypeEnum.etBlind, length);
 			cutExtrusionDefinition.SetSketch(sketch);
 			cutExtrusion.Create();
 		}
@@ -268,8 +286,9 @@ namespace EngineValveBuild
 		{
 			if (_parameters.CreateNeckline)
 			{
-				ksEntity planeXOZ = _part.GetDefaultEntity(2);
-				ksEntity sketch = _part.NewEntity(5);
+				ksEntity planeXOZ =
+					_part.GetDefaultEntity((short)ksObj3dTypeEnum.o3d_planeXOZ);
+				ksEntity sketch = _part.NewEntity((short)ksObj3dTypeEnum.o3d_sketch);
 				ksSketchDefinition sketchDefinition = sketch.GetDefinition();
 
 				sketchDefinition.SetPlane(planeXOZ);
@@ -279,10 +298,14 @@ namespace EngineValveBuild
 
 				var ellips = CreateEllips(document2D, _parameters.DiameterNeckline/2,
 					_parameters.DepthNeckline/2);
-				document2D.ksLineSeg(0, 0, 0, 10, 3);
-				document2D.ksTrimmCurve(ellips, 0, _parameters.DepthNeckline/2
-					, 0, -_parameters.DepthNeckline/2, _parameters.DiameterNeckline/2
-					, 0, 1);
+				const int x = 0;
+				const int y = 0;
+
+				document2D.ksLineSeg(x, y, x, _parameters.DepthNeckline, 
+					(short)ksCurveStyleEnum.ksCSAxial);
+				document2D.ksTrimmCurve(ellips, x, _parameters.DepthNeckline/2,
+					y, -_parameters.DepthNeckline/2, _parameters.DiameterNeckline/2, y,
+					(short)ViewMode.vm_HiddenRemoved);
 
 				sketchDefinition.EndEdit();
 				CreateCutRotation(sketch);
@@ -296,10 +319,13 @@ namespace EngineValveBuild
 		/// <param name="sketch">Эскиз для вырезания</param>
 		private void CreateCutRotation(ksEntity sketch)
 		{
-			ksEntity cutRotated = _part.NewEntity(29);
+			ksEntity cutRotated =
+				_part.NewEntity((short)ksObj3dTypeEnum.o3d_cutRotated);
 			ksCutRotatedDefinition cutRotatedDefinition=
 				cutRotated.GetDefinition();
-			cutRotatedDefinition.SetSideParam(false, 360D);
+
+			const double angle = 360;
+			cutRotatedDefinition.SetSideParam(false, angle);
 			cutRotatedDefinition.SetSketch(sketch);
 			cutRotated.Create();
 		}
@@ -314,11 +340,12 @@ namespace EngineValveBuild
 		private int CreateEllips(ksDocument2D document2D, double width, double height)
 		{
 			KompasObject kompas = _kompas.KompasEntity;
-			ksEllipseParam param = kompas.GetParamStruct(22);
+			ksEllipseParam param =
+				kompas.GetParamStruct((short)StructType2DEnum.ko_EllipseParam);
 			param.A = width;
 			param.B = height;
 			param.angle = 0;
-			param.style = 1;
+			param.style = (short)ksCurveStyleEnum.ksCSNormal;
 			param.xc = 0;
 			param.yc = 0;
 

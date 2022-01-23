@@ -210,44 +210,15 @@ namespace EngineValve
             {
 				//TODO:
                 textboxWidthGroove.Enabled = textboxDistanceGroove.Enabled = textbox.Text != "";
-				
-                if (textbox.Text == "")
-				{
-					textboxWidthGroove.Enabled = false;
-					textboxDistanceGroove.Enabled = false;
-				}
-
-				else
-				{
-					textboxWidthGroove.Enabled = true;
-					textboxDistanceGroove.Enabled = true;
-				}
-			}
+            }
 			else if (textbox == TextBoxDictionary[ParameterNames.DiameterStem])
 			{
-				if (textbox.Text == "")
-				{
-					textboxDepthGroove.Enabled = false;
-					textboxDiameterPlate.Enabled = false;
-				}
-				else
-				{
-					textboxDepthGroove.Enabled = true;
-					textboxDiameterPlate.Enabled = true;
-				}
+				textboxDepthGroove.Enabled = textboxDiameterPlate.Enabled = textbox.Text != "";
 			}
-
 			else if (textbox == TextBoxDictionary[ParameterNames.DiameterPlate])
 			{
 				//TODO:
-					if (textbox.Text == "")
-					{
-						textboxRadiusTransition.Enabled = false;
-					}
-					else
-					{
-						textboxRadiusTransition.Enabled = true;
-					}
+				textboxRadiusTransition.Enabled = textbox.Text != "";
 			}
 		}
 
