@@ -1,10 +1,5 @@
-using System;
-using System.Dynamic;
-using System.Runtime.InteropServices;
 using EngineValveParameters;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
-using NUnit.Framework.Internal;
 
 namespace EngineValve.Tests
 {

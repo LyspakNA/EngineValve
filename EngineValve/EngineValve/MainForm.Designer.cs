@@ -50,8 +50,7 @@ namespace EngineValve
 			this.textboxThicknessPlate = new System.Windows.Forms.TextBox();
 			this.textboxLengthChamfer = new System.Windows.Forms.TextBox();
 			this.textboxRadiusTransition = new System.Windows.Forms.TextBox();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.panelBackground = new System.Windows.Forms.Panel();
 			this.textBoxDepthNeckline = new System.Windows.Forms.TextBox();
 			this.labelNecklaneDep = new System.Windows.Forms.Label();
 			this.labelDepthNeckline = new System.Windows.Forms.Label();
@@ -67,9 +66,10 @@ namespace EngineValve
 			this.labelValueWidth = new System.Windows.Forms.Label();
 			this.labelValueThickness = new System.Windows.Forms.Label();
 			this.BuildButton = new System.Windows.Forms.Button();
-			this.panel1.SuspendLayout();
-			this.groupBox1.SuspendLayout();
+			this.panelNeckline = new System.Windows.Forms.Panel();
+			this.panelBackground.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.panelNeckline.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// labelLengthValve
@@ -77,9 +77,9 @@ namespace EngineValve
 			this.labelLengthValve.AutoSize = true;
 			this.labelLengthValve.Location = new System.Drawing.Point(3, 6);
 			this.labelLengthValve.Name = "labelLengthValve";
-			this.labelLengthValve.Size = new System.Drawing.Size(101, 13);
+			this.labelLengthValve.Size = new System.Drawing.Size(85, 13);
 			this.labelLengthValve.TabIndex = 0;
-			this.labelLengthValve.Text = "Длина клапана (A)";
+			this.labelLengthValve.Text = "Length valve (A)";
 			// 
 			// labelValueLength
 			// 
@@ -87,18 +87,18 @@ namespace EngineValve
 			this.labelValueLength.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueLength.Location = new System.Drawing.Point(3, 19);
 			this.labelValueLength.Name = "labelValueLength";
-			this.labelValueLength.Size = new System.Drawing.Size(94, 13);
+			this.labelValueLength.Size = new System.Drawing.Size(71, 13);
 			this.labelValueLength.TabIndex = 1;
-			this.labelValueLength.Text = "(от 50 до 150 мм)";
+			this.labelValueLength.Text = "(50 - 150 mm)";
 			// 
 			// labelDiameterStem
 			// 
 			this.labelDiameterStem.AutoSize = true;
 			this.labelDiameterStem.Location = new System.Drawing.Point(3, 37);
 			this.labelDiameterStem.Name = "labelDiameterStem";
-			this.labelDiameterStem.Size = new System.Drawing.Size(149, 13);
+			this.labelDiameterStem.Size = new System.Drawing.Size(90, 13);
 			this.labelDiameterStem.TabIndex = 2;
-			this.labelDiameterStem.Text = "Диаметр ножки клапана (B)";
+			this.labelDiameterStem.Text = "Diameter stem (B)";
 			// 
 			// labelValueDiameterStem
 			// 
@@ -106,63 +106,63 @@ namespace EngineValve
 			this.labelValueDiameterStem.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueDiameterStem.Location = new System.Drawing.Point(3, 50);
 			this.labelValueDiameterStem.Name = "labelValueDiameterStem";
-			this.labelValueDiameterStem.Size = new System.Drawing.Size(82, 13);
+			this.labelValueDiameterStem.Size = new System.Drawing.Size(59, 13);
 			this.labelValueDiameterStem.TabIndex = 3;
-			this.labelValueDiameterStem.Text = "(от 5 до 15 мм)";
+			this.labelValueDiameterStem.Text = "(5 - 15 mm)";
 			// 
 			// labelWidthGroove
 			// 
 			this.labelWidthGroove.AutoSize = true;
 			this.labelWidthGroove.Location = new System.Drawing.Point(3, 69);
 			this.labelWidthGroove.Name = "labelWidthGroove";
-			this.labelWidthGroove.Size = new System.Drawing.Size(147, 13);
+			this.labelWidthGroove.Size = new System.Drawing.Size(84, 13);
 			this.labelWidthGroove.TabIndex = 4;
-			this.labelWidthGroove.Text = "Ширина паза под сухарь (C)";
+			this.labelWidthGroove.Text = "Width groove(C)";
 			// 
 			// labelDepthGroove
 			// 
 			this.labelDepthGroove.AutoSize = true;
 			this.labelDepthGroove.Location = new System.Drawing.Point(3, 104);
 			this.labelDepthGroove.Name = "labelDepthGroove";
-			this.labelDepthGroove.Size = new System.Drawing.Size(150, 13);
+			this.labelDepthGroove.Size = new System.Drawing.Size(89, 13);
 			this.labelDepthGroove.TabIndex = 5;
-			this.labelDepthGroove.Text = "Глубина паза под сухарь (D)";
+			this.labelDepthGroove.Text = "Depth groove (D)";
 			// 
 			// labelDistanceGroove
 			// 
 			this.labelDistanceGroove.AutoSize = true;
 			this.labelDistanceGroove.Location = new System.Drawing.Point(3, 141);
 			this.labelDistanceGroove.Name = "labelDistanceGroove";
-			this.labelDistanceGroove.Size = new System.Drawing.Size(183, 13);
+			this.labelDistanceGroove.Size = new System.Drawing.Size(101, 13);
 			this.labelDistanceGroove.TabIndex = 6;
-			this.labelDistanceGroove.Text = "Расстояние до паза под сухарь (E)";
+			this.labelDistanceGroove.Text = "Distance groove (E)";
 			// 
 			// labelDiameterPlate
 			// 
 			this.labelDiameterPlate.AutoSize = true;
 			this.labelDiameterPlate.Location = new System.Drawing.Point(3, 176);
 			this.labelDiameterPlate.Name = "labelDiameterPlate";
-			this.labelDiameterPlate.Size = new System.Drawing.Size(157, 13);
+			this.labelDiameterPlate.Size = new System.Drawing.Size(90, 13);
 			this.labelDiameterPlate.TabIndex = 7;
-			this.labelDiameterPlate.Text = "Диаметр тарелки клапана (F)";
+			this.labelDiameterPlate.Text = "Diameter plate (F)";
 			// 
 			// labelThicknessPlate
 			// 
 			this.labelThicknessPlate.AutoSize = true;
 			this.labelThicknessPlate.Location = new System.Drawing.Point(3, 211);
 			this.labelThicknessPlate.Name = "labelThicknessPlate";
-			this.labelThicknessPlate.Size = new System.Drawing.Size(159, 13);
+			this.labelThicknessPlate.Size = new System.Drawing.Size(99, 13);
 			this.labelThicknessPlate.TabIndex = 8;
-			this.labelThicknessPlate.Text = "Толщина тарелки клапана (G)";
+			this.labelThicknessPlate.Text = "Thickness plate (G)";
 			// 
 			// labelLengthChamfer
 			// 
 			this.labelLengthChamfer.AutoSize = true;
 			this.labelLengthChamfer.Location = new System.Drawing.Point(3, 246);
 			this.labelLengthChamfer.Name = "labelLengthChamfer";
-			this.labelLengthChamfer.Size = new System.Drawing.Size(131, 13);
+			this.labelLengthChamfer.Size = new System.Drawing.Size(93, 13);
 			this.labelLengthChamfer.TabIndex = 9;
-			this.labelLengthChamfer.Text = "Длина рабочей фаски (I)";
+			this.labelLengthChamfer.Text = "Length chamfer (I)";
 			// 
 			// labelValueChamfer
 			// 
@@ -170,18 +170,18 @@ namespace EngineValve
 			this.labelValueChamfer.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueChamfer.Location = new System.Drawing.Point(3, 259);
 			this.labelValueChamfer.Name = "labelValueChamfer";
-			this.labelValueChamfer.Size = new System.Drawing.Size(82, 13);
+			this.labelValueChamfer.Size = new System.Drawing.Size(59, 13);
 			this.labelValueChamfer.TabIndex = 10;
-			this.labelValueChamfer.Text = "(от 2 до 10 мм)";
+			this.labelValueChamfer.Text = "(2 - 10 mm)";
 			// 
 			// labelRadiusTransition
 			// 
 			this.labelRadiusTransition.AutoSize = true;
 			this.labelRadiusTransition.Location = new System.Drawing.Point(2, 280);
 			this.labelRadiusTransition.Name = "labelRadiusTransition";
-			this.labelRadiusTransition.Size = new System.Drawing.Size(160, 13);
+			this.labelRadiusTransition.Size = new System.Drawing.Size(102, 13);
 			this.labelRadiusTransition.TabIndex = 11;
-			this.labelRadiusTransition.Text = "Радиус плавного перехода (H)";
+			this.labelRadiusTransition.Text = "Radius transition (H)";
 			// 
 			// textboxLengthValve
 			// 
@@ -263,63 +263,47 @@ namespace EngineValve
 			this.textboxRadiusTransition.TabIndex = 20;
 			this.textboxRadiusTransition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
 			// 
-			// panel1
+			// panelBackground
 			// 
-			this.panel1.Controls.Add(this.groupBox1);
-			this.panel1.Controls.Add(this.checkBoxNeckline);
-			this.panel1.Controls.Add(this.pictureBox1);
-			this.panel1.Controls.Add(this.labelValueTransition);
-			this.panel1.Controls.Add(this.labelValueDiameterPlate);
-			this.panel1.Controls.Add(this.labelValueDistance);
-			this.panel1.Controls.Add(this.labelValueDepth);
-			this.panel1.Controls.Add(this.labelValueWidth);
-			this.panel1.Controls.Add(this.labelValueThickness);
-			this.panel1.Controls.Add(this.BuildButton);
-			this.panel1.Controls.Add(this.labelRadiusTransition);
-			this.panel1.Controls.Add(this.textboxRadiusTransition);
-			this.panel1.Controls.Add(this.labelValueChamfer);
-			this.panel1.Controls.Add(this.textboxLengthValve);
-			this.panel1.Controls.Add(this.labelLengthChamfer);
-			this.panel1.Controls.Add(this.textboxLengthChamfer);
-			this.panel1.Controls.Add(this.labelThicknessPlate);
-			this.panel1.Controls.Add(this.textboxDiameterStem);
-			this.panel1.Controls.Add(this.labelDiameterPlate);
-			this.panel1.Controls.Add(this.textboxThicknessPlate);
-			this.panel1.Controls.Add(this.labelDistanceGroove);
-			this.panel1.Controls.Add(this.textboxWidthGroove);
-			this.panel1.Controls.Add(this.labelDepthGroove);
-			this.panel1.Controls.Add(this.textboxDiameterPlate);
-			this.panel1.Controls.Add(this.labelWidthGroove);
-			this.panel1.Controls.Add(this.textboxDepthGroove);
-			this.panel1.Controls.Add(this.labelValueDiameterStem);
-			this.panel1.Controls.Add(this.textboxDistanceGroove);
-			this.panel1.Controls.Add(this.labelDiameterStem);
-			this.panel1.Controls.Add(this.labelLengthValve);
-			this.panel1.Controls.Add(this.labelValueLength);
-			this.panel1.Location = new System.Drawing.Point(12, 12);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(483, 437);
-			this.panel1.TabIndex = 21;
-			// 
-			// groupBox1
-			// 
-			this.groupBox1.Controls.Add(this.textBoxDepthNeckline);
-			this.groupBox1.Controls.Add(this.labelNecklaneDep);
-			this.groupBox1.Controls.Add(this.labelDepthNeckline);
-			this.groupBox1.Controls.Add(this.labelDiameterNeckline);
-			this.groupBox1.Controls.Add(this.textBoxDiameterNeckline);
-			this.groupBox1.Controls.Add(this.labelNecklineDiam);
-			this.groupBox1.Location = new System.Drawing.Point(5, 319);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(255, 79);
-			this.groupBox1.TabIndex = 33;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Параметры выреза";
-			this.groupBox1.Visible = false;
+			this.panelBackground.Controls.Add(this.panelNeckline);
+			this.panelBackground.Controls.Add(this.checkBoxNeckline);
+			this.panelBackground.Controls.Add(this.pictureBox1);
+			this.panelBackground.Controls.Add(this.labelValueTransition);
+			this.panelBackground.Controls.Add(this.labelValueDiameterPlate);
+			this.panelBackground.Controls.Add(this.labelValueDistance);
+			this.panelBackground.Controls.Add(this.labelValueDepth);
+			this.panelBackground.Controls.Add(this.labelValueWidth);
+			this.panelBackground.Controls.Add(this.labelValueThickness);
+			this.panelBackground.Controls.Add(this.BuildButton);
+			this.panelBackground.Controls.Add(this.labelRadiusTransition);
+			this.panelBackground.Controls.Add(this.textboxRadiusTransition);
+			this.panelBackground.Controls.Add(this.labelValueChamfer);
+			this.panelBackground.Controls.Add(this.textboxLengthValve);
+			this.panelBackground.Controls.Add(this.labelLengthChamfer);
+			this.panelBackground.Controls.Add(this.textboxLengthChamfer);
+			this.panelBackground.Controls.Add(this.labelThicknessPlate);
+			this.panelBackground.Controls.Add(this.textboxDiameterStem);
+			this.panelBackground.Controls.Add(this.labelDiameterPlate);
+			this.panelBackground.Controls.Add(this.textboxThicknessPlate);
+			this.panelBackground.Controls.Add(this.labelDistanceGroove);
+			this.panelBackground.Controls.Add(this.textboxWidthGroove);
+			this.panelBackground.Controls.Add(this.labelDepthGroove);
+			this.panelBackground.Controls.Add(this.textboxDiameterPlate);
+			this.panelBackground.Controls.Add(this.labelWidthGroove);
+			this.panelBackground.Controls.Add(this.textboxDepthGroove);
+			this.panelBackground.Controls.Add(this.labelValueDiameterStem);
+			this.panelBackground.Controls.Add(this.textboxDistanceGroove);
+			this.panelBackground.Controls.Add(this.labelDiameterStem);
+			this.panelBackground.Controls.Add(this.labelLengthValve);
+			this.panelBackground.Controls.Add(this.labelValueLength);
+			this.panelBackground.Location = new System.Drawing.Point(12, 12);
+			this.panelBackground.Name = "panelBackground";
+			this.panelBackground.Size = new System.Drawing.Size(483, 417);
+			this.panelBackground.TabIndex = 21;
 			// 
 			// textBoxDepthNeckline
 			// 
-			this.textBoxDepthNeckline.Location = new System.Drawing.Point(196, 47);
+			this.textBoxDepthNeckline.Location = new System.Drawing.Point(201, 37);
 			this.textBoxDepthNeckline.Name = "textBoxDepthNeckline";
 			this.textBoxDepthNeckline.Size = new System.Drawing.Size(45, 20);
 			this.textBoxDepthNeckline.TabIndex = 35;
@@ -329,33 +313,33 @@ namespace EngineValve
 			// 
 			this.labelNecklaneDep.AutoSize = true;
 			this.labelNecklaneDep.ForeColor = System.Drawing.Color.Gray;
-			this.labelNecklaneDep.Location = new System.Drawing.Point(6, 60);
+			this.labelNecklaneDep.Location = new System.Drawing.Point(3, 53);
 			this.labelNecklaneDep.Name = "labelNecklaneDep";
-			this.labelNecklaneDep.Size = new System.Drawing.Size(44, 13);
+			this.labelNecklaneDep.Size = new System.Drawing.Size(29, 13);
 			this.labelNecklaneDep.TabIndex = 34;
-			this.labelNecklaneDep.Text = "(до мм)";
+			this.labelNecklaneDep.Text = "(mm)";
 			// 
 			// labelDepthNeckline
 			// 
 			this.labelDepthNeckline.AutoSize = true;
-			this.labelDepthNeckline.Location = new System.Drawing.Point(7, 47);
+			this.labelDepthNeckline.Location = new System.Drawing.Point(3, 40);
 			this.labelDepthNeckline.Name = "labelDepthNeckline";
-			this.labelDepthNeckline.Size = new System.Drawing.Size(48, 13);
+			this.labelDepthNeckline.Size = new System.Drawing.Size(79, 13);
 			this.labelDepthNeckline.TabIndex = 33;
-			this.labelDepthNeckline.Text = "Глубина";
+			this.labelDepthNeckline.Text = "Depth neckline";
 			// 
 			// labelDiameterNeckline
 			// 
 			this.labelDiameterNeckline.AutoSize = true;
-			this.labelDiameterNeckline.Location = new System.Drawing.Point(4, 16);
+			this.labelDiameterNeckline.Location = new System.Drawing.Point(2, 4);
 			this.labelDiameterNeckline.Name = "labelDiameterNeckline";
-			this.labelDiameterNeckline.Size = new System.Drawing.Size(59, 13);
+			this.labelDiameterNeckline.Size = new System.Drawing.Size(92, 13);
 			this.labelDiameterNeckline.TabIndex = 30;
-			this.labelDiameterNeckline.Text = "Диаметр  ";
+			this.labelDiameterNeckline.Text = "Diameter neckline";
 			// 
 			// textBoxDiameterNeckline
 			// 
-			this.textBoxDiameterNeckline.Location = new System.Drawing.Point(196, 13);
+			this.textBoxDiameterNeckline.Location = new System.Drawing.Point(201, 1);
 			this.textBoxDiameterNeckline.Name = "textBoxDiameterNeckline";
 			this.textBoxDiameterNeckline.Size = new System.Drawing.Size(45, 20);
 			this.textBoxDiameterNeckline.TabIndex = 32;
@@ -365,20 +349,20 @@ namespace EngineValve
 			// 
 			this.labelNecklineDiam.AutoSize = true;
 			this.labelNecklineDiam.ForeColor = System.Drawing.Color.Gray;
-			this.labelNecklineDiam.Location = new System.Drawing.Point(6, 29);
+			this.labelNecklineDiam.Location = new System.Drawing.Point(3, 17);
 			this.labelNecklineDiam.Name = "labelNecklineDiam";
-			this.labelNecklineDiam.Size = new System.Drawing.Size(44, 13);
+			this.labelNecklineDiam.Size = new System.Drawing.Size(29, 13);
 			this.labelNecklineDiam.TabIndex = 31;
-			this.labelNecklineDiam.Text = "(до мм)";
+			this.labelNecklineDiam.Text = "(mm)";
 			// 
 			// checkBoxNeckline
 			// 
 			this.checkBoxNeckline.AutoSize = true;
-			this.checkBoxNeckline.Location = new System.Drawing.Point(267, 356);
+			this.checkBoxNeckline.Location = new System.Drawing.Point(3, 310);
 			this.checkBoxNeckline.Name = "checkBoxNeckline";
-			this.checkBoxNeckline.Size = new System.Drawing.Size(201, 17);
+			this.checkBoxNeckline.Size = new System.Drawing.Size(137, 17);
 			this.checkBoxNeckline.TabIndex = 29;
-			this.checkBoxNeckline.Text = "Сделать вырез в тарелке клапана";
+			this.checkBoxNeckline.Text = "Create neckline in plate";
 			this.checkBoxNeckline.UseVisualStyleBackColor = true;
 			this.checkBoxNeckline.CheckedChanged += new System.EventHandler(this.checkBoxNeckline_CheckedChanged);
 			// 
@@ -398,9 +382,9 @@ namespace EngineValve
 			this.labelValueTransition.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueTransition.Location = new System.Drawing.Point(3, 293);
 			this.labelValueTransition.Name = "labelValueTransition";
-			this.labelValueTransition.Size = new System.Drawing.Size(58, 13);
+			this.labelValueTransition.Size = new System.Drawing.Size(29, 13);
 			this.labelValueTransition.TabIndex = 27;
-			this.labelValueTransition.Text = "(от до мм)";
+			this.labelValueTransition.Text = "(mm)";
 			// 
 			// labelValueDiameterPlate
 			// 
@@ -408,9 +392,9 @@ namespace EngineValve
 			this.labelValueDiameterPlate.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueDiameterPlate.Location = new System.Drawing.Point(3, 189);
 			this.labelValueDiameterPlate.Name = "labelValueDiameterPlate";
-			this.labelValueDiameterPlate.Size = new System.Drawing.Size(58, 13);
+			this.labelValueDiameterPlate.Size = new System.Drawing.Size(29, 13);
 			this.labelValueDiameterPlate.TabIndex = 26;
-			this.labelValueDiameterPlate.Text = "(от до мм)";
+			this.labelValueDiameterPlate.Text = "(mm)";
 			// 
 			// labelValueDistance
 			// 
@@ -418,9 +402,9 @@ namespace EngineValve
 			this.labelValueDistance.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueDistance.Location = new System.Drawing.Point(3, 154);
 			this.labelValueDistance.Name = "labelValueDistance";
-			this.labelValueDistance.Size = new System.Drawing.Size(58, 13);
+			this.labelValueDistance.Size = new System.Drawing.Size(29, 13);
 			this.labelValueDistance.TabIndex = 25;
-			this.labelValueDistance.Text = "(от до мм)";
+			this.labelValueDistance.Text = "(mm)";
 			// 
 			// labelValueDepth
 			// 
@@ -428,9 +412,9 @@ namespace EngineValve
 			this.labelValueDepth.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueDepth.Location = new System.Drawing.Point(3, 117);
 			this.labelValueDepth.Name = "labelValueDepth";
-			this.labelValueDepth.Size = new System.Drawing.Size(58, 13);
+			this.labelValueDepth.Size = new System.Drawing.Size(29, 13);
 			this.labelValueDepth.TabIndex = 24;
-			this.labelValueDepth.Text = "(от до мм)";
+			this.labelValueDepth.Text = "(mm)";
 			// 
 			// labelValueWidth
 			// 
@@ -438,9 +422,9 @@ namespace EngineValve
 			this.labelValueWidth.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueWidth.Location = new System.Drawing.Point(3, 82);
 			this.labelValueWidth.Name = "labelValueWidth";
-			this.labelValueWidth.Size = new System.Drawing.Size(58, 13);
+			this.labelValueWidth.Size = new System.Drawing.Size(29, 13);
 			this.labelValueWidth.TabIndex = 23;
-			this.labelValueWidth.Text = "(от до мм)";
+			this.labelValueWidth.Text = "(mm)";
 			// 
 			// labelValueThickness
 			// 
@@ -448,35 +432,48 @@ namespace EngineValve
 			this.labelValueThickness.ForeColor = System.Drawing.Color.Gray;
 			this.labelValueThickness.Location = new System.Drawing.Point(3, 224);
 			this.labelValueThickness.Name = "labelValueThickness";
-			this.labelValueThickness.Size = new System.Drawing.Size(82, 13);
+			this.labelValueThickness.Size = new System.Drawing.Size(59, 13);
 			this.labelValueThickness.TabIndex = 22;
-			this.labelValueThickness.Text = "(от 1 до 10 мм)";
+			this.labelValueThickness.Text = "(1 - 10 mm)";
 			// 
 			// BuildButton
 			// 
-			this.BuildButton.Location = new System.Drawing.Point(300, 390);
+			this.BuildButton.Location = new System.Drawing.Point(300, 361);
 			this.BuildButton.Name = "BuildButton";
 			this.BuildButton.Size = new System.Drawing.Size(150, 30);
 			this.BuildButton.TabIndex = 21;
-			this.BuildButton.Text = "Построить";
+			this.BuildButton.Text = "Build";
 			this.BuildButton.UseVisualStyleBackColor = true;
 			this.BuildButton.Click += new System.EventHandler(this.BuildButton_Click);
+			// 
+			// panelNeckline
+			// 
+			this.panelNeckline.Controls.Add(this.textBoxDepthNeckline);
+			this.panelNeckline.Controls.Add(this.labelDiameterNeckline);
+			this.panelNeckline.Controls.Add(this.textBoxDiameterNeckline);
+			this.panelNeckline.Controls.Add(this.labelNecklaneDep);
+			this.panelNeckline.Controls.Add(this.labelDepthNeckline);
+			this.panelNeckline.Controls.Add(this.labelNecklineDiam);
+			this.panelNeckline.Location = new System.Drawing.Point(0, 332);
+			this.panelNeckline.Name = "panelNeckline";
+			this.panelNeckline.Size = new System.Drawing.Size(265, 78);
+			this.panelNeckline.TabIndex = 34;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(509, 461);
-			this.Controls.Add(this.panel1);
+			this.ClientSize = new System.Drawing.Size(509, 434);
+			this.Controls.Add(this.panelBackground);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "EngineValve";
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.panelBackground.ResumeLayout(false);
+			this.panelBackground.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.panelNeckline.ResumeLayout(false);
+			this.panelNeckline.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -504,7 +501,7 @@ namespace EngineValve
 		private System.Windows.Forms.TextBox textboxThicknessPlate;
 		private System.Windows.Forms.TextBox textboxLengthChamfer;
 		private System.Windows.Forms.TextBox textboxRadiusTransition;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel panelBackground;
 		private System.Windows.Forms.Button BuildButton;
 		private System.Windows.Forms.Label labelValueThickness;
 		private System.Windows.Forms.Label labelValueTransition;
@@ -514,13 +511,13 @@ namespace EngineValve
 		private System.Windows.Forms.Label labelValueWidth;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.CheckBox checkBoxNeckline;
-		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.TextBox textBoxDepthNeckline;
 		private System.Windows.Forms.Label labelNecklaneDep;
 		private System.Windows.Forms.Label labelDepthNeckline;
 		private System.Windows.Forms.Label labelDiameterNeckline;
 		private System.Windows.Forms.TextBox textBoxDiameterNeckline;
 		private System.Windows.Forms.Label labelNecklineDiam;
+		private System.Windows.Forms.Panel panelNeckline;
 	}
 }
 

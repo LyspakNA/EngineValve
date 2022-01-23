@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using EngineValveBuild;
 using EngineValveParameters;
@@ -105,7 +102,7 @@ namespace EngineValve
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK,
 					MessageBoxIcon.Error);
 			}
 
@@ -179,23 +176,23 @@ namespace EngineValve
             {
 				if(textbox == TextBoxDictionary[ParameterNames.LengthValve])
 				{
-						labelValueWidth.Text = $"(от 1 до {value * 0.1} мм)";
-						labelValueDistance.Text = $"(от 5 до {value * 0.25} мм)";
+						labelValueWidth.Text = $"(1 - {value * 0.1} mm)";
+						labelValueDistance.Text = $"(5 - {value * 0.25} mm)";
                 }
 				else if (textbox == TextBoxDictionary[ParameterNames.DiameterStem])
 				{
-						labelValueDepth.Text = $"(от 0.5 до {value * 0.25} мм)";
-						labelValueDiameterPlate.Text = $"(от {value * 2} до 70 мм)";
+						labelValueDepth.Text = $"(0.5 - {value * 0.25} mm)";
+						labelValueDiameterPlate.Text = $"({value * 2} - 70 mm)";
 				}
 
 				else if(textbox == TextBoxDictionary[ParameterNames.DiameterPlate])
 				{
-						labelValueTransition.Text = $"(от 5 до {0.75 * value} мм)";
-						labelNecklineDiam.Text = $"(до {value} мм)";
+						labelValueTransition.Text = $"(5 - {0.75 * value} mm)";
+						labelNecklineDiam.Text = $"(up to {value} mm)";
 				}
 				else if(textbox == TextBoxDictionary[ParameterNames.ThicknessPlate])
 				{
-						labelNecklaneDep.Text = $"(до {value * 4} мм)";
+						labelNecklaneDep.Text = $"(up to {value * 4} mm)";
 				}
 			}
 
@@ -209,11 +206,13 @@ namespace EngineValve
 			if(textbox == TextBoxDictionary[ParameterNames.LengthValve])
             {
 				//TODO:
-                textboxWidthGroove.Enabled = textboxDistanceGroove.Enabled = textbox.Text != "";
+                textboxWidthGroove.Enabled = 
+	                textboxDistanceGroove.Enabled = textbox.Text != "";
             }
 			else if (textbox == TextBoxDictionary[ParameterNames.DiameterStem])
 			{
-				textboxDepthGroove.Enabled = textboxDiameterPlate.Enabled = textbox.Text != "";
+				textboxDepthGroove.Enabled = 
+					textboxDiameterPlate.Enabled = textbox.Text != "";
 			}
 			else if (textbox == TextBoxDictionary[ParameterNames.DiameterPlate])
 			{
@@ -242,16 +241,16 @@ namespace EngineValve
 		{
 			if (checkbox.Checked)
 			{
-				this.Height = 500;
-				BuildButton.Location = new Point(300, 390);
-				groupBox1.Visible = true;
+				this.Height = 470;
+				BuildButton.Location = new Point(300, 360);
+				panelNeckline.Visible = true;
 				_parameters.CreateNeckline = true;
 			}
 			else
 			{
 				this.Height = 440;
-				BuildButton.Location = new Point(35, 320);
-				groupBox1.Visible = false;
+				BuildButton.Location = new Point(35, 340);
+				panelNeckline.Visible = false;
 				_parameters.CreateNeckline = false;
 			}
 		}

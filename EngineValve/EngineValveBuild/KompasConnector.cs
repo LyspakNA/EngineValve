@@ -30,7 +30,7 @@ namespace EngineValveBuild
 			    var creatingKompas = OpenKompas(out kompas);
 			    if (!creatingKompas)
 			    {
-				    throw new ArgumentException("Не удалось открыть КОМПАС-3D.");
+				    throw new ArgumentException("KOMPAS-3D opening error.");
 			    }
 		    }
 
