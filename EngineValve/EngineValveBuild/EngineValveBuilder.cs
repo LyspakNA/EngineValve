@@ -48,7 +48,10 @@ namespace EngineValveBuild
 			ChamferPlate();
 			BuildGroove();
 			ChamferStem();
-			NecklinePlate();
+			if (_parameters.CreateNeckline)
+			{
+				NecklinePlate();
+			}
 		}
 
 		/// <summary>
@@ -279,33 +282,28 @@ namespace EngineValveBuild
 		/// </summary>
 		private void NecklinePlate()
 		{
-			if (_parameters.CreateNeckline)
-			{
-				ksEntity planeXOZ =
-					_part.GetDefaultEntity((short)ksObj3dTypeEnum.o3d_planeXOZ);
-				ksEntity sketch = _part.NewEntity((short)ksObj3dTypeEnum.o3d_sketch);
-				ksSketchDefinition sketchDefinition = sketch.GetDefinition();
+			ksEntity planeXOZ =
+				_part.GetDefaultEntity((short)ksObj3dTypeEnum.o3d_planeXOZ);
 
-				sketchDefinition.SetPlane(planeXOZ);
-				sketch.Create();
+			ksEntity sketch = _part.NewEntity((short)ksObj3dTypeEnum.o3d_sketch);
+			ksSketchDefinition sketchDefinition = sketch.GetDefinition();
+			sketchDefinition.SetPlane(planeXOZ);
+			sketch.Create();
 
-				ksDocument2D document2D = sketchDefinition.BeginEdit();
+			ksDocument2D document2D = sketchDefinition.BeginEdit();
+			var ellips = CreateEllips(document2D, _parameters.DiameterNeckline/2,
+			_parameters.DepthNeckline/2);
+			const int x = 0;
+			const int y = 0;
+			document2D.ksLineSeg(x, y, x, _parameters.DepthNeckline, 
+				(short)ksCurveStyleEnum.ksCSAxial);
 
-				var ellips = CreateEllips(document2D, _parameters.DiameterNeckline/2,
-					_parameters.DepthNeckline/2);
-				const int x = 0;
-				const int y = 0;
+			document2D.ksTrimmCurve(ellips, x, _parameters.DepthNeckline/2,
+				y, -_parameters.DepthNeckline/2, _parameters.DiameterNeckline/2, y,
+				(short)ViewMode.vm_HiddenRemoved);
 
-				document2D.ksLineSeg(x, y, x, _parameters.DepthNeckline, 
-					(short)ksCurveStyleEnum.ksCSAxial);
-				document2D.ksTrimmCurve(ellips, x, _parameters.DepthNeckline/2,
-					y, -_parameters.DepthNeckline/2, _parameters.DiameterNeckline/2, y,
-					(short)ViewMode.vm_HiddenRemoved);
-
-				sketchDefinition.EndEdit();
-				CreateCutRotation(sketch);
-			}
-
+			sketchDefinition.EndEdit();
+			CreateCutRotation(sketch);
 		}
 
 		/// <summary>
