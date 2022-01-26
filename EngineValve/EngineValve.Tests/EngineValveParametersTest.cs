@@ -42,7 +42,7 @@ namespace EngineValve.Tests
 		}
 
 		[TestCase(25, ParameterNames.LengthValve,
-			TestName = "Позитивный - длина клапана меньше допустимого")]
+			TestName = "Позитивный - длина клапана меньше допустимой")]
 		[TestCase(2, ParameterNames.DiameterStem,
 			TestName = "Позитивный - диаметр ножки меньше допустимого")]
 		[TestCase(0.5, ParameterNames.WidthGroove,
