@@ -238,7 +238,8 @@ namespace EngineValveBuild
 
 			planeOffsetDefinition.direction = true;
 			planeOffsetDefinition.offset = _parameters.LengthValve -
-			                               _parameters.DistanceGroove;
+			                               _parameters.DistanceGroove
+			                               -_parameters.WidthGroove;
 
 			ksEntity planeXOY =
 				_part.GetDefaultEntity((short)ksObj3dTypeEnum.o3d_planeXOY);
@@ -267,11 +268,11 @@ namespace EngineValveBuild
 		/// <param name="sketch">Вырезаемый эскиз</param>
 		private void CreateCutExtrusion(double length, ksEntity sketch)
 		{
-			ksEntity cutExtrusion = _part.NewEntity((short)ksObj3dTypeEnum.o3d_cutExtrusion);
+			ksEntity cutExtrusion =
+				_part.NewEntity((short)ksObj3dTypeEnum.o3d_cutExtrusion);
 			ksCutExtrusionDefinition cutExtrusionDefinition = 
 				cutExtrusion.GetDefinition();
 
-			
 			cutExtrusionDefinition.SetSideParam(false, (short)ksEndTypeEnum.etBlind, length);
 			cutExtrusionDefinition.SetSketch(sketch);
 			cutExtrusion.Create();
