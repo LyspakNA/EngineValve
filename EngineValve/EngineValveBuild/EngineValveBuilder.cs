@@ -59,7 +59,6 @@ namespace EngineValveBuild
 		/// </summary>
 		private void BuildPlate()
 		{
-			//TODO: вынести в словарь констант
 			ksEntity planeXOY = 
 				_part.GetDefaultEntity((short)ksObj3dTypeEnum.o3d_planeXOY);
 			var length = _parameters.ThicknessPlate + _parameters.LengthChamfer;

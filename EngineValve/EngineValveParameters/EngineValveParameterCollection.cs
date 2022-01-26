@@ -77,7 +77,6 @@ namespace EngineValveParameters
 				{ParameterNames.DepthNeckline, _depthNeckline}
 			};
 		
-		//TODO: RSDN
 		/// <summary>
 		/// Свойство, обрабатывающее словарь ошибок
 		/// </summary>

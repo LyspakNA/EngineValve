@@ -7,8 +7,7 @@ namespace EngineValve.Tests
 	public class EngineValveParameterTest
 	{
 		private EngineValveParameterCollection _testEngineValveParameters;
-
-		//TODO: кодировка
+		
 		[TestCase(50, ParameterNames.LengthValve,
 			TestName = "Позитивный - корректное значение длины клапана")]
 		[TestCase(10, ParameterNames.DiameterStem,

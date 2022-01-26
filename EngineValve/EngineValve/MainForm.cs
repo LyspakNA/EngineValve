@@ -205,7 +205,6 @@ namespace EngineValve
 		{
 			if(textbox == TextBoxDictionary[ParameterNames.LengthValve])
             {
-				//TODO:
                 textboxWidthGroove.Enabled = 
 	                textboxDistanceGroove.Enabled = textbox.Text != "";
             }
@@ -216,7 +215,6 @@ namespace EngineValve
 			}
 			else if (textbox == TextBoxDictionary[ParameterNames.DiameterPlate])
 			{
-				//TODO:
 				textboxRadiusTransition.Enabled = textbox.Text != "";
 			}
 		}
