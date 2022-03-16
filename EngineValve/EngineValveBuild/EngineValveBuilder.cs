@@ -52,6 +52,7 @@ namespace EngineValveBuild
 			{
 				NecklinePlate();
 			}
+			_kompas.Dispose();
 		}
 
 		/// <summary>

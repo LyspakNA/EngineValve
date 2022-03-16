@@ -89,5 +89,9 @@ namespace EngineValveBuild
 		    return document3D;
 	    }
 
+	    public void Dispose()
+	    {
+		    _entity = null;
+	    }
     }
 }
